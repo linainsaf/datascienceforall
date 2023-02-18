@@ -2,32 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://datascience_careerera.com/</loc>
-         <lastmod>2023-02-11</lastmod>
+         <lastmod>2023-02-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://datascience_careerera.com/basic/</loc>
-         <lastmod>2023-02-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://datascience_careerera.com/data/</loc>
-         <lastmod>2023-02-11</lastmod>
+         <lastmod>2023-02-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://datascience_careerera.com/env/</loc>
-         <lastmod>2023-02-11</lastmod>
+         <lastmod>2023-02-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://datascience_careerera.com/intro/</loc>
-         <lastmod>2023-02-11</lastmod>
+         <lastmod>2023-02-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://datascience_careerera.com/io/</loc>
+         <lastmod>2023-02-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://datascience_careerera.com/numpy/</loc>
+         <lastmod>2023-02-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://datascience_careerera.com/oop/</loc>
-         <lastmod>2023-02-11</lastmod>
+         <lastmod>2023-02-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://datascience_careerera.com/sns/</loc>
+         <lastmod>2023-02-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
