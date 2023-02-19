@@ -1,0 +1,1100 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://datascience_careerera.com/oop/">
+      
+      
+        <link rel="prev" href="../basic/">
+      
+      
+        <link rel="next" href="../io/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Object Oriented Programming in Python - Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Data Science" class="md-header__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Object Oriented Programming in Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Data Science" class="md-nav__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Python Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python Programming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction to Python Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env/" class="md-nav__link">
+        Setting up a Development Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        Basic Python Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Object Oriented Programming in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Object Oriented Programming in Python
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-oriented-programming-oop" class="md-nav__link">
+    Object-oriented programming (OOP)
+  </a>
+  
+    <nav class="md-nav" aria-label="Object-oriented programming (OOP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    What is it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-use-it" class="md-nav__link">
+    Why we use it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oop-basic-concepts" class="md-nav__link">
+    OOP Basic Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-it" class="md-nav__link">
+    When to use it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-examples" class="md-nav__link">
+    Some examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-overloading" class="md-nav__link">
+    Operator overloading
+  </a>
+  
+    <nav class="md-nav" aria-label="Operator overloading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cheat-sheet-for-class-special-methods" class="md-nav__link">
+    Cheat sheet for Class Special Methods:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-in-object-oriented-programming" class="md-nav__link">
+    Inheritance in Object-Oriented Programming
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance in Object-Oriented Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it_1" class="md-nav__link">
+    What is it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism-and-abstraction" class="md-nav__link">
+    Polymorphism and Abstraction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-and-multilevel-inheritance" class="md-nav__link">
+    Multiple and Multilevel Inheritance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        File Input/Output (I/O) Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="false">
+          Python with Data Science tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python with Data Science tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python with Data Science tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/" class="md-nav__link">
+        Numpy: Understanding & working with Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pd/" class="md-nav__link">
+        Pandas: Understanding & working with Pandas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-oriented-programming-oop" class="md-nav__link">
+    Object-oriented programming (OOP)
+  </a>
+  
+    <nav class="md-nav" aria-label="Object-oriented programming (OOP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    What is it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-use-it" class="md-nav__link">
+    Why we use it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oop-basic-concepts" class="md-nav__link">
+    OOP Basic Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-it" class="md-nav__link">
+    When to use it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-examples" class="md-nav__link">
+    Some examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-overloading" class="md-nav__link">
+    Operator overloading
+  </a>
+  
+    <nav class="md-nav" aria-label="Operator overloading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cheat-sheet-for-class-special-methods" class="md-nav__link">
+    Cheat sheet for Class Special Methods:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-in-object-oriented-programming" class="md-nav__link">
+    Inheritance in Object-Oriented Programming
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance in Object-Oriented Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it_1" class="md-nav__link">
+    What is it ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism-and-abstraction" class="md-nav__link">
+    Polymorphism and Abstraction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-and-multilevel-inheritance" class="md-nav__link">
+    Multiple and Multilevel Inheritance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Object Oriented Programming in Python</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>In the last chapter we learnt the basics of programming, you were shown how to store data in data structures such as lists, strings, integers, dictionaries, and others. And you were shown how to create behavior for your program using keywords, and later using functions to group these keywords. This coding approache is called Logic Programming.</p>
+<p><br /></p>
+<p>However, there are different approaches or perspectives in computer programming which we call programming paradigms. They provide various ways of organizing and structuring code to solve a particular problem.</p>
+<p><br /></p>
+<p>Each paradigm has its own strengths, weaknesses, and suitability for different types of problems and use cases. Some programming languages may support multiple paradigms, while others may have limited support for one specific paradigm.</p>
+<p><br /></p>
+<p>In this course we will get to know the object-oriented programming (OOP), a programming paradigm widely used in Python.</p>
+<p><br /></p>
+<p>PS: At this stage of the course, we assume that you know the basics of Python.</p>
+<h2 id="object-oriented-programming-oop">Object-oriented programming (OOP)</h2>
+<h3 id="what-is-it">What is it ?</h3>
+<p>Object-oriented programming (OOP) is an approach that organizes software design based on objects, which are data fields with unique attributes and behaviors, instead of functions and logic. </p>
+<h3 id="why-we-use-it">Why we use it ?</h3>
+<p>One of the main benefits of OOP is its organization, which makes it easier for developers to collaborate on a project by dividing it into smaller groups. Additionally, OOP offers several other advantages, such as code reusability, scalability, and efficiency.</p>
+<h3 id="oop-basic-concepts">OOP Basic Concepts</h3>
+<ul>
+<li>
+<p><strong>Class</strong>: A class is a blueprint for creating objects. It defines a set of attributes (properties) and methods (functions) that the objects created from the class will have. For example, you could create a "Person" class with attributes like name, age, and address, and methods like "introduce" and "greet".</p>
+</li>
+<li>
+<p><strong>Object</strong>: An object is an instance of a class. When you create an object from a class, you get a specific "realization" of the class, with its own set of attributes and methods. For example, you could create two "Person" objects, "John" and "Jane", each with their own name, age, and address.</p>
+</li>
+<li>
+<p><strong>Attributes</strong>: Attributes are the properties or characteristics of an object. They define the state of the object. In the example of the "Person" class, the attributes would be name, age, and address.</p>
+</li>
+<li>
+<p><strong>Methods</strong>: Methods are the actions or behaviors of an object. They define what the object can do. In the example of the "Person" class, the methods would be "introduce" and "greet".</p>
+</li>
+</ul>
+<p>Here is a simple example of a Python class that defines a "Person" object:</p>
+<pre><code>class Person:
+    def __init__(self, name, age, address):
+        self.name = name
+        self.age = age
+        self.address = address
+
+    def introduce(self):
+        return f&quot;Hi, my name is {self.name} and I am {self.age} years old.&quot;
+
+    def greet(self, other_person):
+        return f&quot;Hello {other_person.name}, it's nice to meet you!&quot;
+</code></pre>
+<p>And here is how you can create objects from the "Person" class and use their attributes and methods:</p>
+<pre><code>john = Person(&quot;John&quot;, 30, &quot;123 Main St.&quot;)
+jane = Person(&quot;Jane&quot;, 25, &quot;456 Elm St.&quot;)
+
+print(john.introduce())  # Output: Hi, my name is John and I am 30 years old.
+print(jane.greet(john))  # Output: Hello John, it's nice to meet you!
+</code></pre>
+<h3 id="when-to-use-it">When to use it ?</h3>
+<ul>
+<li>
+<p><strong>Modeling real-world objects</strong>: You can create classes to model real-world objects in Python, such as dogs, cars, or books. For example, you can create a "Dog" class with properties like breed, name, and age, and methods like "bark", "eat", and "sleep". This makes it easier to manipulate and work with instances of the class, and to keep track of the state of each object.</p>
+</li>
+<li>
+<p><strong>Building games</strong>: OOP is often used in game development to model game objects and their behaviors. For example, you can create a "Player" class to represent a player in a game, with properties like position, health, and score, and methods like "move", "attack", and "jump".</p>
+</li>
+<li>
+<p><strong>Database applications</strong>: You can use OOP to interact with databases in Python. For example, you can create a "Record" class to represent a record in a database table, with properties like id, name, and date, and methods like "insert", "update", and "delete".</p>
+</li>
+<li>
+<p><strong>Web development</strong>: OOP is commonly used in web development to build applications and services. For example, you can create a "User" class to represent a user of your application, with properties like name, email, and password, and methods like "register", "login", and "logout".</p>
+</li>
+<li>
+<p><strong>Scientific simulations</strong>: OOP can be used to create scientific simulations, such as physical simulations or financial models. For example, you can create a "Particle" class to represent a particle in a physical simulation, with properties like position, velocity, and mass, and methods like "move", "collide", and "absorb".</p>
+</li>
+</ul>
+<p>These are just a few examples of how OOP can be used in Python. With its powerful and flexible object-oriented features, OOP is a widely used paradigm in Python and can be applied to many different types of projects.</p>
+<h3 id="some-examples">Some examples</h3>
+<ul>
+<li><strong>Car</strong>: Create a class Car that represents a car. The class should have properties brand, model, and year, and a method drive that makes the car drive (print "Driving the car !").</li>
+</ul>
+<pre><code>## Class implementation
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def drive(self):
+        print(&quot;Driving the car !&quot;)
+
+## Object declaration
+car = Car(&quot;Toyota&quot;, &quot;Camry&quot;, 2020)
+
+print(car.drive())
+# Output: Driving the car !
+
+</code></pre>
+<ul>
+<li><strong>Dog</strong>: Create a class Dog that represents a dog. The class should have properties name, breed, and age, and a method bark that makes the dog bark (print "Woof!").</li>
+</ul>
+<pre><code>## Class implementation
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+
+    def bark(self):
+        print(&quot;Woof!&quot;)
+
+## Object declaration
+dog = Dog(&quot;Max&quot;, &quot;Labrador&quot;, 5)
+print(dog.bark())
+# Output: Woof!
+</code></pre>
+<p>Let's code !</p>
+<h3 id="operator-overloading">Operator overloading</h3>
+<p>Operator overloading allows objects of user-defined classes to behave like built-in data types. This means that you can use familiar syntax for objects of your classes, making your code more intuitive and easier to read.</p>
+<p><br /></p>
+<p>For example, consider a class for a 2D point:</p>
+<pre><code>class Point2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+</code></pre>
+<p>This class defines a 2D point, with x and y coordinates. You can create instances of the class and display them:</p>
+<pre><code>p1 = Point2D(1, 2)
+print(p1)  # Output: (1, 2)
+</code></pre>
+<p>Now, if you want to add two points, you can overload the addition operator + by defining the __add__ method:</p>
+<pre><code>class Point2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+
+    def __add__(self, other):
+        return Point2D(self.x + other.x, self.y + other.y)
+</code></pre>
+<p>With this change, you can now add two points:</p>
+<pre><code>p1 = Point2D(1, 2)
+p2 = Point2D(3, 4)
+p3 = p1 + p2
+print(p3)  # Output: (4, 6)
+</code></pre>
+<p>In this example, the __add__ method takes another Point2D object as its argument and returns a new Point2D object that represents the sum of the two points. This allows you to use the + operator with instances of your class, just like you would with built-in data types.</p>
+<p><br /></p>
+<p>You can also overload other operators, such as -, *, /, &lt;, &gt;, and so on, by defining the corresponding special methods, such as __sub__, __mul__, __truediv__, __lt__, __gt__, and so on. </p>
+<p><br /></p>
+<p>Here's an example that overloads the subtraction operator:</p>
+<pre><code>class Point2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+
+    def __add__(self, other):
+        return Point2D(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Point2D(self.x - other.x, self.y - other.y)
+</code></pre>
+<p>With this change, you can now subtract two points:</p>
+<pre><code>p1 = Point2D(1, 2)
+p2 = Point2D(3, 4)
+p3 = p1 - p2
+print(p3)  # Output: (-2, -2)
+</code></pre>
+<h5 id="cheat-sheet-for-class-special-methods">Cheat sheet for Class Special Methods:</h5>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String representation</td>
+<td>__str__</td>
+</tr>
+<tr>
+<td>Addition (+)</td>
+<td>__add__</td>
+</tr>
+<tr>
+<td>Subtraction (-)</td>
+<td>__sub__</td>
+</tr>
+<tr>
+<td>Multiplication (*)</td>
+<td>__mul__</td>
+</tr>
+<tr>
+<td>Power (**)</td>
+<td>__pow__</td>
+</tr>
+<tr>
+<td>Division (/)</td>
+<td>__truediv__</td>
+</tr>
+<tr>
+<td>Floor Division (//)</td>
+<td>__floordiv__</td>
+</tr>
+<tr>
+<td>Remainder (modulo)(%)</td>
+<td>__mod__</td>
+</tr>
+<tr>
+<td>Lesser than (&lt;)</td>
+<td>__lt__</td>
+</tr>
+<tr>
+<td>Greater than (&gt;)</td>
+<td>__gt__</td>
+</tr>
+<tr>
+<td>Lesser than or equal (&lt;=)</td>
+<td>__le__</td>
+</tr>
+<tr>
+<td>Greater than or equal (&gt;=)</td>
+<td>__ge__</td>
+</tr>
+<tr>
+<td>Equal (==)</td>
+<td>__eq__</td>
+</tr>
+<tr>
+<td>Not equal (!=)</td>
+<td>__ne__</td>
+</tr>
+<tr>
+<td>Absolute value (abs())</td>
+<td>__abs__</td>
+</tr>
+<tr>
+<td>Bitwise AND(&amp;)</td>
+<td>__and__</td>
+</tr>
+<tr>
+<td>Bitwise OR (|)</td>
+<td>__or__</td>
+</tr>
+<tr>
+<td>Bitwise NOT(~)</td>
+<td>__invert__</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inheritance-in-object-oriented-programming">Inheritance in Object-Oriented Programming</h3>
+<h4 id="what-is-it_1">What is it ?</h4>
+<p>Inheritance is a mechanism in Object-Oriented Programming (OOP) that allows a new class to be defined based on an existing class. The new class, known as the subclass, inherits attributes and behavior from the existing class, known as the superclass. This enables code reuse, allowing new classes to be defined with little or no modifications to the existing classes.</p>
+<p>For example, consider a superclass called Animal which has attributes such as name, species, and age, and a method called make_sound() that returns the sound the animal makes. We can create a subclass of Animal called Dog which inherits all of the attributes and behavior of the Animal class. We can also add additional attributes specific to dogs such as breed and override the make_sound() method to return the specific sound a dog makes, like "bark".</p>
+<pre><code>class Animal:
+    def __init__(self, name, species, age):
+        self.name = name
+        self.species = species
+        self.age = age
+
+    def make_sound(self):
+        return &quot;Sound made by the animal&quot;
+
+class Dog(Animal):
+    def __init__(self, name, breed, age):
+        Animal.__init__(self, name, &quot;Dog&quot;, age)
+        self.breed = breed
+
+    def make_sound(self):
+        return &quot;Bark&quot;
+
+dog = Dog(&quot;Rufus&quot;, &quot;Labrador&quot;, 5)
+print(dog.name) # Rufus
+print(dog.species) # Dog
+print(dog.age) # 5
+print(dog.breed) # Labrador
+print(dog.make_sound()) # Bark
+
+</code></pre>
+<p>In this example, the Dog class inherits the attributes name, species, and age from the Animal class and also adds an additional attribute breed. The method make_sound() is also overridden in the Dog class to return a specific sound for dogs.</p>
+<p>Inheritance provides a way to model relationships between classes, and is an important concept in OOP for code reuse and organization. In Python, inheritance is an is-a relationship. That is, we use inheritance only if there exists an is-a relationship between two classes. For example,</p>
+<ul>
+<li>Car is a Vehicle</li>
+<li>Student is a Person</li>
+<li>Cat is an Animal</li>
+</ul>
+<p>Here, Car can inherit from Vehicle, Apple can Student from Person, and so on.</p>
+<h4 id="polymorphism-and-abstraction">Polymorphism and Abstraction</h4>
+<ul>
+<li>
+<p><strong>Polymorphism</strong> : Is the ability of an object to take on multiple forms. It allows objects of different classes to be treated as objects of the same class. This means that you can write a single function or method that can work with objects of different classes, as long as they implement the same interface.</p>
+</li>
+<li>
+<p><strong>Abstraction</strong> : Is a technique that allows you to simplify complex systems by ignoring irrelevant details and focusing on the essential features of an object. It is achieved by defining an interface that exposes the essential features of an object, while hiding the implementation details.</p>
+</li>
+</ul>
+<p>Here's an example in Python to demonstrate the difference between polymorphism and abstraction:</p>
+<pre><code>from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+def print_area(shape):
+    print(shape.area())
+
+rect = Rectangle(10, 20)
+circ = Circle(5)
+
+print_area(rect) # 200
+print_area(circ) # 78.5
+
+</code></pre>
+<p>In this example, the Shape class serves as an abstract class and defines an abstract method area. The Rectangle and Circle classes inherit from Shape and provide their own implementation of the area method. </p>
+<p><br /></p>
+<p>This demonstrates polymorphism, as objects of different classes (Rectangle and Circle) can be treated as objects of the same class (Shape). The print_area function demonstrates polymorphism, as it can accept objects of different classes (Rectangle and Circle) as long as they implement the same interface (area method).</p>
+<p><br /></p>
+<p>At the same time, the Shape class demonstrates abstraction by defining an interface that exposes the essential features of a shape, while hiding the implementation details. The Rectangle and Circle classes implement the area method, but the details of the implementation are hidden from the user. The user only sees the essential features of the object (the area method).</p>
+<h4 id="multiple-and-multilevel-inheritance">Multiple and Multilevel Inheritance</h4>
+<ul>
+<li>
+<p><strong>Multiple Inheritance</strong>: is a feature of Object Oriented Programming (OOP) languages where a class can inherit properties and attributes from more than one parent class. This means that a single class can have multiple base classes and it can inherit properties and attributes from all of them. </p>
+<p>For example, consider a scenario where you have two classes: Shape and Color. The class Shape defines the properties of a 2-D shape such as its area, perimeter, etc. The class Color defines the color of an object. Now, you want to create a new class Rectangle which is a shape and has a color. You can achieve this by using multiple inheritance. </p>
+</li>
+</ul>
+<p>Here's an example implementation in Python:</p>
+<pre><code>class Shape:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+class Color:
+    def __init__(self, color):
+        self.color = color
+
+class Rectangle(Shape, Color):
+    pass
+
+rect = Rectangle(10, 20, 'red')
+print(rect.area())
+print(rect.perimeter())
+print(rect.color)
+</code></pre>
+<p>In this example, the class Rectangle inherits from both Shape and Color classes. This means that it has all the attributes and methods defined in both the classes.</p>
+<p><br /></p>
+<ul>
+<li>
+<p><strong>Multilevel Inheritance</strong> : is a type of inheritance where a class inherits properties and attributes from its parent class, and the parent class inherits from its parent class, and so on.</p>
+<p>For example, consider a scenario where you have a class Animal which defines basic properties of an animal such as its name, age, and breed. Another class Mammal inherits from Animal class and adds new properties such as type of fur, etc. Finally, a new class Cat is created which inherits from Mammal class and adds new properties specific to cats such as the type of meow, etc. </p>
+</li>
+</ul>
+<p>Here's an example implementation in Python:</p>
+<pre><code>class Animal:
+    def __init__(self, name, age, breed):
+        self.name = name
+        self.age = age
+        self.breed = breed
+
+class Mammal(Animal):
+    def __init__(self, name, age, breed, fur_type):
+        Animal.__init__(self, name, age, breed)
+        self.fur_type = fur_type
+
+class Cat(Mammal):
+    def __init__(self, name, age, breed, fur_type, meow_type):
+        Mammal.__init__(self, name, age, breed, fur_type)
+        self.meow_type = meow_type
+
+cat = Cat('Tom', 3, 'Siamese', 'short hair', 'loud')
+print(cat.name)
+print(cat.age)
+print(cat.breed)
+print(cat.fur_type)
+print(cat.meow_type)
+</code></pre>
+<p>In this example, the class Cat inherits from the class Mammal which in turn inherits from the class Animal. This creates a hierarchy of classes where each class inherits properties and attributes from its parent class.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

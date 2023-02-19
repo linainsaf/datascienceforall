@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://datascience_careerera.com/intro/">
+        <link rel="canonical" href="https://datascience_careerera.com/env/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../intro/">
       
       
-        <link rel="next" href="../env/">
+        <link rel="next" href="../basic/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Introduction to Python Programming - Data Science</title>
+        <title>Setting up a Development Environment - Data Science</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-python-programming" class="md-skip">
+        <a href="#setting-up-a-development-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to Python Programming
+              Setting up a Development Environment
             
           </span>
         </div>
@@ -230,6 +230,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction to Python Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -240,12 +254,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction to Python Programming
+          Setting up a Development Environment
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Introduction to Python Programming
+        Setting up a Development Environment
       </a>
       
         
@@ -262,16 +276,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-python-programming" class="md-nav__link">
-    Introduction to Python Programming
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    Setting up a Development Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a Development Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#various-recources-for-you-to-practice" class="md-nav__link">
-    Various Recources for you to practice
+        
+          <li class="md-nav__item">
+  <a href="#installing-python" class="md-nav__link">
+    Installing Python
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-anaconda" class="md-nav__link">
+    Using Anaconda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pip" class="md-nav__link">
+    Using pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-homebrew-macos-and-linux" class="md-nav__link">
+    Using Homebrew (macOS and Linux)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-chocolatey-windows" class="md-nav__link">
+    Using Chocolatey (Windows)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-an-ide-or-text-editor" class="md-nav__link">
+    Choosing an IDE or Text Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-additional-libraries-and-packages" class="md-nav__link">
+    Installing Additional Libraries and Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -279,20 +361,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../env/" class="md-nav__link">
-        Setting up a Development Environment
-      </a>
     </li>
   
 
@@ -433,16 +501,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-python-programming" class="md-nav__link">
-    Introduction to Python Programming
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    Setting up a Development Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a Development Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#various-recources-for-you-to-practice" class="md-nav__link">
-    Various Recources for you to practice
+        
+          <li class="md-nav__item">
+  <a href="#installing-python" class="md-nav__link">
+    Installing Python
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-anaconda" class="md-nav__link">
+    Using Anaconda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pip" class="md-nav__link">
+    Using pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-homebrew-macos-and-linux" class="md-nav__link">
+    Using Homebrew (macOS and Linux)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-chocolatey-windows" class="md-nav__link">
+    Using Chocolatey (Windows)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-an-ide-or-text-editor" class="md-nav__link">
+    Choosing an IDE or Text Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-additional-libraries-and-packages" class="md-nav__link">
+    Installing Additional Libraries and Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -462,35 +598,93 @@
 
 
 
-  <h1>Introduction to Python Programming</h1>
+  <h1>Setting up a Development Environment</h1>
 
-<h2 id="introduction-to-python-programming">Introduction to Python Programming</h2>
-<p>Python is a powerful, high-level programming language that is widely used for web development, data analysis, machine learning, and scientific computing. Its simple, easy-to-read syntax and versatile libraries make it a popular choice for beginners and experienced programmers alike. </p>
-<p><br /></p>
-<p>In this course, you will learn the basics of Python programming, including data types, variables, operators, control flow, and functions. You will also explore advanced topics such as data structures, working with data, data visualization, and machine learning. Along the way, you will gain hands-on experience through a variety of exercises and a final project.</p>
-<p><br /></p>
-<p>By the end of this course, you will have a solid foundation in Python programming, and the skills to apply it to a wide range of data science and other applications.</p>
-<h2 id="various-recources-for-you-to-practice">Various Recources for you to practice</h2>
+<h2 id="setting-up-a-development-environment">Setting up a Development Environment</h2>
+<h3 id="introduction">Introduction</h3>
+<p>In this chapter, you will learn how to set up a Python development environment on your computer. A development environment is a software application that provides the necessary tools and resources for writing, testing, and debugging code. By the end of this chapter, you will have a working Python environment that you can use to start writing your own programs.</p>
+<h3 id="installing-python">Installing Python</h3>
+<p>There are several ways to install Python 3, here are some of the most common methods:</p>
+<h4 id="using-anaconda">Using Anaconda</h4>
+<p>Anaconda is a popular distribution of Python and R for data science and machine learning. It comes with a lot of packages and libraries pre-installed, and it also includes the conda package manager, which makes it easy to install additional packages and manage environments. To install Python using Anaconda, you can follow these steps:</p>
+<ul>
+<li>Go to <a href="https://www.anaconda.com/">the Anaconda Website</a> and download the latest version of Anaconda for your operating system.</li>
+<li>Once the download is complete, run the installer and follow the prompts to install Anaconda.</li>
+<li>Once installation is complete, open Anaconda Navigator, which is a graphical user interface that allows you to manage your environments and packages.</li>
+<li>Create a new environment with Python 3 by clicking the "Create" button and selecting "Python 3" as the version.</li>
+</ul>
+<h4 id="using-pip">Using pip</h4>
+<p>pip is the package installer for Python. It allows you to install and manage packages for your Python installation. To install Python 3 and Jupyter Notebook using pip, you can follow these two steps:</p>
 <ul>
 <li>
-<p><a href="https://www.codecademy.com/"><strong>Codecademy's Learn Python Track</strong></a>: This interactive course covers all the basics of Python and includes exercises to practice what you've learned.</p>
+<p>Make sure that Python 3 is installed on your system by running the command <code>python3 --version</code> in a terminal or command prompt.</p>
 </li>
 <li>
-<p><a href="https://www.hackerrank.com/domains/python"><strong>HackerRank's Python Domain</strong></a>: This website offers a wide range of Python coding challenges, from beginners to advanced levels.</p>
-</li>
-<li>
-<p><a href="https://www.python.org/about/gettingstarted/"><strong>Python.org's Beginner's Guide</strong></a>: This guide provides a gentle introduction to Python, including tutorials and exercises for beginners.</p>
-</li>
-<li>
-<p><a href="https://developers.google.com/edu/python"><strong>Google's Python Class</strong></a>: This free class, taught by Google engineer Nick Parlante, includes video lectures, slides, and exercises.</p>
-</li>
-<li>
-<p><a href="https://www.fullstackpython.com/"><strong>Full Stack Python</strong></a> : Is a website that provides resources and tutorials on various aspects of the Python programming language, with a focus on web development and data science. Additionally, the website provides a curated list of resources for further learning and a podcast discussing all things Python.</p>
-</li>
-<li>
-<p><a href="https://codesignal.com/"><strong>Code Signal</strong></a> : Is a website and platform that provides a variety of tools and resources for developers, including a code editor, a test runner, and a code execution environment. It also provides a variety of challenges and assessments to help developers improve their coding skills. </p>
+<p>If Python 3 is not installed, download the latest version from <a href="https://www.python.org/downloads/">The Official Python Website</a>.</p>
 </li>
 </ul>
+<h4 id="using-homebrew-macos-and-linux">Using Homebrew (macOS and Linux)</h4>
+<p>Homebrew is a package manager for macOS and Linux. It allows you to install and manage packages for your operating system. To install Python 3 using Homebrew, you can follow these steps:</p>
+<ul>
+<li>Make sure that Homebrew is installed on your system by running the command <code>brew --version</code> in a terminal.</li>
+<li>If Homebrew is not installed, you can install it by following the instructions on <a href="https://brew.sh/">The Homebrew Website</a>.</li>
+<li>Once you have Homebrew installed, you can use it to install Python 3 by running the command <code>brew install python3</code> in a terminal.</li>
+</ul>
+<h4 id="using-chocolatey-windows">Using Chocolatey (Windows)</h4>
+<p>Chocolatey is a package manager for Windows. It allows you to install and manage packages for your operating system. To install Python 3 using Chocolatey, you can follow these steps:</p>
+<ul>
+<li>Make sure that Chocolatey is installed on your system by running the command <code>choco --version</code> in a command prompt.</li>
+<li>
+<p>If Chocolatey is not installed, you can install it by following the instructions on <a href="https://chocolatey.org/">The Chocolatey Website</a>.</p>
+</li>
+<li>
+<p>Once you have Chocolatey installed, you can use it to install Python 3 by running the command <code>choco install python</code> in a command prompt.</p>
+</li>
+</ul>
+<p>PS : It's also worth noting that many operating systems and Linux distributions come with Python 2 pre-installed, and you may want to install Python 3 alongside it without replacing the pre-installed Python 2. In this case, you should be careful when running pip and python commands, since you may need to use pip3 and python3, respectively, to ensure that you're using the correct version of the software.</p>
+<h3 id="choosing-an-ide-or-text-editor">Choosing an IDE or Text Editor</h3>
+<p>Once you have Python installed, the next step is to choose a text editor or integrated development environment (IDE) to write your code in. An IDE is a software application that provides a comprehensive environment for coding, including features such as syntax highlighting, code completion, and debugging tools. In this class we're using Jupyter. Jupyter is an open-source web-based IDE that allows users to create and share documents that contain live code, equations, visualizations, and narrative text. It is particularly well-suited for data science because it:</p>
+<ul>
+<li>
+<p>Provides an easy way to interact with data: Jupyter allows you to load, visualize, and manipulate data in a variety of formats, such as CSV, JSON, and SQL. This makes it a great tool for data exploration and analysis.</p>
+</li>
+<li>
+<p>Supports multiple programming languages: Jupyter supports many programming languages, including Python, R, and Julia, which makes it easy to use the language that is best suited for your project.</p>
+</li>
+<li>
+<p>Enables reproducible research: Jupyter allows you to organize your code, data, and visualizations in a single document, which makes it easy to reproduce your results and share your work with others.</p>
+</li>
+<li>
+<p>Provides a collaborative environment: Jupyter allows multiple users to work on the same notebook at the same time, which makes it a great tool for collaborative data science projects.</p>
+</li>
+<li>
+<p>Has a large and active community: Jupyter has a large and active community of developers, users, and contributors who provide support, resources, and add-ons that extend its functionality.</p>
+</li>
+</ul>
+<p>To install Jupyter:</p>
+<ul>
+<li>
+<p>Using Anaconda: In your conda enviroment you can install Jupyter Notebook by running the command <code>conda install jupyter</code>. </p>
+</li>
+<li>
+<p>Using pip3: You can install Jupyter using the pip package manager by running the command <code>pip3 install jupyter</code> in your command line. This method requires that you have Python3 and pip3 already installed on your system.</p>
+</li>
+</ul>
+<p>You can then launch Jupyter Notebook by running the command jupyter notebook in a terminal or command prompt.</p>
+<p><br /></p>
+<p><img alt="Screenshot" src="../img/jup.png" /></p>
+<p><br /></p>
+<p>Some popular IDEs for Python include PyCharm, Spyder, and IDLE. Text editors, such as Sublime Text, Atom, or Notepad++, are also popular among Python developers and are preferred by some. I suggest you <a href="https://www.sublimetext.com">Install Sublime Text</a> as a second IDE.</p>
+<h3 id="installing-additional-libraries-and-packages">Installing Additional Libraries and Packages</h3>
+<p>Python has a vast collection of libraries and packages that can be used to perform a wide range of tasks. Some popular packages include NumPy and Pandas for data manipulation, Matplotlib and Seaborn for data visualization, and scikit-learn for machine learning. You can install these packages using the pip package manager, which is included with Python.</p>
+<p><br /></p>
+<p>Examples : </p>
+<ul>
+<li><code>pip3 install numpy</code></li>
+<li><code>pip3 install pandas</code></li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>By the end of this chapter, you should have a working Python development environment that you can use to start writing your own programs. You will have a Python interpreter, a text editor or IDE, and any additional libraries and packages that you need. In the next chapter, you will learn the basics of Python programming, including data types, variables, and operators.</p>
 
 
 

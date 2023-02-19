@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://datascience_careerera.com/numpy/">
+      
+      
+        <link rel="prev" href="../io/">
+      
+      
+        <link rel="next" href="../pd/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Numpy: Understanding & working with Numpy - Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numpy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Data Science" class="md-header__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numpy: Understanding & working with Numpy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Data Science" class="md-nav__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Python Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python Programming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction to Python Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env/" class="md-nav__link">
+        Setting up a Development Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        Basic Python Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        Object Oriented Programming in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        File Input/Output (I/O) Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="true">
+          Python with Data Science tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python with Data Science tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python with Data Science tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Numpy: Understanding & working with Numpy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Numpy: Understanding & working with Numpy
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-numpy" class="md-nav__link">
+    Why NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-numpy" class="md-nav__link">
+    Installing NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-numpy" class="md-nav__link">
+    Importing NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-numpy-arrays" class="md-nav__link">
+    Creating NumPy Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-dimensions" class="md-nav__link">
+    NumPy Array Dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays-type-and-shape" class="md-nav__link">
+    Arrays type and shape
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-indexing" class="md-nav__link">
+    NumPy Array Indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-slicing" class="md-nav__link">
+    NumPy Array Slicing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-operations-in-numpy" class="md-nav__link">
+    Array Operations in NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-copy-and-view" class="md-nav__link">
+    NumPy Array Copy and View
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pd/" class="md-nav__link">
+        Pandas: Understanding & working with Pandas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-numpy" class="md-nav__link">
+    Why NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-numpy" class="md-nav__link">
+    Installing NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-numpy" class="md-nav__link">
+    Importing NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-numpy-arrays" class="md-nav__link">
+    Creating NumPy Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-dimensions" class="md-nav__link">
+    NumPy Array Dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays-type-and-shape" class="md-nav__link">
+    Arrays type and shape
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-indexing" class="md-nav__link">
+    NumPy Array Indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-slicing" class="md-nav__link">
+    NumPy Array Slicing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-operations-in-numpy" class="md-nav__link">
+    Array Operations in NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-array-copy-and-view" class="md-nav__link">
+    NumPy Array Copy and View
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="numpy">NumPy</h1>
+<p>NumPy is short for Numerical Python. It is a Python library/package used for working with arrays which contains classes, functions, variables , a large library of mathematical functions etc for working with scientific calculation. It can be used to create an “n” dimensional array where “n” is any integer.              </p>
+<h2 id="why-numpy">Why NumPy</h2>
+<p>In Python we have lists that serve the purpose of arrays, but they are slow. NumPy aims to provide an array object that is up to 50x faster than a traditional Python list.</p>
+<p><br /></p>
+<p>The array object in NumPy is called ndarray, it provides a lot of supporting functions that make working with ndarray very easy. Arrays are very frequently used in data science, where speed and resources are very important.     </p>
+<p><br /></p>
+<p>What makes NumPy arrays faster than lists: NumPy arrays are stored at one continuous place in memory unlike lists, so processes can access and manipulate them very efficiently. This behavior is called locality of reference. This is the main reason why NumPy is faster than lists. It is also optimized to work with the latest CPU architectures.</p>
+<h2 id="installing-numpy">Installing NumPy</h2>
+<p>To install NumPy, you can use pip, the Python package installer. Open your terminal or command prompt and enter the following command:</p>
+<pre><code>pip3 install numpy
+</code></pre>
+<h2 id="importing-numpy">Importing NumPy</h2>
+<p>There are two ways to import NumPy. Code Example : </p>
+<pre><code># this will import the entire NumPy module.
+import numpy as np
+# this will import all class, objects, variables etc from the NumPy package   
+from numpy import*  
+</code></pre>
+<p>NumPy is usually imported under the np alias. </p>
+<p><br /></p>
+<p>alias: In Python aliases are an alternate name for referring to the same thing. </p>
+<p><br /></p>
+<h2 id="creating-numpy-arrays">Creating NumPy Arrays</h2>
+<p>The array object in NumPy is called ndarray. We can create a NumPy ndarray object by using the array() function. NumPy arrays can be created in a number of ways. Here are some of the most common methods:</p>
+<ul>
+<li>Using the numpy.array() function to create an array from a list/tuple:</li>
+</ul>
+<pre><code>a = np.array([1, 2, 3])
+</code></pre>
+<ul>
+<li>Using the numpy.zeros() function to create an array filled with zeros:</li>
+</ul>
+<pre><code>b = np.zeros((2, 3))
+</code></pre>
+<ul>
+<li>Using the numpy.ones() function to create an array filled with ones:</li>
+</ul>
+<pre><code>c = np.ones((2, 3))
+</code></pre>
+<ul>
+<li>Using the numpy.random.randint(): Returns an array of random integers between the two given numbers</li>
+</ul>
+<pre><code>d = np.random.randint(0, 10)
+</code></pre>
+<ul>
+<li>Using the numpy.random.rand() function to create an array of random values:</li>
+</ul>
+<pre><code>e = np.random.rand(2, 3)
+</code></pre>
+<h2 id="numpy-array-dimensions">NumPy Array Dimensions</h2>
+<p>A dimension in arrays is one level of array depth (nested arrays). nested array: are arrays that have arrays as their elements. 0-D Arrays 1-D Arrays 2-D Arrays 3-D Arrays.</p>
+<p><br /></p>
+<p>0-D arrays, or Scalars, are the elements in an array. Each value in an array is a 0-D array. </p>
+<p><br /></p>
+<p>Code Example:</p>
+<pre><code>arr=np.array(30) 
+print (arr)
+</code></pre>
+<p>An array that has 0-D arrays as its elements is called a uni-dimensional or 1-D array. These are the most common types of arrays. </p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code> arr=np.array([30,35,38,40,46,52])
+ print (arr)
+</code></pre>
+<p>An array that has 1-D arrays as its elements is called a 2-D array. These are often used to represent matrix or 2nd order tensors. </p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code>arr=np.array([[30,35,38,40,46,52],[22,28,39,42,49,52]])
+ print (arr)
+</code></pre>
+<p>An array that has 2-D arrays (matrices) as its elements is called 3-D array. These are often used to represent a 3rd order tensor. </p>
+<p><br /></p>
+<p>Code Example : </p>
+<pre><code>arr=np.array([[[30,35,38,40,46,52],[22,28,39,42,49,52], [71,24,88,64,31,94]]])
+print (arr)
+</code></pre>
+<p>NumPy Arrays provides the ndim attribute that returns an integer that tells us how many dimensions the array has. </p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code>arr=np.array([[[30,35,38,40,46,52],[22,28,39,42,49,52], [71,24,88,64,31,94]]])
+print (arr.ndim)
+</code></pre>
+<p>An array can have any number of dimensions. When the array is created, you can define the number of dimensions by using the ndim argument. </p>
+<p><br /></p>
+<p>Code Example : </p>
+<pre><code>arr=np.array([1,2,3,4],ndmin=6)
+print (arr.ndim)
+print (“Number of dimensions:”, arr.ndim)
+</code></pre>
+<h2 id="arrays-type-and-shape">Arrays type and shape</h2>
+<p><strong>NumPy Array Data Type</strong> :The NumPy array object has a property called dtype that returns the data type of the array.</p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code>arr=np.array([1,2,3,4,5]) 
+print (arr.dtype)
+</code></pre>
+<p><strong>NumPy Array Shape</strong> : The shape of an array is the number of elements in each dimension. NumPy arrays have an attribute called shape that returns a tuple with each index having the number of corresponding elements</p>
+<p><br /></p>
+<p>Code example :</p>
+<pre><code>arr=np.array([1,2,3,4,5,6])
+print (arr.shape)
+</code></pre>
+<h2 id="numpy-array-indexing">NumPy Array Indexing</h2>
+<p>Array indexing is the same as accessing an array element. You can access an array element by referring to its index number. The indexes in NumPy arrays start with 0, meaning that the first element has index 0, and the second has index 1 etc.</p>
+<p><br /></p>
+<p>Code Example : </p>
+<pre><code>arr=np.array([1,2,3,4])
+print (arr[0])
+</code></pre>
+<p>To access elements from 2-D arrays we can use comma separated integers representing the dimension and the index of the element.</p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code>arr=np.array([[1,2,3,4],[4,3,2,1]])
+print (arr[0][1])
+
+</code></pre>
+<p>To access elements from 3-D arrays we can use comma separated integers representing the dimensions and the index of the element. </p>
+<p><br /></p>
+<p>Code Example : </p>
+<pre><code>arr=np.array([1,2,3,4],[4,3,2,1],[8,6,7,9])
+print (arr[0][1][0])
+</code></pre>
+<p>Use negative indexing to access an array from the end
+Code Example</p>
+<pre><code>arr=np.array([1,2,3,4],[4,3,2,1],[8,6,7,9])
+print (arr[0][-1][-2])
+</code></pre>
+<h2 id="numpy-array-slicing">NumPy Array Slicing</h2>
+<p>Slicing in python means taking elements from one given index to another given index. We pass slice instead of index like this [start: end]. We can also define the step, like this [start:end:step].</p>
+<ul>
+<li>If we don't pass start its considered 0</li>
+<li>If we don't pass end its considered length of array in that dimension</li>
+<li>If we don't pass step its considered 1</li>
+</ul>
+<p>Note: The result includes the start index, but excludes the end index. Use the minus operator to refer to an index from the end.</p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code>arr=np.array([1,2,3,4,5])
+print (arr[0:5]) #slice arrays from index 0 to 5 excluding 5 print (arr[:4]) #slice from beginning to 4 excluding 4
+print (arr[2:]) #slice from index 2 onwards
+print (arr[:-3]) #slice from index -3
+</code></pre>
+<p>Code Example :</p>
+<pre><code>arr=np.array([1,2,3,4,5])
+print (arr[:4:1]) #slice from beginning to 4 step of 1 print (arr[0::3]) #slice from index 0 onwards step of 3 print (arr[:-1:2]) #slice from index -1 step of 2
+</code></pre>
+<h2 id="array-operations-in-numpy">Array Operations in NumPy</h2>
+<p><strong>Element-wise Operations</strong> : NumPy allows you to perform element-wise operations on arrays. Here are some examples:</p>
+<pre><code>a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# Element-wise addition
+c = a + b
+print(c)  # Output: [5 7 9]
+
+# Element-wise multiplication
+d = a * b
+print(d)  # Output: [ 4 10 18]
+</code></pre>
+<p><strong>Matrix Multiplication</strong> : NumPy allows you to perform matrix multiplication using the numpy.dot() function. Here is an example:</p>
+<pre><code>a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+
+# Matrix multiplication
+c = np.dot(a, b)
+print(c)
+</code></pre>
+<p><strong>NumPy Array Reshaping</strong> : Reshaping means changing the shape of an array. The shape of an array is the number of elements in each dimension. By reshaping we can add or remove dimensions or change number of elements in each dimension.</p>
+<p><br /></p>
+<p>Code Example :</p>
+<pre><code># we can do it this way
+arr=np.array([1,2,3,4,5,6,7,8,9,10])
+arr2= arr.reshape(5,2)
+print (arr)
+print (arr2)
+# or this way
+a = np.array([1, 2, 3, 4, 5, 6])
+b = np.reshape(a, (2, 3))
+print (a)
+print (b)
+</code></pre>
+<p><strong>Transposing Arrays</strong> : NumPy provides a way to transpose arrays using the numpy.transpose() function. Here is an example:</p>
+<pre><code>a = np.array([[1, 2], [3, 4], [5, 6]])
+b = np.transpose(a)
+print(b)
+</code></pre>
+<p><strong>Aggregation Functions</strong> : NumPy provides several aggregation functions that can be used to compute statistics on arrays. Here are some examples:</p>
+<pre><code>a = np.array([1, 2, 3, 4, 5])
+
+# Computing the sum of the elements in the array
+print(np.sum(a))  # Output: 15
+
+# Computing the mean of the elements in the array
+print(np.mean(a))  # Output: 3.0
+
+# Computing the standard deviation of the elements in the array
+print(np.std(a))  # Output: 1.41421356
+</code></pre>
+<h2 id="numpy-array-copy-and-view">NumPy Array Copy and View</h2>
+<p>The main difference between a copy and a view of an array is that the copy is a new array, and the view is just a view, or link to, the original array.</p>
+<p><br /></p>
+<p>The copy owns the data and any changes made to the copy will not affect original array, and any changes made to the original array will not affect the copy.</p>
+<p><br /></p>
+<p>The view does not own the data and any changes made to the view will affect the original array, and any changes made to the original array will affect the view.</p>
+<p><br /></p>
+<p>As mentioned, copies owns the data, and views does not own the data, so how can we check if it owns the data or not?</p>
+<p><br /></p>
+<p>Every NumPy array has the attribute base that returns None if the array owns the data. Otherwise, the base attribute refers to the original object</p>
+<p><br /></p>
+<p>Code example :</p>
+<pre><code>import numpy as np
+arr=np.array([1,2,3,4,5,6])
+arrview=arr.view() #creates a view of the array arrcopy=arr.copy() #creates a copy of the array
+print (arrview.base) #check if the array owns its data print (arrcopy.base) #check if the array owns its data (should output none)
+</code></pre>
+<p><a href="https://numpy.org/doc/1.24/reference/index.html"><strong>Documentations NumPy</strong></a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

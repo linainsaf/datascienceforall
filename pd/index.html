@@ -1,0 +1,916 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://datascience_careerera.com/pd/">
+      
+      
+        <link rel="prev" href="../numpy/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Pandas: Understanding & working with Pandas - Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pandas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Data Science" class="md-header__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pandas: Understanding & working with Pandas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Data Science" class="md-nav__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Python Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python Programming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction to Python Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env/" class="md-nav__link">
+        Setting up a Development Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        Basic Python Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        Object Oriented Programming in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        File Input/Output (I/O) Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="true">
+          Python with Data Science tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python with Data Science tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python with Data Science tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/" class="md-nav__link">
+        Numpy: Understanding & working with Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Pandas: Understanding & working with Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Pandas: Understanding & working with Pandas
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pandas-series" class="md-nav__link">
+    Pandas Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-labels" class="md-nav__link">
+    Pandas Labels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-key-value-objects" class="md-nav__link">
+    Pandas Key Value objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    Pandas Data Frames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
+    Reading CSV Files with Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-quick-overview-of-the-dataframes-content" class="md-nav__link">
+    Getting a quick overview of the Dataframes content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-cleaning-with-pandas" class="md-nav__link">
+    Data Cleaning With pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Cleaning With pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#empty-cells" class="md-nav__link">
+    Empty cells
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-in-wrong-format" class="md-nav__link">
+    Data in wrong format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incorrect-data" class="md-nav__link">
+    Incorrect Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrong-data-duplicates" class="md-nav__link">
+    Wrong data Duplicates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-analysis-in-pandas" class="md-nav__link">
+    Data Analysis in Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Analysis in Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correlation-in-pandas" class="md-nav__link">
+    Correlation in Pandas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pandas-series" class="md-nav__link">
+    Pandas Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-labels" class="md-nav__link">
+    Pandas Labels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-key-value-objects" class="md-nav__link">
+    Pandas Key Value objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    Pandas Data Frames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
+    Reading CSV Files with Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-quick-overview-of-the-dataframes-content" class="md-nav__link">
+    Getting a quick overview of the Dataframes content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-cleaning-with-pandas" class="md-nav__link">
+    Data Cleaning With pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Cleaning With pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#empty-cells" class="md-nav__link">
+    Empty cells
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-in-wrong-format" class="md-nav__link">
+    Data in wrong format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incorrect-data" class="md-nav__link">
+    Incorrect Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrong-data-duplicates" class="md-nav__link">
+    Wrong data Duplicates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-analysis-in-pandas" class="md-nav__link">
+    Data Analysis in Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Analysis in Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correlation-in-pandas" class="md-nav__link">
+    Correlation in Pandas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Pandas: Understanding & working with Pandas</h1>
+
+<h2 id="pandas">Pandas</h2>
+<p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. The name "Pandas" has a reference to both "Panel Data", and "Python Data Analysis" and was created by Wes McKinney in 2008</p>
+<p><br /></p>
+<p>Pandas allows us to :</p>
+<ul>
+<li>Analyze big data and make conclusions based on statistical theories.</li>
+<li>Clean messy data sets, and make them readable and relevant. Relevant data is very important in data science. </li>
+<li>Pandas gives you answers about the data Such as : Is there a correlation between two or more columns? What is the average value?Max value? Min value?</li>
+<li>Manage diffrent data sets merging them filtering them etc...</li>
+</ul>
+<p><br /></p>
+<p>Pandas is also able to delete rows that are not relevant, or contain wrong values, like empty or NULL values. This is called cleaning the data.</p>
+<p><br /></p>
+<p>There are two ways to import pandas : </p>
+<pre><code>import pandas #This will import the entire pandas module.
+
+from pandas import* # This will import all class, objects, variables etc. from pandas package
+</code></pre>
+<h3 id="pandas-series">Pandas Series</h3>
+<p>A Pandas Series is like a column in a table. It is a one-dimensional array holding data of any type</p>
+<pre><code>import pandas as pd
+dataset1=[1,2,3]
+df1=pd.Series(dataset1)
+print (df1)
+</code></pre>
+<h3 id="pandas-labels">Pandas Labels</h3>
+<p>If nothing else is specified, the values are labeled with their index number. The first value has index 0, etc. This label can be used to access a specified value. With the index argument, you can name your own labels. When using labels, you can access an item by using the label. Code example : </p>
+<pre><code>import pandas as pd
+dataset1=[1,2,3]
+df1=pd.Series(dataset1, index=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])
+print (df1)                     
+print (df1[&quot;a&quot;])
+</code></pre>
+<h3 id="pandas-key-value-objects">Pandas Key Value objects</h3>
+<p>We can also use key/value pair objects like dictionaries when creating a Series</p>
+<p><br /></p>
+<p>Note: The keys of the dictionary become the labels</p>
+<p><br /></p>
+<p>Code example :</p>
+<pre><code>import pandas as pd
+dataset1={&quot;Vehicle number&quot;:1, &quot;Wheels&quot;:4, &quot;Doors&quot;:4}
+df1=pd.Series(dataset1)
+print (df1)
+</code></pre>
+<h3 id="pandas-data-frames">Pandas Data Frames</h3>
+<p>Data sets in Pandas are usually multi-dimensional tables, called DataFrames. Series can be considered to be like a column in a table, whereas a DataFrame can be considered to be the table. </p>
+<p><br /></p>
+<p>We can use the loc attribute to locate one or more rows. Just as with series, we can name indexes of data frames and locate them using the loc attribute</p>
+<p><br /></p>
+<p>Code example :</p>
+<pre><code>import pandas as pd
+dataset1={&quot;Vehicle number&quot;:[1,2,3], &quot;Wheels&quot;:[4,2,4], &quot;Doors&quot;:[4,0,5]}
+df1=pd.DataFrame(dataset1, index=[&quot;Car&quot;,&quot;Motorcycle&quot;,&quot;Van&quot;])
+print(df1)
+print (df1.loc[&quot;Car&quot;])              
+</code></pre>
+<h3 id="reading-csv-files-with-pandas">Reading CSV Files with Pandas</h3>
+<p>A simple way to store big data sets is to use CSV (Comma Separated Value) files. CSV files contain plain text and are a well know format that can be read by almost all software including Pandas</p>
+<p><br /></p>
+<p>If your data sets are stored in a file, Pandas can load them into a DataFrame. Code example :</p>
+<pre><code>import pandas as pd 
+dataframe1=pd.read_csv(‘data.csv’)
+print(dataframe1.to_string())
+</code></pre>
+<h3 id="getting-a-quick-overview-of-the-dataframes-content">Getting a quick overview of the Dataframes content</h3>
+<ul>
+<li>
+<p>One of the most used method for getting a quick overview of the DataFrame, is the head() method. The head() method returns the headers and a specified number of rows, starting from the top. </p>
+</li>
+<li>
+<p>The tail() method returns the last rows of the DataFrame</p>
+</li>
+<li>
+<p>The DataFrame object has a method called info(), that gives you more information about the data set.</p>
+</li>
+</ul>
+<p>Code Example :</p>
+<pre><code>import pandas as pd 
+dataframe1=pd.read_csv(&quot;data.csv&quot;) 
+print (dataframe1.head())
+print (dataframe1.tail()) 
+dataframe1.info()
+</code></pre>
+<h3 id="data-cleaning-with-pandas">Data Cleaning With pandas</h3>
+<p>Data cleaning means fixing bad data in your data set Examples of bad data include : </p>
+<h4 id="empty-cells">Empty cells</h4>
+<p>Empty cells can potentially give you a wrong result when you analyze data. One way to deal with empty cells is to remove rows that contain empty cells. This usually works since data sets can be very large, and removing a few rows will not have a significant impact on the results.</p>
+<p><br /></p>
+<p>To remove empty cells, we can use the dropna() method. By default, the dropna() method returns a new DataFrame, and will not change the original. If you want to change the original DataFrame, use the inplace = True argument. Code Example :</p>
+<pre><code>import pandas as pd                     
+dataframe1=pd.read_csv(&quot;data.csv&quot;)
+print (dataframe1)
+dataframe1.dropna(inplace=True)
+print (dataframe1)
+</code></pre>
+<p>Another way of dealing with empty cells is to insert a new value to replace the empty cell. This way you do not have to delete entire rows just because of some empty cells. The fillna() method allows us to replace empty cells with a value. To only replace empty values for one column, specify the column name for the DataFrame. Code Example :</p>
+<pre><code>import pandas as pd
+dataframe1=pd.read_csv(&quot;data.csv&quot;)
+dataframe1.fillna(130, inplace=True)
+dataframe1[&quot;Calories&quot;].fillna(130, inplace=True)
+print(dataframe1.to_string())
+</code></pre>
+<p>You can also fill in empty cells with the mean, median or mode of the column. Pandas uses the mean() median() and mode() methods to calculate the respective values for a specified column</p>
+<ul>
+<li>Mean : the mean is the average value (the sum of all values divided by number of values)</li>
+<li>Median : the median is the value in the middle, after you have sorted all values ascending</li>
+<li>Mode : the mode is the value that appears most frequently</li>
+</ul>
+<p>Code Example : </p>
+<pre><code>import pandas as pd
+
+dataframe1=pd.read_csv(&quot;data.csv&quot;)
+
+meancal=dataframe1[&quot;Calories&quot;].mean()
+mediancal=dataframe1[&quot;Calories&quot;].median()
+modecal=dataframe1[&quot;Calories&quot;].mode()
+
+print (&quot;The mean of calories is&quot; + str(meancal) + &quot; The median of calories is &quot; + str(mediancal) + &quot; The mode of calories is &quot; + str(modecal)) 
+
+meandf=dataframe1[&quot;Calories&quot;].fillna(meancal)
+mediandf=dataframe1[&quot;Calories&quot;].fillna(mediancal)
+modedf=dataframe1[&quot;Calories&quot;].fillna(modecal)
+
+print(meandf.to_string())
+print(mediandf.to_string())
+print(modedf.to_string())
+</code></pre>
+<h4 id="data-in-wrong-format">Data in wrong format</h4>
+<p>Cells with data of incorrect format can make it difficult, or even impossible, to analyze data.</p>
+<p><br /></p>
+<p>To remedy this, you can either remove the rows, or convert all cells in the columns into the same format</p>
+<h4 id="incorrect-data">Incorrect Data</h4>
+<p>Incorrect data does not have to be empty cells or incorrect format, it can just be incorrect, like if someone entered 199 instead of 1.99. Sometimes you can spot incorrect data by looking at the data set because you have an expectation of what it should be.</p>
+<p><br /></p>
+<p>If you take a look at our data set you can see that in row 7 the duration is 450, but for all the other rows the duration is between 30 and 60. It doesn't have to be incorrect, but taking in consideration that this is the data set of someone's workout sessions, we conclude this person did not work out for 450 minutes</p>
+<p><br /></p>
+<p>One way to fix wrong values is to replace them with something else. For small data sets you might be able to replace the wrong data one by one, but not for large data sets. To replace wrong data for larger data sets you can create some rules and set some boundaries for legal values, and replace any values that are outside of the boundaries</p>
+<p><br /></p>
+<p>Another way of handling incorrect data is to remove the rows that contains incorrect data. This way you do not have to find out what to replace them with, and there is a good chance you do not need them for analysis.</p>
+<p><br /></p>
+<p>Code Example</p>
+<pre><code>import pandas as pd 
+
+dataframe1=pd.read_csv(&quot;data.csv&quot;)
+dataframe2=pd.read_csv(&quot;data.csv&quot;)
+
+print(dataframe1.to_string())
+print(dataframe2.to_string())
+
+for x in dataframe1.index: #replace all values in duration above 120 with 120 
+    if dataframe1.loc[x, &quot;Duration&quot;] &gt; 120:
+        dataframe1.loc[x,&quot;Duration&quot;] = 120
+
+for y in dataframe2.index: #drop all values above 120
+    if dataframe2.loc[y, &quot;Duration&quot;] &gt;120:
+        dataframe2.drop(y, inplace = True)
+
+print(dataframe1.to_string())
+print(dataframe2.to_string())
+</code></pre>
+<h4 id="wrong-data-duplicates">Wrong data Duplicates</h4>
+<p>Duplicate rows are rows that have been entered more than once. By taking a look at our test data set, we can assume that row 11 and 12 are duplicates</p>
+<p><br /></p>
+<p>To discover duplicates, we can use the duplicated() method The duplicated() method returns a Boolean values for each row To remove duplicates, use the drop_duplicates() method. Code Example :</p>
+<pre><code>import pandas as pd
+dataframe1=pd.read_csv(&quot;data.csv&quot;)
+
+print(dataframe1.duplicated()) #search for duplicates and output true when found 
+
+dataframe1.drop_duplicates(inplace = True) #drop all duplicates
+
+print(dataframe1.to_string()) #find and drop duplicates example
+</code></pre>
+<h3 id="data-analysis-in-pandas">Data Analysis in Pandas</h3>
+<h4 id="correlation-in-pandas">Correlation in Pandas</h4>
+<p>The corr() method calculates the relationship between each column in your data set. The corr() method ignores "not numeric" columns. Code Example : </p>
+<pre><code>import pandas as pd
+dataframe1=pd.read_csv(&quot;data.csv&quot;) 
+dataframe1.corr()
+</code></pre>
+<p><br /></p>
+<p>The Result of the corr() method is a table with a lot of numbers that represents how well the relationship is between two columns. The number varies from -1 to 1 such as :</p>
+<ul>
+<li>
+<p>1 means that there is a 1 to 1 relationship (a perfect correlation), and for this data set, each time a value went up in the first column, the other one went up as well.</p>
+</li>
+<li>
+<p>0.9 is also a good relationship, and if you increase one value, the other will probably increase as well.</p>
+</li>
+<li>
+<p>-0.9 would be just as good relationship as 0.9, but if you increase one value, the other will probably go down</p>
+</li>
+<li>
+<p>0.2 means NOT a good relationship, meaning that if one value goes up does not mean that the other will</p>
+</li>
+</ul>
+<p>What is a good correlation? It depends on the use, but I think it is safe to say you have to have at least 0.6 (or -0.6) to call it a good correlation</p>
+<p><br /></p>
+<p><strong>Perfect Correlation</strong>: We can see that "Duration" and "Duration" got the number 1.000000, which makes sense, each column always has a perfect relationship with itself.</p>
+<p><strong>Good Correlation</strong>: "Duration" and "Calories" got a 0.922721 correlation, which is a very good correlation, and we can predict that the longer you work out, the more calories you burn, and the other way around: if you burned a lot of calories, you probably had a long work out</p>
+<p><strong>Bad Correlation</strong>: "Duration" and "Maxpulse" got a 0.009403 correlation, which is a very bad correlation, meaning that we can not predict the max pulse by just looking at the duration of the work out, and vice versa</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
