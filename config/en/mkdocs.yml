@@ -1,9 +1,18 @@
 site_name: Data Science
-docs_dir: 'docs/en'
+docs_dir: '../../docs/en'
 site_url: https://datascience_careerera.com/
 
 theme:
   name: material
+
+extra:
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: French
+      link: /fr/
+      lang: fr
 
 nav: 
   - Home: 'index.md'
@@ -16,3 +25,5 @@ nav:
     - 'Python with Data Science tools': 
       - 'Numpy: Understanding & working with Numpy': 'numpy.md'
       - 'Pandas: Understanding & working with Pandas': 'pd.md'
+      - 'Matplotlib: Understanding & working with Matplotlib' : 'plt.md'
+      - 'Seaborn: Understanding & working with Seaborn' : 'sns.md'

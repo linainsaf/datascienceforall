@@ -1,9 +1,18 @@
 site_name: Data Science
-docs_dir: 'docs/en'
+docs_dir: '../../docs/fr'
 site_url: https://datascience_careerera.com/
 
 theme:
   name: material
+
+extra:
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: French
+      link: /fr/
+      lang: fr
 
 nav: 
   - Home: 'index.md'
@@ -13,6 +22,4 @@ nav:
     - 'Basic Python Concepts': 'basic.md'
     - 'Object Oriented Programming in Python': 'oop.md'
     - 'File Input/Output (I/O) Operations': 'io.md'
-    - 'Python with Data Science tools': 
-      - 'Numpy: Understanding & working with Numpy': 'numpy.md'
-      - 'Pandas: Understanding & working with Pandas': 'pd.md'
+    - 'Working with Data in Python': 'data.md'

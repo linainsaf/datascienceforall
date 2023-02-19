@@ -10,7 +10,7 @@ x = 5
 y = "Hello World"
 z = [1, 2, 3]
 ```
-### Data types
+### Data types and structures
 
 Python supports several built-in data types, such as integers, floating-point numbers, strings, lists, tuples, and dictionaries. Each data type has its own set of characteristics and methods.
 
@@ -133,3 +133,32 @@ In this example, program will handle two types of exception: ValueError and Zero
 <br />
 
 Now, let's code ! 
+
+
+
+### Things to Remember
+
+- Case Sensitivity: Python is a case-sensitive language, so be mindful of the case when naming variables, functions, and classes. This means, **Variable** and **variable** are not the same.
+
+- **Each variable, function and class should have a unique name within your code**
+
+- The only variables you need to consider inside your function are the arguments of that function
+
+- Always give the identifiers a name that makes sense. While **c = 10** is a valid name, writing **count = 10** would make more sense, and it would be easier to figure out what it represents when you look at your code after a long gap.
+
+- Multiple words can be separated using an underscore, like **this_is_a_long_variable**.
+
+- Comments: Use the pound symbol (#) to denote comments in your code, which will be ignored by the interpreter. In computer programming, comments are hints that we use to make our code more understandable. 
+
+- Quotation Marks: In Python, you can use either single quotes or double quotes to denote strings, but be consistent within your code.
+
+- Colon (:): Colons are used to denote the start of a new block of code, such as in a for loop, if statement, or function definition.
+
+- White Space: Be mindful of white space, as it can affect the way your code is interpreted. For example, leading white space is used to denote blocks of code.
+
+- Parentheses: Parentheses are used to group expressions, to call functions, and to define tuples.
+
+- Import Statement: Use the import statement to import libraries and modules into your code.
+
+- print() function: Use the print() function to output text to the console.
+
