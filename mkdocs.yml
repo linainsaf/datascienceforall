@@ -16,3 +16,8 @@ nav:
     - 'Python with Data Science tools': 
       - 'Numpy: Understanding & working with Numpy': 'numpy.md'
       - 'Pandas: Understanding & working with Pandas': 'pd.md'
+  - 'SQL and Python for Data Analysis and Database Development': 
+    - 'Introduction': 'sql/1_sql_intro.md' 
+    - 'What is a Database': 'sql/2_db_kesako.md'
+    - 'Tables & Keys': 'sql/3_table.md'
+
