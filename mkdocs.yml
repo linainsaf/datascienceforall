@@ -2,6 +2,16 @@ site_name: Data Science
 docs_dir: 'docs/en'
 site_url: https://datascience_careerera.com/
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
 theme:
   name: material
 
@@ -21,8 +31,14 @@ nav:
     - 'What is a Database': 'sql/2_db_kesako.md'
     - 'Tables & Keys': 'sql/3_table.md'
     - 'SQL Basic understanding': 'sql/4_basics.md'
+    - 'Install MySQL on MacOS': 'sql/5_MacOS_install.md'
+    - 'Install MySQL on Windows': 'sql/6_Windows_install.md'
     - 'Creating tables': 'sql/7_creating_tables.md'
     - 'Inserting Data': 'sql/8_insert.md'
     - 'Constraints': 'sql/9_constraints.md'
     - 'Update & Delete': 'sql/10_update_delete.md'
+    - 'Basic Queries': 'sql/11_queries.md'
+    - 'Build a company database from scratch': 'sql/12_company_db_1'
+    - 'More Queries': 'sql/13_queries_db.md'
+    - 'SQL Functions': 'sql/14_functions.md'
 
