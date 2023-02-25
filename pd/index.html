@@ -485,6 +485,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#describe-in-pandas" class="md-nav__link">
+    Describe in Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#correlation-in-pandas" class="md-nav__link">
     Correlation in Pandas
   </a>
@@ -658,6 +665,13 @@
   
     <nav class="md-nav" aria-label="Data Analysis in Pandas">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describe-in-pandas" class="md-nav__link">
+    Describe in Pandas
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#correlation-in-pandas" class="md-nav__link">
@@ -927,6 +941,12 @@ print(joined_df)
 </code></pre>
 <p>The join() method joins the two DataFrames based on the 'id' column. The result is a new DataFrame with columns from both DataFrames.</p>
 <h3 id="data-analysis-in-pandas">Data Analysis in Pandas</h3>
+<h4 id="describe-in-pandas">Describe in Pandas</h4>
+<p>The describe() method in Pandas provides summary statistics of a DataFrame. It calculates several common statistics for each numerical column in the DataFrame, such as count, mean, standard deviation, minimum, maximum, and quartiles. Code Example :</p>
+<pre><code>import pandas as pd
+df1=pd.read_csv(&quot;data.csv&quot;) 
+df1.describe()
+</code></pre>
 <h4 id="correlation-in-pandas">Correlation in Pandas</h4>
 <p>The corr() method calculates the relationship between each column in your data set. The corr() method ignores "not numeric" columns. Code Example : </p>
 <pre><code>import pandas as pd
