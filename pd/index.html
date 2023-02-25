@@ -14,12 +14,14 @@
         <link rel="prev" href="../numpy/">
       
       
+        <link rel="next" href="../plt/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Pandas: Understanding & working with Pandas - Data Science</title>
+        <title>Understanding & working with Pandas - Data Science</title>
       
     
     
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pandas: Understanding & working with Pandas
+              Understanding & working with Pandas
             
           </span>
         </div>
@@ -330,7 +332,7 @@
   
     <li class="md-nav__item">
       <a href="../numpy/" class="md-nav__link">
-        Numpy: Understanding & working with Numpy
+        Understanding & working with Numpy
       </a>
     </li>
   
@@ -351,12 +353,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Pandas: Understanding & working with Pandas
+          Understanding & working with Pandas
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Pandas: Understanding & working with Pandas
+        Understanding & working with Pandas
       </a>
       
         
@@ -381,36 +383,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pandas-series" class="md-nav__link">
-    Pandas Series
+  <a href="#introduction-to-pandas" class="md-nav__link">
+    Introduction to Pandas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-labels" class="md-nav__link">
-    Pandas Labels
+  <a href="#pandas-data-structures" class="md-nav__link">
+    Pandas Data Structures
+  </a>
+  
+    <nav class="md-nav" aria-label="Pandas Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    Series
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-key-value-objects" class="md-nav__link">
-    Pandas Key Value objects
+  <a href="#dataframe" class="md-nav__link">
+    DataFrame
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pandas-data-frames" class="md-nav__link">
-    Pandas Data Frames
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
-    Reading CSV Files with Pandas
+  <a href="#data-import-and-export" class="md-nav__link">
+    Data Import and Export
   </a>
   
 </li>
@@ -424,10 +432,10 @@
         
           <li class="md-nav__item">
   <a href="#data-cleaning-with-pandas" class="md-nav__link">
-    Data Cleaning With pandas
+    Data Cleaning with pandas
   </a>
   
-    <nav class="md-nav" aria-label="Data Cleaning With pandas">
+    <nav class="md-nav" aria-label="Data Cleaning with pandas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -464,6 +472,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#merging-and-joining-data" class="md-nav__link">
+    Merging and Joining Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#data-analysis-in-pandas" class="md-nav__link">
     Data Analysis in Pandas
   </a>
@@ -492,6 +507,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plt/" class="md-nav__link">
+        Understanding & working with Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sns/" class="md-nav__link">
+        Understanding & working with Seaborn
+      </a>
     </li>
   
 
@@ -543,36 +586,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pandas-series" class="md-nav__link">
-    Pandas Series
+  <a href="#introduction-to-pandas" class="md-nav__link">
+    Introduction to Pandas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-labels" class="md-nav__link">
-    Pandas Labels
+  <a href="#pandas-data-structures" class="md-nav__link">
+    Pandas Data Structures
+  </a>
+  
+    <nav class="md-nav" aria-label="Pandas Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    Series
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-key-value-objects" class="md-nav__link">
-    Pandas Key Value objects
+  <a href="#dataframe" class="md-nav__link">
+    DataFrame
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pandas-data-frames" class="md-nav__link">
-    Pandas Data Frames
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
-    Reading CSV Files with Pandas
+  <a href="#data-import-and-export" class="md-nav__link">
+    Data Import and Export
   </a>
   
 </li>
@@ -586,10 +635,10 @@
         
           <li class="md-nav__item">
   <a href="#data-cleaning-with-pandas" class="md-nav__link">
-    Data Cleaning With pandas
+    Data Cleaning with pandas
   </a>
   
-    <nav class="md-nav" aria-label="Data Cleaning With pandas">
+    <nav class="md-nav" aria-label="Data Cleaning with pandas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -622,6 +671,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging-and-joining-data" class="md-nav__link">
+    Merging and Joining Data
+  </a>
   
 </li>
         
@@ -666,42 +722,45 @@
 
 
 
-  <h1>Pandas: Understanding & working with Pandas</h1>
+  <h1>Understanding & working with Pandas</h1>
 
 <h2 id="pandas">Pandas</h2>
-<p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. The name "Pandas" has a reference to both "Panel Data", and "Python Data Analysis" and was created by Wes McKinney in 2008</p>
+<h3 id="introduction-to-pandas">Introduction to Pandas</h3>
+<p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. </p>
 <p><br /></p>
 <p>Pandas allows us to :</p>
 <ul>
 <li>Analyze big data and make conclusions based on statistical theories.</li>
 <li>Clean messy data sets, and make them readable and relevant. Relevant data is very important in data science. </li>
-<li>Pandas gives you answers about the data Such as : Is there a correlation between two or more columns? What is the average value?Max value? Min value?</li>
+<li>Pandas gives you answers about the data Such as : Is there a correlation between two or more columns? What is the average value? Max value? Min value?</li>
 <li>Manage diffrent data sets merging them filtering them etc...</li>
 </ul>
 <p><br /></p>
 <p>Pandas is also able to delete rows that are not relevant, or contain wrong values, like empty or NULL values. This is called cleaning the data.</p>
-<p><br /></p>
-<p>There are two ways to import pandas : </p>
-<pre><code>import pandas #This will import the entire pandas module.
-
-from pandas import* # This will import all class, objects, variables etc. from pandas package
+<p><br />
+Pandas is a Python library used for data manipulation and analysis. It provides two main data structures: Series and DataFrame. A Series is a one-dimensional array-like object that can hold any data type. A DataFrame is a two-dimensional table that can hold data of different types in columns.</p>
+<p>To start using Pandas, you first need to install it. You can install it using the following command:</p>
+<pre><code>!pip install pandas
 </code></pre>
-<h3 id="pandas-series">Pandas Series</h3>
+<p>After installing pandas, you can import it as follows: </p>
+<pre><code>import pandas as pd
+</code></pre>
+<h3 id="pandas-data-structures">Pandas Data Structures</h3>
+<p>Pandas provides two main data structures: Series and DataFrame. A Series is a one-dimensional array-like object that can hold any data type. A DataFrame is a two-dimensional table that can hold data of different types in columns.</p>
+<h4 id="series">Series</h4>
 <p>A Pandas Series is like a column in a table. It is a one-dimensional array holding data of any type</p>
 <pre><code>import pandas as pd
-dataset1=[1,2,3]
+dataset1=[1, 3, 5, np.nan, 6, 8]
 df1=pd.Series(dataset1)
 print (df1)
 </code></pre>
-<h3 id="pandas-labels">Pandas Labels</h3>
 <p>If nothing else is specified, the values are labeled with their index number. The first value has index 0, etc. This label can be used to access a specified value. With the index argument, you can name your own labels. When using labels, you can access an item by using the label. Code example : </p>
 <pre><code>import pandas as pd
-dataset1=[1,2,3]
-df1=pd.Series(dataset1, index=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])
+dataset1=[1, 3, 5, np.nan, 6, 8]
+df1=pd.Series(dataset1, index=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;])
 print (df1)                     
 print (df1[&quot;a&quot;])
 </code></pre>
-<h3 id="pandas-key-value-objects">Pandas Key Value objects</h3>
 <p>We can also use key/value pair objects like dictionaries when creating a Series</p>
 <p><br /></p>
 <p>Note: The keys of the dictionary become the labels</p>
@@ -712,9 +771,16 @@ dataset1={&quot;Vehicle number&quot;:1, &quot;Wheels&quot;:4, &quot;Doors&quot;:
 df1=pd.Series(dataset1)
 print (df1)
 </code></pre>
-<h3 id="pandas-data-frames">Pandas Data Frames</h3>
+<h4 id="dataframe">DataFrame</h4>
 <p>Data sets in Pandas are usually multi-dimensional tables, called DataFrames. Series can be considered to be like a column in a table, whereas a DataFrame can be considered to be the table. </p>
 <p><br /></p>
+<p>A DataFrame can be created in several ways. One way is to pass a dictionary of lists to the pd.DataFrame() function. Each key in the dictionary represents a column name, and each list represents the data in that column.</p>
+<pre><code>data = {'name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'age': [25, 32, 18, 47],
+        'gender': ['F', 'M', 'M', 'M']}
+df = pd.DataFrame(data)
+print(df)
+</code></pre>
 <p>We can use the loc attribute to locate one or more rows. Just as with series, we can name indexes of data frames and locate them using the loc attribute</p>
 <p><br /></p>
 <p>Code example :</p>
@@ -724,13 +790,43 @@ df1=pd.DataFrame(dataset1, index=[&quot;Car&quot;,&quot;Motorcycle&quot;,&quot;V
 print(df1)
 print (df1.loc[&quot;Car&quot;])              
 </code></pre>
-<h3 id="reading-csv-files-with-pandas">Reading CSV Files with Pandas</h3>
-<p>A simple way to store big data sets is to use CSV (Comma Separated Value) files. CSV files contain plain text and are a well know format that can be read by almost all software including Pandas</p>
-<p><br /></p>
-<p>If your data sets are stored in a file, Pandas can load them into a DataFrame. Code example :</p>
-<pre><code>import pandas as pd 
-dataframe1=pd.read_csv(‘data.csv’)
-print(dataframe1.to_string())
+<h3 id="data-import-and-export">Data Import and Export</h3>
+<p>Pandas supports reading and writing data from and to various file formats, such as CSV, Excel, SQL databases, and more.</p>
+<ul>
+<li><strong>CSV</strong> : A simple way to store big data sets is to use CSV (Comma Separated Value) files. CSV files contain plain text and are a well know format that can be read by almost all software including Pandas. To read a CSV file, you can use the pd.read_csv() function. The function takes the path to the CSV file as an argument and returns a DataFrame. To write a DataFrame to a CSV file, you can use the to_csv() method. Code example :</li>
+</ul>
+<pre><code>import pandas as pd
+
+## Importing a CSV file
+df = pd.read_csv('data.csv')
+print(df)
+
+## Export a CSV file
+df.to_csv('data.csv', index=False)#The index=False argument tells Pandas not to write the row index to the CSV file.
+</code></pre>
+<ul>
+<li><strong>Excel</strong> : To read an Excel file, you can use the pd.read_excel() function. The function takes the path to the Excel file as an argument and returns a DataFrame. To write a DataFrame to an Excel file, you can use the to_excel() method.</li>
+</ul>
+<pre><code>## Importing a Excel file
+df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
+print(df)
+
+## Export a Excel file
+df.to_excel('data.xlsx', sheet_name='Sheet1', index=False)
+</code></pre>
+<ul>
+<li><strong>SQL Databases</strong> : To read data from a SQL database, you can use the pd.read_sql() function. The function takes a SQL query and a connection object as arguments and returns a DataFrame. To write a DataFrame to a SQL database, you can use the to_sql() method.</li>
+</ul>
+<pre><code>import sqlite3
+
+## Importing a SQL file
+conn = sqlite3.connect('mydatabase.db')
+query = 'SELECT * FROM mytable'
+df = pd.read_sql(query, conn)
+print(df)
+
+## Export a SQL file
+df.to_sql('mytable', conn, if_exists='replace', index=False) #The if_exists='replace' argument tells Pandas to replace the table if it already exists in the database.
 </code></pre>
 <h3 id="getting-a-quick-overview-of-the-dataframes-content">Getting a quick overview of the Dataframes content</h3>
 <ul>
@@ -746,29 +842,32 @@ print(dataframe1.to_string())
 </ul>
 <p>Code Example :</p>
 <pre><code>import pandas as pd 
-dataframe1=pd.read_csv(&quot;data.csv&quot;) 
-print (dataframe1.head())
-print (dataframe1.tail()) 
-dataframe1.info()
+df=pd.read_csv(&quot;data.csv&quot;) 
+print (df.head())
+print (df.tail()) 
+df.info()
 </code></pre>
-<h3 id="data-cleaning-with-pandas">Data Cleaning With pandas</h3>
-<p>Data cleaning means fixing bad data in your data set Examples of bad data include : </p>
+<h3 id="data-cleaning-with-pandas">Data Cleaning with pandas</h3>
+<p>Data cleaning means fixing bad data in your data set it is an essential step in data analysis. Pandas provides several functions and methods for cleaning and preparing data. Examples of bad data include : </p>
 <h4 id="empty-cells">Empty cells</h4>
-<p>Empty cells can potentially give you a wrong result when you analyze data. One way to deal with empty cells is to remove rows that contain empty cells. This usually works since data sets can be very large, and removing a few rows will not have a significant impact on the results.</p>
+<p>Empty cells can potentially give you a wrong result when you analyze data. One way to deal with empty cells is to remove rows that contain empty cells. This usually works since data sets can be very large, and removing a few rows will not have a significant impact on the results. </p>
 <p><br /></p>
+<p>To detect empty cells we can use : </p>
+<pre><code>df.isnull().value_counts()
+</code></pre>
 <p>To remove empty cells, we can use the dropna() method. By default, the dropna() method returns a new DataFrame, and will not change the original. If you want to change the original DataFrame, use the inplace = True argument. Code Example :</p>
 <pre><code>import pandas as pd                     
-dataframe1=pd.read_csv(&quot;data.csv&quot;)
-print (dataframe1)
-dataframe1.dropna(inplace=True)
-print (dataframe1)
+df=pd.read_csv(&quot;data.csv&quot;)
+print (df)
+df.dropna(inplace=True)
+print (df)
 </code></pre>
 <p>Another way of dealing with empty cells is to insert a new value to replace the empty cell. This way you do not have to delete entire rows just because of some empty cells. The fillna() method allows us to replace empty cells with a value. To only replace empty values for one column, specify the column name for the DataFrame. Code Example :</p>
 <pre><code>import pandas as pd
-dataframe1=pd.read_csv(&quot;data.csv&quot;)
-dataframe1.fillna(130, inplace=True)
-dataframe1[&quot;Calories&quot;].fillna(130, inplace=True)
-print(dataframe1.to_string())
+df=pd.read_csv(&quot;data.csv&quot;)
+df.fillna(130, inplace=True)
+df[&quot;Calories&quot;].fillna(130, inplace=True)
+print(df.to_string())
 </code></pre>
 <p>You can also fill in empty cells with the mean, median or mode of the column. Pandas uses the mean() median() and mode() methods to calculate the respective values for a specified column</p>
 <ul>
@@ -779,17 +878,17 @@ print(dataframe1.to_string())
 <p>Code Example : </p>
 <pre><code>import pandas as pd
 
-dataframe1=pd.read_csv(&quot;data.csv&quot;)
+df=pd.read_csv(&quot;data.csv&quot;)
 
-meancal=dataframe1[&quot;Calories&quot;].mean()
-mediancal=dataframe1[&quot;Calories&quot;].median()
-modecal=dataframe1[&quot;Calories&quot;].mode()
+meancal=df[&quot;Calories&quot;].mean()
+mediancal=df[&quot;Calories&quot;].median()
+modecal=df[&quot;Calories&quot;].mode()
 
 print (&quot;The mean of calories is&quot; + str(meancal) + &quot; The median of calories is &quot; + str(mediancal) + &quot; The mode of calories is &quot; + str(modecal)) 
 
-meandf=dataframe1[&quot;Calories&quot;].fillna(meancal)
-mediandf=dataframe1[&quot;Calories&quot;].fillna(mediancal)
-modedf=dataframe1[&quot;Calories&quot;].fillna(modecal)
+meandf=df[&quot;Calories&quot;].fillna(meancal)
+mediandf=df[&quot;Calories&quot;].fillna(mediancal)
+modedf=df[&quot;Calories&quot;].fillna(modecal)
 
 print(meandf.to_string())
 print(mediandf.to_string())
@@ -811,19 +910,17 @@ print(modedf.to_string())
 <p>Code Example</p>
 <pre><code>import pandas as pd 
 
-dataframe1=pd.read_csv(&quot;data.csv&quot;)
-dataframe2=pd.read_csv(&quot;data.csv&quot;)
+df1=pd.read_csv(&quot;data.csv&quot;)
+df2=pd.read_csv(&quot;data.csv&quot;)
 
-print(dataframe1.to_string())
-print(dataframe2.to_string())
 
-for x in dataframe1.index: #replace all values in duration above 120 with 120 
-    if dataframe1.loc[x, &quot;Duration&quot;] &gt; 120:
-        dataframe1.loc[x,&quot;Duration&quot;] = 120
+for x in df1.index: #replace all values in duration above 120 with 120 
+    if df1.loc[x, &quot;Duration&quot;] &gt; 120:
+        df1.loc[x,&quot;Duration&quot;] = 120
 
-for y in dataframe2.index: #drop all values above 120
-    if dataframe2.loc[y, &quot;Duration&quot;] &gt;120:
-        dataframe2.drop(y, inplace = True)
+for y in df2.index: #drop all values above 120
+    if df2.loc[y, &quot;Duration&quot;] &gt;120:
+        df2.drop(y, inplace = True) 
 
 print(dataframe1.to_string())
 print(dataframe2.to_string())
@@ -833,20 +930,38 @@ print(dataframe2.to_string())
 <p><br /></p>
 <p>To discover duplicates, we can use the duplicated() method The duplicated() method returns a Boolean values for each row To remove duplicates, use the drop_duplicates() method. Code Example :</p>
 <pre><code>import pandas as pd
-dataframe1=pd.read_csv(&quot;data.csv&quot;)
+df1=pd.read_csv(&quot;data.csv&quot;)
 
-print(dataframe1.duplicated()) #search for duplicates and output true when found 
+df1.duplicated().value_counts() #search for duplicates and output true when found 
 
-dataframe1.drop_duplicates(inplace = True) #drop all duplicates
+df1.drop_duplicates(inplace = True) #drop all duplicates
 
-print(dataframe1.to_string()) #find and drop duplicates example
+df1
 </code></pre>
+<h3 id="merging-and-joining-data">Merging and Joining Data</h3>
+<p>Pandas provides several functions and methods for merging and joining DataFrames.</p>
+<p><br /></p>
+<p>To merge two DataFrames based on a common column, you can use the merge() method.</p>
+<pre><code>df1 = pd.DataFrame({'id': [1, 2, 3, 4], 'name': ['Alice', 'Bob', 'Charlie', 'David']})
+df2 = pd.DataFrame({'id': [1, 2, 3, 4], 'age': [25, 32, 18, 47]})
+merged_df = pd.merge(df1, df2, on='id')  # Merge DataFrames on 'id' column
+print(merged_df)
+</code></pre>
+<p>The merge() method merges the two DataFrames based on the 'id' column. The result is a new DataFrame with columns from both DataFrames.</p>
+<p><br /></p>
+<p>To join two DataFrames based on a common column, you can use the join() method.</p>
+<pre><code>df1 = pd.DataFrame({'id': [1, 2, 3, 4], 'name': ['Alice', 'Bob', 'Charlie', 'David']})
+df2 = pd.DataFrame({'id': [1, 2, 3, 4], 'age': [25, 32, 18, 47]})
+joined_df = df1.set_index('id').join(df2.set_index('id'))  # Join DataFrames on 'id' column
+print(joined_df)
+</code></pre>
+<p>The join() method joins the two DataFrames based on the 'id' column. The result is a new DataFrame with columns from both DataFrames.</p>
 <h3 id="data-analysis-in-pandas">Data Analysis in Pandas</h3>
 <h4 id="correlation-in-pandas">Correlation in Pandas</h4>
 <p>The corr() method calculates the relationship between each column in your data set. The corr() method ignores "not numeric" columns. Code Example : </p>
 <pre><code>import pandas as pd
-dataframe1=pd.read_csv(&quot;data.csv&quot;) 
-dataframe1.corr()
+df1=pd.read_csv(&quot;data.csv&quot;) 
+df1.corr()
 </code></pre>
 <p><br /></p>
 <p>The Result of the corr() method is a table with a lot of numbers that represents how well the relationship is between two columns. The number varies from -1 to 1 such as :</p>
