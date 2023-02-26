@@ -457,6 +457,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plt/" class="md-nav__link">
+        Understanding & working with Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sns/" class="md-nav__link">
+        Understanding & working with Seaborn
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -592,16 +620,16 @@
 <p>What makes NumPy arrays faster than lists: NumPy arrays are stored at one continuous place in memory unlike lists, so processes can access and manipulate them very efficiently. This behavior is called locality of reference. This is the main reason why NumPy is faster than lists. It is also optimized to work with the latest CPU architectures.</p>
 <h2 id="installing-numpy">Installing NumPy</h2>
 <p>To install NumPy, you can use pip, the Python package installer. Open your terminal or command prompt and enter the following command:</p>
-<pre><code>pip3 install numpy
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pip3</span> <span class="n">install</span> <span class="n">numpy</span>
+</span></code></pre></div>
 <h2 id="importing-numpy">Importing NumPy</h2>
 <p>There are two ways to import NumPy. Code Example : </p>
-<pre><code># this will import the entire NumPy module.
-import numpy as np
-# this will import all class, objects, variables etc from the NumPy package   
-from numpy import*  
-</code></pre>
-<p>NumPy is usually imported under the np alias. </p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># this will import the entire NumPy module.</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># this will import all class, objects, variables etc from the NumPy package   </span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span><span class="o">*</span>  
+</span></code></pre></div>
+NumPy is usually imported under the np alias. </p>
 <p><br /></p>
 <p>alias: In Python aliases are an alternate name for referring to the same thing. </p>
 <p><br /></p>
@@ -610,106 +638,99 @@ from numpy import*
 <ul>
 <li>Using the numpy.array() function to create an array from a list/tuple:</li>
 </ul>
-<pre><code>a = np.array([1, 2, 3])
-</code></pre>
-<ul>
-<li>Using the numpy.zeros() function to create an array filled with zeros:</li>
-</ul>
-<pre><code>b = np.zeros((2, 3))
-</code></pre>
-<ul>
-<li>Using the numpy.ones() function to create an array filled with ones:</li>
-</ul>
-<pre><code>c = np.ones((2, 3))
-</code></pre>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></code></pre></div>
+- Using the numpy.zeros() function to create an array filled with zeros:</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></code></pre></div>
+- Using the numpy.ones() function to create an array filled with ones:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></code></pre></div>
 <ul>
 <li>Using the numpy.random.randint(): Returns an array of random integers between the two given numbers</li>
 </ul>
-<pre><code>d = np.random.randint(0, 10)
-</code></pre>
-<ul>
-<li>Using the numpy.random.rand() function to create an array of random values:</li>
-</ul>
-<pre><code>e = np.random.rand(2, 3)
-</code></pre>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></code></pre></div>
+- Using the numpy.random.rand() function to create an array of random values:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="numpy-array-dimensions">NumPy Array Dimensions</h2>
 <p>A dimension in arrays is one level of array depth (nested arrays). nested array: are arrays that have arrays as their elements. 0-D Arrays 1-D Arrays 2-D Arrays 3-D Arrays.</p>
 <p><br /></p>
 <p>0-D arrays, or Scalars, are the elements in an array. Each value in an array is a 0-D array. </p>
 <p><br /></p>
 <p>Code Example:</p>
-<pre><code>arr=np.array(30) 
-print (arr)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> 
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></code></pre></div>
 <p>An array that has 0-D arrays as its elements is called a uni-dimensional or 1-D array. These are the most common types of arrays. </p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code> arr=np.array([30,35,38,40,46,52])
- print (arr)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a> <span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">52</span><span class="p">])</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a> <span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></code></pre></div>
 <p>An array that has 1-D arrays as its elements is called a 2-D array. These are often used to represent matrix or 2nd order tensors. </p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code>arr=np.array([[30,35,38,40,46,52],[22,28,39,42,49,52]])
- print (arr)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">52</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">52</span><span class="p">]])</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a> <span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></code></pre></div>
 <p>An array that has 2-D arrays (matrices) as its elements is called 3-D array. These are often used to represent a 3rd order tensor. </p>
 <p><br /></p>
 <p>Code Example : </p>
-<pre><code>arr=np.array([[[30,35,38,40,46,52],[22,28,39,42,49,52], [71,24,88,64,31,94]]])
-print (arr)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">52</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">52</span><span class="p">],</span> <span class="p">[</span><span class="mi">71</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">94</span><span class="p">]]])</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></code></pre></div>
 <p>NumPy Arrays provides the ndim attribute that returns an integer that tells us how many dimensions the array has. </p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code>arr=np.array([[[30,35,38,40,46,52],[22,28,39,42,49,52], [71,24,88,64,31,94]]])
-print (arr.ndim)
-</code></pre>
-<p>An array can have any number of dimensions. When the array is created, you can define the number of dimensions by using the ndim argument. </p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">52</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">52</span><span class="p">],</span> <span class="p">[</span><span class="mi">71</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">94</span><span class="p">]]])</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</span></code></pre></div>
+An array can have any number of dimensions. When the array is created, you can define the number of dimensions by using the ndim argument. </p>
 <p><br /></p>
 <p>Code Example : </p>
-<pre><code>arr=np.array([1,2,3,4],ndmin=6)
-print (arr.ndim)
-print (“Number of dimensions:”, arr.ndim)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">ndmin</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">print</span> <span class="p">(</span><span class="err">“</span><span class="n">Number</span> <span class="n">of</span> <span class="n">dimensions</span><span class="p">:</span><span class="err">”</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="arrays-type-and-shape">Arrays type and shape</h2>
 <p><strong>NumPy Array Data Type</strong> :The NumPy array object has a property called dtype that returns the data type of the array.</p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code>arr=np.array([1,2,3,4,5]) 
-print (arr.dtype)
-</code></pre>
-<p><strong>NumPy Array Shape</strong> : The shape of an array is the number of elements in each dimension. NumPy arrays have an attribute called shape that returns a tuple with each index having the number of corresponding elements</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>NumPy Array Shape</strong> : The shape of an array is the number of elements in each dimension. NumPy arrays have an attribute called shape that returns a tuple with each index having the number of corresponding elements</p>
 <p><br /></p>
 <p>Code example :</p>
-<pre><code>arr=np.array([1,2,3,4,5,6])
-print (arr.shape)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="numpy-array-indexing">NumPy Array Indexing</h2>
 <p>Array indexing is the same as accessing an array element. You can access an array element by referring to its index number. The indexes in NumPy arrays start with 0, meaning that the first element has index 0, and the second has index 1 etc.</p>
 <p><br /></p>
 <p>Code Example : </p>
-<pre><code>arr=np.array([1,2,3,4])
-print (arr[0])
-</code></pre>
-<p>To access elements from 2-D arrays we can use comma separated integers representing the dimension and the index of the element.</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></code></pre></div>
+To access elements from 2-D arrays we can use comma separated integers representing the dimension and the index of the element.</p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code>arr=np.array([[1,2,3,4],[4,3,2,1]])
-print (arr[0][1])
-
-</code></pre>
-<p>To access elements from 3-D arrays we can use comma separated integers representing the dimensions and the index of the element. </p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</span></code></pre></div>
+To access elements from 3-D arrays we can use comma separated integers representing the dimensions and the index of the element. </p>
 <p><br /></p>
 <p>Code Example : </p>
-<pre><code>arr=np.array([1,2,3,4],[4,3,2,1],[8,6,7,9])
-print (arr[0][1][0])
-</code></pre>
-<p>Use negative indexing to access an array from the end
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</span></code></pre></div>
+Use negative indexing to access an array from the end
 Code Example</p>
-<pre><code>arr=np.array([1,2,3,4],[4,3,2,1],[8,6,7,9])
-print (arr[0][-1][-2])
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</span></code></pre></div>
 <h2 id="numpy-array-slicing">NumPy Array Slicing</h2>
 <p>Slicing in python means taking elements from one given index to another given index. We pass slice instead of index like this [start: end]. We can also define the step, like this [start:end:step].</p>
 <ul>
@@ -720,67 +741,67 @@ print (arr[0][-1][-2])
 <p>Note: The result includes the start index, but excludes the end index. Use the minus operator to refer to an index from the end.</p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code>arr=np.array([1,2,3,4,5])
-print (arr[0:5]) #slice arrays from index 0 to 5 excluding 5 print (arr[:4]) #slice from beginning to 4 excluding 4
-print (arr[2:]) #slice from index 2 onwards
-print (arr[:-3]) #slice from index -3
-</code></pre>
-<p>Code Example :</p>
-<pre><code>arr=np.array([1,2,3,4,5])
-print (arr[:4:1]) #slice from beginning to 4 step of 1 print (arr[0::3]) #slice from index 0 onwards step of 3 print (arr[:-1:2]) #slice from index -1 step of 2
-</code></pre>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="c1">#slice arrays from index 0 to 5 excluding 5 print (arr[:4]) #slice from beginning to 4 excluding 4</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span> <span class="c1">#slice from index 2 onwards</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span> <span class="c1">#slice from index -3</span>
+</span></code></pre></div>
+Code Example :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">4</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#slice from beginning to 4 step of 1 print (arr[0::3]) #slice from index 0 onwards step of 3 print (arr[:-1:2]) #slice from index -1 step of 2</span>
+</span></code></pre></div>
 <h2 id="array-operations-in-numpy">Array Operations in NumPy</h2>
 <p><strong>Element-wise Operations</strong> : NumPy allows you to perform element-wise operations on arrays. Here are some examples:</p>
-<pre><code>a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
-
-# Element-wise addition
-c = a + b
-print(c)  # Output: [5 7 9]
-
-# Element-wise multiplication
-d = a * b
-print(d)  # Output: [ 4 10 18]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># Element-wise addition</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># Output: [5 7 9]</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># Element-wise multiplication</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># Output: [ 4 10 18]</span>
+</span></code></pre></div>
 <p><strong>Matrix Multiplication</strong> : NumPy allows you to perform matrix multiplication using the numpy.dot() function. Here is an example:</p>
-<pre><code>a = np.array([[1, 2], [3, 4]])
-b = np.array([[5, 6], [7, 8]])
-
-# Matrix multiplication
-c = np.dot(a, b)
-print(c)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Matrix multiplication</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span></code></pre></div>
 <p><strong>NumPy Array Reshaping</strong> : Reshaping means changing the shape of an array. The shape of an array is the number of elements in each dimension. By reshaping we can add or remove dimensions or change number of elements in each dimension.</p>
 <p><br /></p>
 <p>Code Example :</p>
-<pre><code># we can do it this way
-arr=np.array([1,2,3,4,5,6,7,8,9,10])
-arr2= arr.reshape(5,2)
-print (arr)
-print (arr2)
-# or this way
-a = np.array([1, 2, 3, 4, 5, 6])
-b = np.reshape(a, (2, 3))
-print (a)
-print (b)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># we can do it this way</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">arr2</span><span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c1"># or this way</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="nb">print</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></code></pre></div>
 <p><strong>Transposing Arrays</strong> : NumPy provides a way to transpose arrays using the numpy.transpose() function. Here is an example:</p>
-<pre><code>a = np.array([[1, 2], [3, 4], [5, 6]])
-b = np.transpose(a)
-print(b)
-</code></pre>
-<p><strong>Aggregation Functions</strong> : NumPy provides several aggregation functions that can be used to compute statistics on arrays. Here are some examples:</p>
-<pre><code>a = np.array([1, 2, 3, 4, 5])
-
-# Computing the sum of the elements in the array
-print(np.sum(a))  # Output: 15
-
-# Computing the mean of the elements in the array
-print(np.mean(a))  # Output: 3.0
-
-# Computing the standard deviation of the elements in the array
-print(np.std(a))  # Output: 1.41421356
-</code></pre>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Aggregation Functions</strong> : NumPy provides several aggregation functions that can be used to compute statistics on arrays. Here are some examples:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1"># Computing the sum of the elements in the array</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># Output: 15</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="c1"># Computing the mean of the elements in the array</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># Output: 3.0</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="c1"># Computing the standard deviation of the elements in the array</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># Output: 1.41421356</span>
+</span></code></pre></div>
 <h2 id="numpy-array-copy-and-view">NumPy Array Copy and View</h2>
 <p>The main difference between a copy and a view of an array is that the copy is a new array, and the view is just a view, or link to, the original array.</p>
 <p><br /></p>
@@ -793,11 +814,11 @@ print(np.std(a))  # Output: 1.41421356
 <p>Every NumPy array has the attribute base that returns None if the array owns the data. Otherwise, the base attribute refers to the original object</p>
 <p><br /></p>
 <p>Code example :</p>
-<pre><code>import numpy as np
-arr=np.array([1,2,3,4,5,6])
-arrview=arr.view() #creates a view of the array arrcopy=arr.copy() #creates a copy of the array
-print (arrview.base) #check if the array owns its data print (arrcopy.base) #check if the array owns its data (should output none)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">arrview</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="n">view</span><span class="p">()</span> <span class="c1">#creates a view of the array arrcopy=arr.copy() #creates a copy of the array</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">arrview</span><span class="o">.</span><span class="n">base</span><span class="p">)</span> <span class="c1">#check if the array owns its data print (arrcopy.base) #check if the array owns its data (should output none)</span>
+</span></code></pre></div>
 <p><a href="https://numpy.org/doc/1.24/reference/index.html"><strong>Documentations NumPy</strong></a></p>
 
 
@@ -840,6 +861,12 @@ print (arrview.base) #check if the array owns its data print (arrcopy.base) #che
     
     
       <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
