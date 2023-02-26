@@ -41,4 +41,11 @@ nav:
     - 'Build a company database from scratch': 'sql/12_company_db_1'
     - 'More Queries': 'sql/13_queries_db.md'
     - 'SQL Functions': 'sql/14_functions.md'
+    - 'Wildcards & Unions': 'sql/15_Wildcards.md'
+    #- 'Union': 'sql/16_unions.md'
+    - 'Joins': 'sql/17_joins.md'
+    - 'Nested Queries': 'sql/18_Nested_Queries.md'
+    - 'On Delete': 'sql/19_delete.md'
+    - 'Triggers': '20_triggers.md'
+    - 'ER DIagrams': 'er_diagrams.md'
 
