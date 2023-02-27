@@ -27,7 +27,9 @@ GROUP BY departments.dept_name
 HAVING AVG(salaries.salary) > (SELECT AVG(salary) FROM salaries);
 ```
 
-This query returns a result set that includes the department name and average salary for each department where the average salary is greater than the overall average salary for the company. The subquery is used in the `HAVING` clause to retrieve the overall average salary for the company.
+This query joins the employees, salaries, dept_emp, and departments tables together based on the employee number, department number, and salary information. It then groups the results by department name using the `GROUP BY` clause and calculates the average salary for each department using the `AVG` function.
+
+The `HAVING` clause is used to filter the results based on the condition that the average salary for a department is greater than the overall average salary of all employees, which is calculated using a subquery that selects the average salary from the salaries table.
 
 ## Some examples with MySQL Employees database
 
@@ -73,8 +75,17 @@ The `GROUP BY` clause is used to group the results by employee number. This ensu
 
 Finally, the `LIMIT` clause is used to limit the results to only the top row, which corresponds to the employee with the highest salary.
 
-## Conclusion
+## Wrap-up
 
 Nested queries, or subqueries, are a powerful tool in SQL that allows for complex queries to be written by breaking them down into smaller, more manageable queries. Subqueries can be used in various parts of a query, including `SELECT`, `WHERE`, and `HAVING` clauses. By understanding how to use subqueries in SQL, you can write more complex queries and retrieve more specific data from a database.
+
+Here's a summary of what we've learned about nested queries in SQL:
+
+- A nested query, also known as a subquery, is a query that is nested inside another query.
+- Subqueries can be used in various parts of a query, such as SELECT, WHERE, and HAVING clauses.
+- Subqueries are typically enclosed in parentheses and used in conjunction with an operator such as IN, EXISTS, or =.
+- Subqueries can be used to retrieve data that will be used in the main query, allowing for complex queries that would be difficult to write using a single query.
+- Examples of subqueries include retrieving data for employees who are currently managers, retrieving data for employees who were hired in the same year as a specific employee, and retrieving data for departments with the highest average salary.
+- Understanding how to use subqueries in SQL can help you write more complex queries and retrieve more specific data from a database.
 
 

@@ -15,8 +15,7 @@ There are several types of joins in SQL, including `inner join`, `left join`, `r
 Here a summary schema for each type of join : 
 
 
-![Screenshot](https://cartman34.fr/wp-content/uploads/2017/01/sql_joins.jpg
-)
+![Screenshot](https://cartman34.fr/wp-content/uploads/2017/01/sql_joins.jpg)
 
 - **Inner Join**: This join returns only the rows that have matching values in both tables. In the image, the result of an inner join between tables A and B is shown. Only the rows that have matching values in both tables are included in the result set.
 - **Left Join**: This join returns all the rows from the left table and the matching rows from the right table. If there is no match in the right table, the result will contain NULL values for those columns. In the image, the result of a left join between tables A and B is shown. All the rows from table A are included in the result set, and the matching rows from table B are included. Rows in table A that have no matching rows in table B are included, with NULL values for the columns in table B.
