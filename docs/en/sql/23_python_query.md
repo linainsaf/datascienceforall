@@ -1,13 +1,16 @@
 # Querying Data with Python
 
 In this section we will see how to use SQLAlchemy for connecting MySQL database and play with the data. 
-Let's write a python script `connect_db.py` who connects to a MySQL database using SQLAlchemy library, select a table and perform a query. 
 
-```py
+## Querying an existing database 
+
+Let's write a python script `query_db.py` who connects to a MySQL database using SQLAlchemy library, select a table and perform a query. 
+
+```py title="query_db.py" hl_lines="14 20 21 22"
 from sqlalchemy import create_engine, inspect
 
 # create an engine to connect to the database
-engine = create_engine('mysql://root:root@localhost:3306/employees')
+engine = create_engine('mysql://user:password@localhost:3306/employees')
 
 # create an inspector to get metadata about the database
 inspector = inspect(engine)
@@ -28,3 +31,5 @@ for table_name in table_names:
             print(row)
 
 ```
+
+

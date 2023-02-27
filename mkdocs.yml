@@ -14,6 +14,8 @@ markdown_extensions:
 
 theme:
   name: material
+  features:
+    - content.code.copy
 
 nav: 
   - Home: 'index.md'
