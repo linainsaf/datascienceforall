@@ -49,4 +49,5 @@ nav:
     - 'Triggers': 'sql/20_triggers.md'
     - 'ER DIagrams': 'sql/21_er_diagrams.md'
     - 'Python and SQLAlchemy': 'sql/22_Python_SQLAlchemy.md'
+    - 'Querying Data with Python': 'sql/23_python_query.md'
 
