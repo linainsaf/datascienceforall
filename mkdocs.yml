@@ -69,3 +69,4 @@ nav:
       - 'Updating and Deleting Data with Python': 'sql/25_python_update_delete.md'
       - 'Advanced Queries with Python': 'sql/26_python_queries.md'
       - 'Working with large dataset': 'sql/27_python_large_data.md'
+      - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'

@@ -125,7 +125,8 @@ for i in range(0, len(employees_list), batch_size):
 ```
 
 ## 6. Parallel Processing
-Another technique for processing large datasets is to use parallel processing. This can be done using the concurrent.futures module in Python. Here is an example of how to use the ThreadPoolExecutor class to execute a function in parallel on a large dataset:
+Another technique for processing large datasets is to use parallel processing. This can be done using the `concurrent.futures` module in Python. Here is an example of how to use the `ThreadPoolExecutor` class to execute a function in parallel on a large dataset:
+
 ```py
 from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy.orm import sessionmaker
