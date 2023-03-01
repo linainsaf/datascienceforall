@@ -16,6 +16,14 @@ theme:
   name: material
   features:
     - content.code.copy
+    - content.code.annotate 
+  palette:
+
+  # Palette toggle for automatic mode
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
 
 nav: 
   - Home: 'index.md'
@@ -58,4 +66,6 @@ nav:
       - 'Introduction': 'sql/22_Python_SQLAlchemy.md'
       - 'Querying Data with Python': 'sql/23_python_query.md'
       - 'Object Relational Mapping in Python': 'sql/24_python_orm.md'
-
+      - 'Updating and Deleting Data with Python': 'sql/25_python_update_delete.md'
+      - 'Advanced Queries with Python': 'sql/26_python_queries.md'
+      - 'Working with large dataset': 'sql/27_python_large_data.md'

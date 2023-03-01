@@ -141,16 +141,16 @@ Choosing the right database connection is an important consideration when workin
 
 ## Connect to our Employees database 
 
-Let's write a python script `connect_db.py` who connects to a MySQL database using SQLAlchemy library and retrieves some data (or metadata) about the database tables. 
+Let's write a python script `connect_db.py` who connects to our MySQL employees database using SQLAlchemy library and retrieves some data (or metadata) about the database tables. 
 
 ```py
 from sqlalchemy import create_engine, inspect
 host = '127.0.0.1'
 db = 'employees'
 # create an engine to connect to the database
-print(f'--- Connecting database : mysql://user:passwordd@{host}:3306/{db}---\n')
+print(f'--- Connecting database : mysql://user:password@{host}:3306/{db}---\n')
 
-engine = create_engine(f'mysql://root:root@localhost:3306/{db}')
+engine = create_engine(f'mysql://user:password@localhost:3306/{db}')
 # create an inspector to get metadata about the database
 inspector = inspect(engine)
 print(f'--- ✅ Connection database OK ✅---')

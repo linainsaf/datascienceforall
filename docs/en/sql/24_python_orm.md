@@ -34,7 +34,7 @@ Support for migrations: SQLAlchemy provides support for database migrations, all
 
 Using SQLAlchemy for ORM involves several steps:
 
-- Define the database schema using Python classes or connecting an existing database.
+- Define the database schema using Python classes. 
 - Create an engine that connects to the database.
 - Define a session factory that will be used to create sessions.
 - Use the session factory to create a session.
@@ -47,7 +47,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 # create an engine to connect to the database
-engine = create_engine('mysql://root:root@localhost:3306/employees')
+engine = create_engine('mysql://user:password@localhost:3306/employees')
 
 # create a session to work with the database
 Session = sessionmaker(bind=engine)
@@ -87,6 +87,219 @@ The main advantage of ORM is that it allows developers to work with databases in
 SQLalchemy provides a powerful ORM that allows developers to work with databases in a high-level, Pythonic way. The ORM provides an abstraction layer between the Python code and the database, making it easier to work with databases without needing to know SQL.
 
 
+## Mapping the employees database
+
+```py title="orm_1.py"
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey
+
+# create an engine to connect to the database
+engine = create_engine('mysql://user:password@localhost:3306/employees')
+
+# create a metadata object to reflect the database schema
+metadata = MetaData()
+
+# define the departments table
+departments = Table('departments', metadata,
+    Column('dept_no', String(4), primary_key=True),
+    Column('dept_name', String(40))
+)
+
+# define the dept_emp table
+dept_emp = Table('dept_emp', metadata,
+    Column('emp_no', Integer, ForeignKey('employees.emp_no')),
+    Column('dept_no', String(4), ForeignKey('departments.dept_no')),
+    Column('from_date', String(10)),
+    Column('to_date', String(10))
+)
+
+# define the dept_manager table
+dept_manager = Table('dept_manager', metadata,
+    Column('emp_no', Integer, ForeignKey('employees.emp_no')),
+    Column('dept_no', String(4), ForeignKey('departments.dept_no')),
+    Column('from_date', String(10)),
+    Column('to_date', String(10))
+)
+
+# define the employees table
+employees = Table('employees', metadata,
+    Column('emp_no', Integer, primary_key=True),
+    Column('birth_date', String(10)),
+    Column('first_name', String(14)),
+    Column('last_name', String(16)),
+    Column('gender', String(1)),
+    Column('hire_date', String(10))
+)
+
+# define the salaries table
+salaries = Table('salaries', metadata,
+    Column('emp_no', Integer, ForeignKey('employees.emp_no')),
+    Column('salary', Integer),
+    Column('from_date', String(10)),
+    Column('to_date', String(10))
+)
+
+# define the titles table
+titles = Table('titles', metadata,
+    Column('emp_no', Integer, ForeignKey('employees.emp_no')),
+    Column('title', String(50)),
+    Column('from_date', String(10)),
+    Column('to_date', String(10))
+)
+
+# create a session to interact with the database
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# example query to select all employees
+result = session.query(employees).all()
+for row in result:
+    print(row.emp_no, row.first_name, row.last_name)
+
+# close the session
+session.close()
+```
+
+In this example, we first create an `engine` to connect to the database using the `create_engine` function. Then we define the tables in the database using the `Table` and `Column` objects from the sqlalchemy module, and create a metadata object to reflect the database schema.
+
+We then create a session to interact with the database using the `sessionmaker` function, and use the `query` method of the session object to execute a `SELECT` statement on the employees table, selecting all rows and printing : *the employee number, first name, and last name.*
+
+Finally, we close the session using the close method. We can refactor our code like this : 
+
+```py title="orm_2.py" 
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey
+
+# create an engine to connect to the database
+engine = create_engine('mysql://user:password@localhost:3306/employees')
+
+# create a metadata object to reflect the database schema
+metadata = MetaData()
+
+# create a session to interact with the database
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+session = Session()
+
+#
+# define tables like in orm_1.py script  
+#
+
+# example query 
+try:
+    result = session.query(employees, salaries).filter(employees.c.emp_no == salaries.c.emp_no).limit(10)
+    for row in result:
+        print(row)
+finally:
+    session.close()
+```
+Let's dig into this code 
+
+- First, we import the necessary modules, including create_engine, Table, Column, Integer, String, MetaData, ForeignKey, and sessionmaker.
+- Next, we create an engine to connect to our MySQL database, using the create_engine function.
+- We then create a session to work with the database using sessionmaker.
+- We define metadata using MetaData.
+- We define the employees and salaries tables using Table and Column.
+- We join the two tables using the filter function, specifying the emp_no columns to join on.
+- We limit the results to 10 using the limit function.
+- Finally, we print the results of the query.
+
+This code joins the `employees` and `salaries` tables on their respective `emp_no` columns and returns the first 10 results. The result is a list of tuples, with each tuple containing the corresponding rows from the two tables.
+
+### Perform queries
+
+Let's take a look at the top 5 highest paid employees : 
+
+```py title="orm_3.py"
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey
+
+# create an engine to connect to the database
+engine = create_engine('mysql://user:password@localhost:3306/employees')
+
+# create a metadata object to reflect the database schema
+metadata = MetaData()
+
+# create a session to interact with the database
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+session = Session()
+
+#
+# define tables like in orm_1.py script  
+#
+
+# example query 
+try:
+    result = (
+    session.query(employees, salaries)\
+    .filter(employees.c.emp_no == salaries.c.emp_no)\
+    .order_by(desc(salaries.c.salary))\
+    .limit(5)
+)
+    for row in result:
+        print(f'Employee {row.first_name}-{row.last_name} earn {row.salary}$/year')
+        #print(f"{employee.first_name} earns {salary.salary} dollars")
+finally:
+    session.close()
+```
+
+Here we've added an `order_by()` method to sort the results in descending order by the salary column. The `desc()` function is used to specify a descending sort. Finally, we use the `limit()` method to limit the results to the top 10 highest paid employees.
+
+Let's take a look to an other query, this time without using `session()` and ORM mapping. 
+
+### Using SQLAlchemy `Table` object to join data 
+
+Let's take a look at SQLAlchemy join and why this method has several benefits over manual SQL  joins:
+
+- **Abstraction**: SQLAlchemy provides a high-level object-oriented abstraction layer over SQL, making it easier to write queries and perform joins without needing to write low-level SQL code.
+- **Portability**: Because SQLAlchemy provides a layer of abstraction, it makes it easier to switch databases without having to re-write queries. This is especially useful for larger projects where databases may need to be switched due to scaling or other requirements.
+- **Security**: SQLAlchemy's query system provides a safe and secure way to build complex queries, helping to prevent SQL injection attacks.
+- **Easier to read and maintain**: SQLAlchemy queries are often easier to read and maintain than raw SQL queries. This is because they are written in Python, which is a more expressive and easier to read language than SQL.
+- **Object-Relational Mapping (ORM)**: SQLAlchemy provides an ORM that maps database tables to Python classes, making it easy to work with data in an object-oriented manner. This can simplify code and make it easier to reason about the data model.
+
+Overall, using SQLAlchemy to join data provides a more efficient and effective way to interact with databases, reducing the likelihood of errors and making it easier to maintain code in the long-term.
+
+
+#### Using `Table()`
+
+The primary difference between using `Table` and the ORM approach in SQLAlchemy is how the data is represented and accessed.
+
+When using `Table`, the data is represented as tables and columns in the database. Queries are constructed using SQL-like syntax, and the results are returned as tuples or dictionaries. This approach requires a good understanding of SQL and database structure, as well as the ability to write complex queries.
+
+```py title="join_query.py"
+from sqlalchemy import create_engine, MetaData, Table, select
+
+# Define the engine
+engine = create_engine('mysql://user:password@localhost:3306/employees')
+
+# Define the metadata
+metadata = MetaData()
+
+# Define the tables
+employees = Table('employees', metadata, autoload=True, autoload_with=engine)
+dept_emp = Table('dept_emp', metadata, autoload=True, autoload_with=engine)
+departments = Table('departments', metadata, autoload=True, autoload_with=engine)
+
+# Define the query
+query = select([employees.c.emp_no, employees.c.first_name, employees.c.last_name, departments.c.dept_name]).\
+    select_from(employees.join(dept_emp).join(departments, dept_emp.c.dept_no == departments.c.dept_no))
+
+# Execute the query
+result = engine.execute(query)
+
+# Print the results
+for row in result:
+    print(row)
+```
+
+This query selects the `emp_no`, `first_name`, `last_name`, and `dept_name` columns from the `employees`, `dept_emp`, and `departments` tables, and joins them together based on the `dept_no` column in `dept_emp` and `departments`. It then executes the query and prints the results.
+
+#### ORM or `Table`
+
+On the other hand, the ORM approach in SQLAlchemy allows developers to work with Python classes that represent database tables, and instances of those classes represent rows in the database. Queries are constructed using Python methods and attributes, which are then translated to SQL statements by SQLAlchemy. The results are returned as instances of the corresponding Python classes, making it easier to work with the data in a more object-oriented way.
+
+Overall, the ORM approach is more intuitive for developers who are more familiar with object-oriented programming and less familiar with SQL. It also provides better abstraction from the underlying database structure, making it easier to make changes to the schema without affecting the application code. However, the Table approach may be more appropriate in cases where more fine-grained control over the SQL queries is required.
+
 ## Wrap-up 
 
 Whether you prefer to work with SQL directly or use an ORM, SQLalchemy has you covered. With its intuitive API, SQLalchemy makes it easy to connect to databases, perform queries, and manipulate data. Understanding how to use SQLalchemy is an essential skill for any Python developer working with databases.
+
