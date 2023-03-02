@@ -70,3 +70,4 @@ nav:
       - 'Advanced Queries with Python': 'sql/26_python_queries.md'
       - 'Working with large dataset': 'sql/27_python_large_data.md'
       - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'
+      - 'Python Wrap-up Projects': 'sql/29_python_projects.md'

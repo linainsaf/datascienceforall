@@ -141,7 +141,7 @@ async def get_employee_salaries(emp_no: int, db: Session = Depends(get_db)):
 
 ## Writing our API
 
-Let wrap up and add a final endpoint `/departments/{dept_no}/employees` : 
+Let's wrap up and add a final endpoint `/departments/{dept_no}/employees` : 
 
 ```py title="main.py"
 from fastapi import FastAPI, HTTPException
