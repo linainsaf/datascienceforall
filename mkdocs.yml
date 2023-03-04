@@ -46,6 +46,7 @@ nav:
     - 'Installation':
       - 'Install MySQL on MacOS': 'sql/05_MacOS_install.md'
       - 'Install MySQL on Windows': 'sql/06_Windows_install.md'
+      - 'Install MySQL with docker': 'sql/06_b_docker_install.md'
     - 'CRUD (Create, Read, Update, Delete) operations':
       - 'Creating tables': 'sql/07_creating_tables.md'
       - 'Inserting Data': 'sql/08_insert.md'
