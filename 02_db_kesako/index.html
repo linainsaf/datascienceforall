@@ -8,20 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://datascience_careerera.com/intro/">
+        <link rel="canonical" href="https://datascience_careerera.com/02_db_kesako/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../01_sql_intro/">
       
-      
-        <link rel="next" href="../env/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Introduction to Python Programming - Data Science</title>
+        <title>Introduction to RDBMS - Data Science</title>
       
     
     
@@ -69,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-python-programming" class="md-skip">
+        <a href="#what-are-rdbms" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to Python Programming
+              Introduction to RDBMS
             
           </span>
         </div>
@@ -201,20 +199,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Python Programming
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -230,55 +226,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction to Python Programming
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
         Introduction to Python Programming
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction-to-python-programming" class="md-nav__link">
-    Introduction to Python Programming
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#various-recources-for-you-to-practice" class="md-nav__link">
-    Various Recources for you to practice
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -442,18 +394,20 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
           Database Management Systems
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -483,11 +437,96 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../02_db_kesako/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction to RDBMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Introduction to RDBMS
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-rdbms" class="md-nav__link">
+    What are RDBMS ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-mysql" class="md-nav__link">
+    What is MySQL ?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is MySQL ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-client-and-cli" class="md-nav__link">
+    MySQL client and CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vocabulary" class="md-nav__link">
+    Vocabulary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-mysql" class="md-nav__link">
+    Advantages of MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-mysql" class="md-nav__link">
+    Disadvantages of MYSQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-mysql" class="md-nav__link">
+    Installing MySQL
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -524,15 +563,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-python-programming" class="md-nav__link">
-    Introduction to Python Programming
+  <a href="#what-are-rdbms" class="md-nav__link">
+    What are RDBMS ?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#various-recources-for-you-to-practice" class="md-nav__link">
-    Various Recources for you to practice
+  <a href="#what-is-mysql" class="md-nav__link">
+    What is MySQL ?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is MySQL ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-client-and-cli" class="md-nav__link">
+    MySQL client and CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vocabulary" class="md-nav__link">
+    Vocabulary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-mysql" class="md-nav__link">
+    Advantages of MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-mysql" class="md-nav__link">
+    Disadvantages of MYSQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-mysql" class="md-nav__link">
+    Installing MySQL
   </a>
   
 </li>
@@ -553,35 +633,59 @@
 
 
 
-  <h1>Introduction to Python Programming</h1>
+  <h1>Introduction to RDBMS</h1>
 
-<h2 id="introduction-to-python-programming">Introduction to Python Programming</h2>
-<p>Python is a powerful, high-level programming language that is widely used for web development, data analysis, machine learning, and scientific computing. Its simple, easy-to-read syntax and versatile libraries make it a popular choice for beginners and experienced programmers alike. </p>
+<h2 id="what-are-rdbms">What are RDBMS ?</h2>
+<p>A relational database organizes data into tables which can be linked—or related—based on data common to each. This capability enables you to retrieve an entirely new table from data in one or more tables with a single query. Data is represented in the terms of rows/records and columns. In a relational database, each row in the table is a record with a unique ID called the key.</p>
+<h2 id="what-is-mysql">What is MySQL ?</h2>
+<p>MySQL is one of the most recognizable technologies in the modern big data ecosystem. Often called the most popular database and currently enjoying widespread, effective use regardless of industry, it’s clear that anyone involved with enterprise data or general IT should at least aim for a basic familiarity of MySQL.</p>
 <p><br /></p>
-<p>In this course, you will learn the basics of Python programming, including data types, variables, operators, control flow, and functions. You will also explore advanced topics such as data structures, working with data, data visualization, and machine learning. Along the way, you will gain hands-on experience through a variety of exercises and a final project.</p>
+<p>MySQL is a relational database management system (RDBMS) developed by Oracle that is based on structured query language (SQL).</p>
 <p><br /></p>
-<p>By the end of this course, you will have a solid foundation in Python programming, and the skills to apply it to a wide range of data science and other applications.</p>
-<h2 id="various-recources-for-you-to-practice">Various Recources for you to practice</h2>
+<p>MySQL is integral to many of the most popular software stacks for building and maintaining everything from customer-facing web applications to powerful, data-driven B2B services. Its open-source nature, stability, and rich feature set, paired with ongoing development and support from Oracle, have meant that internet-critical organizations such as Facebook, Flickr, Twitter, Wikipedia, and YouTube all employ MySQL backends.</p>
+<h3 id="mysql-client-and-cli">MySQL client and CLI</h3>
+<p>Think of a database like a big organized warehouse full of information. In order to get information from the warehouse or add information to it, we need a way to talk to it. </p>
+<p><br /></p>
+<p>That's where the MySQL client comes in. It's like the messenger that we use to talk to the warehouse, and it allows us to read or update information stored in the database.</p>
+<p><br /></p>
+<p>We use a command line interface (CLI) to interact with the MySQL client, which allows us to send specific commands to the database. A command-line interface (CLI) is a text-based interface used to interact with a computer's operating system or software by typing commands in a terminal window. It allows you to perform various tasks such as managing files and directories, executing programs, and interacting with databases, by entering commands and receiving text-based output.</p>
+<p><br /></p>
+<p>In the context of MySQL, the CLI is a tool that enables you to interact with a MySQL database from a terminal window or a graphic interface by typing SQL commands. This means you can create, modify, and query your databases without using a graphical user interface. The CLI is a powerful tool that gives you fine-grained control over your database, but it requires some knowledge of SQL commands and syntax to use effectively.</p>
+<h3 id="vocabulary">Vocabulary</h3>
+<p>Here's an additional point on the differences between MySQL client, server, and SQL:</p>
 <ul>
-<li>
-<p><a href="https://www.codecademy.com/"><strong>Codecademy's Learn Python Track</strong></a>: This interactive course covers all the basics of Python and includes exercises to practice what you've learned.</p>
-</li>
-<li>
-<p><a href="https://www.hackerrank.com/domains/python"><strong>HackerRank's Python Domain</strong></a>: This website offers a wide range of Python coding challenges, from beginners to advanced levels.</p>
-</li>
-<li>
-<p><a href="https://www.python.org/about/gettingstarted/"><strong>Python.org's Beginner's Guide</strong></a>: This guide provides a gentle introduction to Python, including tutorials and exercises for beginners.</p>
-</li>
-<li>
-<p><a href="https://developers.google.com/edu/python"><strong>Google's Python Class</strong></a>: This free class, taught by Google engineer Nick Parlante, includes video lectures, slides, and exercises.</p>
-</li>
-<li>
-<p><a href="https://www.fullstackpython.com/"><strong>Full Stack Python</strong></a> : Is a website that provides resources and tutorials on various aspects of the Python programming language, with a focus on web development and data science. Additionally, the website provides a curated list of resources for further learning and a podcast discussing all things Python.</p>
-</li>
-<li>
-<p><a href="https://codesignal.com/"><strong>Code Signal</strong></a> : Is a website and platform that provides a variety of tools and resources for developers, including a code editor, a test runner, and a code execution environment. It also provides a variety of challenges and assessments to help developers improve their coding skills. </p>
-</li>
+<li>MySQL client is a command-line tool that allows you to interact with the MySQL server, execute SQL queries, and manage databases.</li>
+<li>MySQL server is the software that stores and manages databases, and allows multiple clients to connect to it and perform operations on the databases.</li>
+<li>SQL (Structured Query Language) is the language used to interact with relational databases like MySQL, and it provides a standardized syntax for creating, modifying, and querying databases.</li>
 </ul>
+<h3 id="advantages-of-mysql">Advantages of MySQL</h3>
+<ul>
+<li>MySQL is secure as it consists of a solid data security layer to protect sensitive data from intruders and passwords in MySQL are encrypted</li>
+<li>MySQL is free and open source</li>
+<li>MySQL is compatible with most platforms including Windows, MacOS and Linux</li>
+<li>MySQL provides the ability to run the clients and the server on the same computer or on different computers, via internet or local network.</li>
+<li>MySQL has a unique storage engine architecture which makes it faster, cheaper and more reliable.</li>
+<li>MySQL gives developers higher productivity by using views, Triggers and Stored procedures</li>
+<li>MySQL is simple and easy to use. You can build and interact with MySQL with only the basic knowledge of MySQL and a few simple SQL statements.</li>
+<li>MySQL is scalable and capable of handling more than 50 million rows. This is enough to handle almost any amount of data. Although the default file size limit is 4GB but it can
+be increased to 8TB.</li>
+</ul>
+<h3 id="disadvantages-of-mysql">Disadvantages of MYSQL</h3>
+<ul>
+<li>MySQL is not very efficient in handling very large databases.</li>
+<li>MySQL doesn’t have as good a developing and debugging tool as compared to paid databases.</li>
+<li>MySQL versions less than 5.0 do not support COMMIT, stored procedure and ROLE.</li>
+<li>MySQL is prone to data corruption as it inefficient in handling transactions.</li>
+<li>MySQL does not support SQL check constraints.</li>
+</ul>
+<h2 id="installing-mysql">Installing MySQL</h2>
+<p>To install MySQL on your computer, please visit their <a href="https://dev.mysql.com/downloads/mysql/"><strong>website</strong></a> And download the free and open source community edition of MYSQL. </p>
+<ul>
+<li>For Windows select “Installer for Windows”</li>
+<li>For Mac select “MacOS”</li>
+<li>For Linux select “APT” or “YUM”</li>
+</ul>
+<p>Once downloaded, run the installer and follow the instructions to install MYSQL on your computer then launch the MYSQL Workbench</p>
 
 
 
