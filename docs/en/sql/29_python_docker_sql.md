@@ -192,6 +192,17 @@ If you execute this script, you should see this output :
 (3, 'Bob Smith', 'bobsmith@example.com')
 ```
 
+## Next steps 
+
+In this section we covered a pretty simple database and python script so for the next steps if you want to upgrade this project you can consider : 
+
+- Add FastAPI CRUD endpoints to interact with the database 
+- Add a better database and `init.sql` script 
+- Wrap-up the project with a `docker-compose.yml` file 
+- Code a dashboard route in FastAPI in order to visualize some data of your database 
+- Be creative 😃
+
+
 ## Wrap-up 
 
 Let's summarize whant we have seen in this section :

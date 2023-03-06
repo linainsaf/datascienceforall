@@ -73,3 +73,9 @@ nav:
       - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'
       - 'SQLAlchemy and Docker': 'sql/29_python_docker_sql.md'
       - 'Python Wrap-up Projects': 'sql/30_python_projects.md'
+
+  - 'Docker for app deployment':
+    - 'Introduction': 'docker/docker_intro.md'
+    - 'Setting up Docker': 'docker/docker_install.md'
+    - 'Building a Docker Image for your Python App': 'docker/docker_python_app.md'
+    
