@@ -124,7 +124,7 @@ These commands can be combined in various ways to create a Dockerfile for your s
 
 ## Run a FastAPI "Hello World" Python app into a container
 
-Create a new Python file named `main.py` with the following code : 
+**Create a new Python file named `main.py`** with the following code : 
 ```python title="main.py"
 from fastapi import FastAPI
 
@@ -135,7 +135,7 @@ async def root():
     return {"message": "Hello World!"}
 ```
 
-Create a new file named Dockerfile in the same directory with the following contents:
+**Create a new file named `Dockerfile`** in the same directory with the following contents:
 ```Dockerfile 
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8-slim
 
@@ -148,26 +148,34 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
 
 This Dockerfile uses the `tiangolo/uvicorn-gunicorn-fastapi` base image, copies the app directory (which contains main.py) into the container, exposes port `80`, and sets the `CMD` to run the uvicorn server with the `main:app` parameter.
 
-Build the Docker image using the following command:
+**Build the Docker image** using the following command:
 ```bash 
 docker build -t fastapi-demo .
 ```
 This command builds the Docker image and tags it with the name fastapi-demo.
 
-Run the Docker container using the following command:
+**Run the Docker container** using the following command:
 ```bash
 docker run -p 80:80 fastapi-demo
 ```
 This command starts the Docker container and maps port 80 on the host machine to port 80 inside the container.
 
-Make sure the container is up and the API is running with the command : 
+**Make sure the container is up** and the API is running with the command : 
 ```bash 
 docker ps 
 ```
 
 If you see the container UP and running, then you can open your web browser and navigate to [http://localhost:80/](http://localhost:80/). You should see the message "Hello World!" displayed in your browser.
 
+### Why `0.0.0.0` and not `localhost`
 
+When setting up a Docker container, it's common to bind the container's internal port to a port on the host machine so that the container's services can be accessed from the outside. When specifying the IP address for the --host parameter in the uvicorn command, you have a choice between using `localhost` and `0.0.0.0`
+
+Using localhost as the IP address for the --host parameter means that the server will only accept requests coming from within the container itself. This can be useful if you want to restrict access to the server to only the container itself.
+
+However, if you want to allow external access to the server (i.e., from the host machine or other machines on the same network), you should use `0.0.0.0` as the IP address for the --host parameter. This tells the server to accept requests from any IP address.
+
+So, **in a FastAPI application context for a Docker container, using `0.0.0.0` as the IP address for the --host parameter allows the container's services to be accessed from the host machine or other machines on the same network, while using localhost would restrict access to only the container itself**.
 ## Wrap-up 
 
 In summary, building a Docker image for your Python app involves creating a Dockerfile, defining the base image and environment, installing dependencies and copying source code, configuring the app and exposing ports, and finally building and running the Docker image. 
