@@ -26,7 +26,25 @@ After you have pulled the MySQL Docker image, you can start a container using th
 ```bash
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
 ```
+This is the command used to start a new MySQL container with the following options : 
+
+- --name mysql-container: This option is used to give a name to the new container. In this case, the container is named "mysql-container".
+- -e MYSQL_ROOT_PASSWORD=my-secret-pw: This option sets an environment variable for the container, in this case, the MySQL - root password. This means that the password "my-secret-pw" will be used as the MySQL root password.
+- -d: This option runs the container in detached mode, which means that it will run in the background and not attach to the terminal session. This is useful for long-running containers, such as database servers.
+- mysql: This is the name of the Docker image that the container is based on. In this case, it is the official MySQL Docker image.
+
+So when you run this command, Docker will start a new container based on the MySQL image with the name "mysql-container", set the MySQL root password to "my-secret-pw", and run the container in the background it just send you the id of the container like `8c4f5828f04b` it means it started fine. 
+
+It's important to note that the MySQL root password should be changed to a more secure password before using the container in a production environment. Also, the name of the container and the password used can be changed to suit your specific needs.
+
 This command will start a new container named "mysql-container" with the root password `my-secret-pw`
+
+You can verify if the container is running with the command in your terminal : 
+```bash
+docker ps
+```
+You should see this in your terminal : 
+![Screenshot](../img/mysql_docker.png)
 
 ## Step 4: Access the MySQL container with the command line 
 To access the MySQL container, you can use the following command:
