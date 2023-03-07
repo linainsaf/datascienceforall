@@ -62,7 +62,7 @@ Next, we'll create the second container and attach it to the mynetwork network. 
 ```bash
 docker run --name container2 --network mynetwork alpine sleep 3000
 ```
-Same thing, this command creates a new container with the name container2, attaches it to the mynetwork network, and starts the sleep command to keep the container running for 3000 seconds.
+Same thing, this command creates a new container with the name `container2`, attaches it to the mynetwork network, and starts the sleep command to keep the container running for 3000 seconds.
 
 ### Step 4: Create the Third Container
 
@@ -70,9 +70,23 @@ Now, let's create a third container that is not attached to the mynetwork networ
 ```bash
 docker run --name container3 alpine sleep 3000
 ```
-This command creates a new container with the name container3 and starts the sleep command to keep the container running for 3000 seconds. Since we did not specify a network for this container, it will be attached to the default bridge network.
+This command creates a new container with the name `container3` and starts the sleep command to keep the container running for 3000 seconds. Since we did not specify a network for this container, it will be attached to the default bridge network.
 
 ### Step 5: Ping One Container from the Other
+
+#### What is `ping`
+The `ping` command is commonly used to test the availability and responsiveness of network devices, such as servers or routers. It can help diagnose network connectivity issues, such as packet loss or latency.
+
+When you run the `ping` command, it will send packets of data to the specified destination, and display the results in the terminal. The output will typically include statistics about the packet transmission, such as the number of packets sent and received, the round-trip time (RTT) for each packet, and any errors or packet loss that occurred during the transmission.
+
+Here's an example of running the ping command:
+```
+ping google.com
+```
+
+This command sends packets of data to the Google.com domain name, and displays the results in the terminal. The output will show the RTT for each packet, as well as other statistics about the packet transmission.
+
+#### Ping  `container1` from `container2`
 
 Now that both containers are running and attached to the same network, we can confirm that they can communicate with each other. We'll do this by pinging `container1` from `container2`:
 ```bash 

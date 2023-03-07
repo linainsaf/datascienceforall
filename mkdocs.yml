@@ -77,5 +77,8 @@ nav:
   - 'Docker for App Deployment':
     - 'Introduction': 'docker/docker_intro.md'
     - 'Setting up Docker': 'docker/docker_install.md'
-    - 'Building a Docker Image for your Python App': 'docker/docker_python_app.md'
+    - 'Building a Docker Image for Python App': 'docker/docker_python_app.md'
+    - 'Docker CLI Commands': 'docker/docker_commands.md'
+    - 'Docker Volumes': 'docker/docker_volume.md'
     - 'Docker Network': 'docker/docker_network.md'
+    - 'Docker-compose': 'docker/docker_compose.md'
