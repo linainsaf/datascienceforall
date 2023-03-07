@@ -120,6 +120,10 @@ Most common Dockerfile commands:
 - `ENV`: Sets an environment variable inside the Docker image.
 - `CMD` or `ENTRYPOINT`: Specifies the command to run when the Docker container starts.
 
+<center>
+![Screenshot](https://miro.medium.com/v2/resize:fit:426/1*E_id80g9vERM-n3TnVdimw.jpeg)
+</center>
+
 These commands can be combined in various ways to create a Dockerfile for your specific application. By using Dockerfile commands, you can define the steps needed to build a Docker image and run a Docker container for your application.
 
 ## Run a FastAPI "Hello World" Python app into a container
@@ -165,7 +169,7 @@ This command starts the Docker container and maps port 80 on the host machine to
 docker ps 
 ```
 
-If you see the container UP and running, then you can open your web browser and navigate to [http://localhost:80/](http://localhost:80/). You should see the message "Hello World!" displayed in your browser.
+If you see the container UP and running, then you can open your web browser and navigate to [http://localhost:80/](http://localhost:80/). You should see the message "Hello World!" displayed in your browser 🥳
 
 ### Why `0.0.0.0` and not `localhost`
 

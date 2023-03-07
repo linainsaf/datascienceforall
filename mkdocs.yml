@@ -78,3 +78,4 @@ nav:
     - 'Introduction': 'docker/docker_intro.md'
     - 'Setting up Docker': 'docker/docker_install.md'
     - 'Building a Docker Image for your Python App': 'docker/docker_python_app.md'
+    - 'Docker Network': 'docker/docker_network.md'
