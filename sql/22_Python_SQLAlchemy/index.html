@@ -1,0 +1,1649 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://datascience_careerera.com/sql/22_Python_SQLAlchemy/">
+      
+      
+        <link rel="prev" href="../21_er_diagrams/">
+      
+      
+        <link rel="next" href="../23_python_query/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Introduction - Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-and-sqlalchemy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Science" class="md-header__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Science" class="md-nav__button md-logo" aria-label="Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Python Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python Programming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        Introduction to Python Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/" class="md-nav__link">
+        Setting up a Development Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/" class="md-nav__link">
+        Basic Python Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oop/" class="md-nav__link">
+        Object Oriented Programming in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io/" class="md-nav__link">
+        File Input/Output (I/O) Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="false">
+          Python with Data Science tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python with Data Science tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python with Data Science tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/" class="md-nav__link">
+        Numpy: Understanding & working with Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pd/" class="md-nav__link">
+        Pandas: Understanding & working with Pandas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
+          SQL and Python for Data Analysis and Database Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL and Python for Data Analysis and Database Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          SQL and Python for Data Analysis and Database Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" tabindex="0" aria-expanded="false">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_sql_intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_db_kesako/" class="md-nav__link">
+        What is a Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_table/" class="md-nav__link">
+        Tables & Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_basics/" class="md-nav__link">
+        SQL Basic understanding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" tabindex="0" aria-expanded="false">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_MacOS_install/" class="md-nav__link">
+        Install MySQL on MacOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Windows_install/" class="md-nav__link">
+        Install MySQL on Windows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_b_docker_install/" class="md-nav__link">
+        Install MySQL with docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" tabindex="0" aria-expanded="false">
+          CRUD (Create, Read, Update, Delete) operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CRUD (Create, Read, Update, Delete) operations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          CRUD (Create, Read, Update, Delete) operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_creating_tables/" class="md-nav__link">
+        Creating tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_insert/" class="md-nav__link">
+        Inserting Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_constraints/" class="md-nav__link">
+        Constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_update_delete/" class="md-nav__link">
+        Update & Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_queries/" class="md-nav__link">
+        Basic Queries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_company_db_1" class="md-nav__link">
+        Build a company database from scratch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_queries_db/" class="md-nav__link">
+        More Queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_functions/" class="md-nav__link">
+        SQL Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_Wildcards/" class="md-nav__link">
+        Wildcards & Unions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17_joins/" class="md-nav__link">
+        Joins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18_Nested_Queries/" class="md-nav__link">
+        Nested Queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19_delete/" class="md-nav__link">
+        On Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_triggers/" class="md-nav__link">
+        Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21_er_diagrams/" class="md-nav__link">
+        ER DIagrams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13" tabindex="0" aria-expanded="true">
+          Python and SQLAlchemy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python and SQLAlchemy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Python and SQLAlchemy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introduction
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-what-sqlalchemy-is-and-its-benefits-for-working-with-databases" class="md-nav__link">
+    Explanation of What SQLAlchemy is and Its Benefits for Working with Databases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-sqlalchemy-concepts-and-how-they-relate-to-sql" class="md-nav__link">
+    Overview of SQLAlchemy Concepts and How They Relate to SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlalchemy-installation" class="md-nav__link">
+    SQLAlchemy installation
+  </a>
+  
+    <nav class="md-nav" aria-label="SQLAlchemy installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-a-mysql-database-connector" class="md-nav__link">
+    Install a MySQL database connector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-connection" class="md-nav__link">
+    Verify the connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databases-supports" class="md-nav__link">
+    Databases supports
+  </a>
+  
+    <nav class="md-nav" aria-label="Databases supports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-mamp-sql-server-on-mac-os" class="md-nav__link">
+    Use MAMP SQL Server on Mac OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-sql-server" class="md-nav__link">
+    Microsoft SQL Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-the-right-database" class="md-nav__link">
+    Choosing the right Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-to-our-employees-database" class="md-nav__link">
+    Connect to our Employees database
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to our Employees database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closing-the-connection" class="md-nav__link">
+    Closing the connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_python_query/" class="md-nav__link">
+        Querying Data with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24_python_orm/" class="md-nav__link">
+        Object Relational Mapping in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25_python_update_delete/" class="md-nav__link">
+        Updating and Deleting Data with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26_python_queries/" class="md-nav__link">
+        Advanced Queries with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27_python_large_data/" class="md-nav__link">
+        Working with large dataset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28_python_fastapi/" class="md-nav__link">
+        SQLAlchemy and FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29_python_docker_sql/" class="md-nav__link">
+        SQLAlchemy and Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30_python_projects/" class="md-nav__link">
+        Python Wrap-up Projects
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Docker for App Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docker for App Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Docker for App Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_install/" class="md-nav__link">
+        Setting up Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_python_app/" class="md-nav__link">
+        Building a Docker Image for Python App
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_commands/" class="md-nav__link">
+        Docker CLI Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_volume/" class="md-nav__link">
+        Docker Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_network/" class="md-nav__link">
+        Docker Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_compose/" class="md-nav__link">
+        Docker-compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_https/" class="md-nav__link">
+        Docker and HTTPS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker_best_practice/" class="md-nav__link">
+        Best Practices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-what-sqlalchemy-is-and-its-benefits-for-working-with-databases" class="md-nav__link">
+    Explanation of What SQLAlchemy is and Its Benefits for Working with Databases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-sqlalchemy-concepts-and-how-they-relate-to-sql" class="md-nav__link">
+    Overview of SQLAlchemy Concepts and How They Relate to SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlalchemy-installation" class="md-nav__link">
+    SQLAlchemy installation
+  </a>
+  
+    <nav class="md-nav" aria-label="SQLAlchemy installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-a-mysql-database-connector" class="md-nav__link">
+    Install a MySQL database connector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-connection" class="md-nav__link">
+    Verify the connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databases-supports" class="md-nav__link">
+    Databases supports
+  </a>
+  
+    <nav class="md-nav" aria-label="Databases supports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-mamp-sql-server-on-mac-os" class="md-nav__link">
+    Use MAMP SQL Server on Mac OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-sql-server" class="md-nav__link">
+    Microsoft SQL Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-the-right-database" class="md-nav__link">
+    Choosing the right Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-to-our-employees-database" class="md-nav__link">
+    Connect to our Employees database
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to our Employees database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closing-the-connection" class="md-nav__link">
+    Closing the connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python-and-sqlalchemy">Python and SQLAlchemy</h1>
+<p>SQLAlchemy is an open-source library for Python that provides a way to work with relational databases. It allows you to interact with databases using a high-level object-oriented interface, rather than writing SQL code directly. </p>
+<h2 id="explanation-of-what-sqlalchemy-is-and-its-benefits-for-working-with-databases">Explanation of What SQLAlchemy is and Its Benefits for Working with Databases</h2>
+<p>SQLAlchemy provides several benefits for working with databases, including:</p>
+<ul>
+<li><strong>Abstraction</strong>: SQLAlchemy provides a layer of abstraction between the application and the database, which makes it easier to switch between different databases without changing the application code.</li>
+<li><strong>Flexibility</strong>: SQLAlchemy allows you to work with databases using an object-oriented paradigm, which can be more flexible than using SQL directly.</li>
+<li><strong>Portability</strong>: SQLAlchemy is a Python library, which means it can be used on any platform that supports Python, including Windows, Mac, and Linux.</li>
+<li><strong>Security</strong>: SQLAlchemy includes built-in security features, such as support for parameterized queries, which can help protect against SQL injection attacks.</li>
+</ul>
+<h2 id="overview-of-sqlalchemy-concepts-and-how-they-relate-to-sql">Overview of SQLAlchemy Concepts and How They Relate to SQL</h2>
+<p>SQLAlchemy provides several concepts that are used to work with databases, including:</p>
+<ul>
+<li><strong>Engine</strong>: The Engine is the entry point for working with a database. It provides a way to connect to the database and execute SQL commands.</li>
+<li><strong>Connection</strong>: A Connection is an instance of a connection to the database. It allows you to execute SQL commands and manage transactions.</li>
+<li><strong>Transaction</strong>: A Transaction is a sequence of SQL commands that are executed as a single unit of work. Transactions provide a way to ensure that multiple SQL commands are executed atomically.</li>
+<li><strong>Session</strong>: A Session is a high-level object that provides an interface for working with a database. It provides a way to manage database operations, such as creating, updating, and deleting records.</li>
+<li><strong>Model</strong>: A Model is a Python class that represents a table in the database. It provides a way to interact with the data in the table using Python code.</li>
+</ul>
+<h2 id="sqlalchemy-installation">SQLAlchemy installation</h2>
+<p>The first step is to install SQLAlchemy. You can install it using pip, the Python package manager. Open a terminal or command prompt and type the following command:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>sqlalchemy
+</span></code></pre></div>
+This will download and install the latest version of SQLAlchemy. You can verify the installation with this command on your terminal : 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sqlalchemy
+</span></code></pre></div></p>
+<h3 id="install-a-mysql-database-connector">Install a MySQL database connector</h3>
+<p>In order to connect to a MySQL database, you'll need to install a database connector (we will see later that we can connect multiple databases not only MySQL). There are several available, but the most popular one is <code>mysql-connector-python</code>. You can install it using pip:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mysql-connector-python
+</span></code></pre></div></p>
+<h3 id="verify-the-connection">Verify the connection</h3>
+<p>Now that you have both SQLAlchemy and the MySQL connector installed, you can connect to your MySQL database. First, import the necessary modules:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span> <span class="nn">mysql.connector</span>
+</span></code></pre></div>
+Next, create an engine that connects to your MySQL database:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;mysql+mysqlconnector://user:password@host:port/database&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+Replace <code>user</code> and <code>password</code> with your MySQL <code>username</code> and <code>password</code>, host with the hostname or IP address of your MySQL server, <code>port</code> with the <code>port</code> number (usually 3306), and database with the name of the database you want to connect to.</p>
+<h2 id="databases-supports">Databases supports</h2>
+<p>SQLAlchemy supports a variety of different database connections, each with its own advantages and use cases. Here's an overview of some of the most common connection types with the <code>engine</code> object:</p>
+<h3 id="sqlite">SQLite</h3>
+<p>SQLite is a serverless, file-based database that is popular for small to medium-sized projects. SQLAlchemy provides a SQLite dialect that allows you to work with SQLite databases in Python. Since SQLite is a file-based database, it is relatively easy to set up and use, and is a good choice for applications that don't require a lot of concurrent users or high write volumes.</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///mydatabase.db&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+In this example, we use the create_engine() function to create an engine object that connects to a SQLite database file named mydatabase.db.</p>
+<h3 id="mysql">MySQL</h3>
+<p>MySQL is a popular open-source relational database system that is commonly used for web applications. SQLAlchemy provides a MySQL dialect that allows you to work with MySQL databases in Python. MySQL is a good choice for applications that require scalability and performance, since it can handle high volumes of reads and writes.</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;mysql+pymysql://username:password@host:port/database&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+In this example, we use the create_engine() function to create an engine object that connects to a MySQL database named database running on a <code>host</code> with the specified <code>username</code>, <code>password</code>, <code>host</code>, and <code>port</code>. In our case we will be connection our <code>localhost</code>, so we can re write this command as follow : 
+<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;mysql+mysqlconnector://user:password@localhost/database&#39;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h3 id="use-mamp-sql-server-on-mac-os">Use MAMP SQL Server on Mac OS</h3>
+<p>In case you have this error : 
+<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;MySQLdb&#39;</span>
+</span></code></pre></div></p>
+<p>We have seen in the <a href="http://192.168.0.71:5010/sql/05_MacOS_install/">chapter 5</a> how to install a SQL server with MAMP so we will leverage this installation for connecting our python code to MAMP SQL Server ! 
+Follow these steps : </p>
+<ol>
+<li>Install the latest version of XCode &amp; XCode developer tools.</li>
+<li>Install <code>brew</code> package manager, here you can find the official <a href="https://brew.sh/index_fr">documentation</a></li>
+<li>Install MySQL using this command: 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>brew install mysql
+</span></code></pre></div></li>
+<li>Run this command into your terminal to make a async link between MySQL socket: 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock
+</span></code></pre></div>
+(your socket url could be different if you using are xampp or any other local server.)</li>
+<li>Start MAMP/XAMMP MySQL server</li>
+<li>Then install (or re-install) sqlalchemy etc.</li>
+</ol>
+<p>We will not see in detail the other types of connectors for others databases, it's very similar as you can see bellow.  </p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p>PostgreSQL is a powerful open-source relational database system that is known for its robustness and scalability. SQLAlchemy provides a PostgreSQL dialect that allows you to work with PostgreSQL databases in Python. PostgreSQL is a good choice for applications that require high performance, scalability, and data integrity.</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;postgresql+psycopg2://username:password@host:port/database&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+In this example, we use the create_engine() function to create an engine object that connects to a PostgreSQL database named database running on a host with the specified username, password, host, and port.</p>
+<h3 id="oracle">Oracle</h3>
+<p>Oracle is a commercial relational database system that is popular in enterprise settings. SQLAlchemy provides an Oracle dialect that allows you to work with Oracle databases in Python. Oracle is a good choice for applications that require high performance, scalability, and data integrity, and can handle large amounts of data and concurrent users.</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;oracle+cx_oracle://username:password@host:port/SID&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+In this example, we use the create_engine() function to create an engine object that connects to an Oracle database identified by its SID, running on a host with the specified username, password, and port.</p>
+<h3 id="microsoft-sql-server">Microsoft SQL Server</h3>
+<p>Microsoft SQL Server is a popular relational database system that is commonly used in Windows environments. SQLAlchemy provides a SQL Server dialect that allows you to work with SQL Server databases in Python. SQL Server is a good choice for applications that require high performance and scalability, and can handle large amounts of data and concurrent users.
+<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;mssql+pymssql://username:password@host:port/database&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+In this example, we use the create_engine() function to create an engine object that connects to a Microsoft SQL Server database named database running on a host with the specified username, password, host, and port.</p>
+<p>As you can see, it is pretty much the same process. </p>
+<h3 id="choosing-the-right-database">Choosing the right Database</h3>
+<p>Choosing the right database connection is an important consideration when working with SQLAlchemy. By understanding the strengths and weaknesses of different database systems and dialects, you can choose the best option for your project. SQLAlchemy provides a consistent, high-level interface to all of these systems, allowing you to work with them in a uniform way. With SQLAlchemy, you can write Python code that works with a wide range of databases, and easily switch between them as your needs change.</p>
+<h2 id="connect-to-our-employees-database">Connect to our Employees database</h2>
+<p>Let's write a python script <code>connect_db.py</code> who connects to our MySQL employees database using SQLAlchemy library and retrieves some data (or metadata) about the database tables. </p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">inspect</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;employees&#39;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># create an engine to connect to the database</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- Connecting database : mysql://user:password@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s1">:3306/</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s1">---</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mysql://user:password@localhost:3306/</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># create an inspector to get metadata about the database</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">inspector</span> <span class="o">=</span> <span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- ✅ Connection database OK ✅---&#39;</span><span class="p">)</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1"># get a list of all the table names in the database</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="n">table_names</span> <span class="o">=</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">()</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tables : </span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># iterate over the table names and print the table schema</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">:</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="n">columns</span> <span class="o">=</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_columns</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table: </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">column</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">column</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1"># explicitly close the connection to the database</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Here is a step-by-step explanation of what the script does:</p>
+<ol>
+<li>The script starts by importing the required modules from the SQLAlchemy library, including the create_engine and inspect functions.</li>
+<li>The host and db variables are defined to store the connection details for the MySQL database. In this case, the host is set to 127.0.0.1 and the database name is employees.</li>
+<li>The create_engine function is used to create a connection to the MySQL database using the specified host, port, username, password, and database name. The connection details are passed as a string to the create_engine function, which returns an engine object.</li>
+<li>An inspector object is created using the inspect function and the engine object. The inspector is used to retrieve metadata about the database tables.</li>
+<li>A success message is printed to the console to indicate that the database connection was successful.</li>
+<li>The get_table_names function is called on the inspector object to retrieve a list of all table names in the database.</li>
+<li>A loop is then used to iterate over the table names and retrieve the column information for each table.</li>
+<li>Inside the loop, the get_columns function is called on the inspector object to retrieve the column details for the current table.</li>
+<li>The column details are then printed to the console, including the column name and data type.</li>
+<li>Once all tables have been processed, the loop ends and the script exits and the connection to the database is closed.</li>
+</ol>
+<p>In summary, this script connects to a MySQL database, retrieves metadata about the tables, and displays the column details for each table. This is a useful way to quickly check the schema of a database and verify that it is set up correctly.</p>
+<p>Do not forget to use you <code>username</code> and <code>password</code> in order to insure a good connection.  </p>
+<h3 id="closing-the-connection">Closing the connection</h3>
+<p>When a SQLAlchemy Engine is created, it creates a pool of connections to the database which are automatically checked out and returned when needed by the application. This means that once an Engine has been created, it can be used for the lifetime of the application without the need to explicitly close the connection or perform any other cleanup.</p>
+<p>However, it's good practice to close the connection when you're done using it, especially in long-running applications, to ensure that database resources are properly released. To close the connection in SQLAlchemy, you can use the Engine.dispose() method, which will release all resources associated with the Engine.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

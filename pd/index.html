@@ -14,14 +14,14 @@
         <link rel="prev" href="../numpy/">
       
       
-        <link rel="next" href="../plt/">
+        <link rel="next" href="../sql/01_sql_intro/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Understanding & working with Pandas - Data Science</title>
+        <title>Pandas: Understanding & working with Pandas - Data Science</title>
       
     
     
@@ -56,12 +56,16 @@
   
     
     
+      
+    
     
     
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,12 +106,24 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Understanding & working with Pandas
+              Pandas: Understanding & working with Pandas
             
           </span>
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -332,7 +348,7 @@
   
     <li class="md-nav__item">
       <a href="../numpy/" class="md-nav__link">
-        Understanding & working with Numpy
+        Numpy: Understanding & working with Numpy
       </a>
     </li>
   
@@ -353,12 +369,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Understanding & working with Pandas
+          Pandas: Understanding & working with Pandas
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Understanding & working with Pandas
+        Pandas: Understanding & working with Pandas
       </a>
       
         
@@ -383,42 +399,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#introduction-to-pandas" class="md-nav__link">
-    Introduction to Pandas
+  <a href="#pandas-series" class="md-nav__link">
+    Pandas Series
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-data-structures" class="md-nav__link">
-    Pandas Data Structures
-  </a>
-  
-    <nav class="md-nav" aria-label="Pandas Data Structures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#series" class="md-nav__link">
-    Series
+  <a href="#pandas-labels" class="md-nav__link">
+    Pandas Labels
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataframe" class="md-nav__link">
-    DataFrame
+  <a href="#pandas-key-value-objects" class="md-nav__link">
+    Pandas Key Value objects
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    Pandas Data Frames
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-import-and-export" class="md-nav__link">
-    Data Import and Export
+  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
+    Reading CSV Files with Pandas
   </a>
   
 </li>
@@ -432,10 +442,10 @@
         
           <li class="md-nav__item">
   <a href="#data-cleaning-with-pandas" class="md-nav__link">
-    Data Cleaning with pandas
+    Data Cleaning With pandas
   </a>
   
-    <nav class="md-nav" aria-label="Data Cleaning with pandas">
+    <nav class="md-nav" aria-label="Data Cleaning With pandas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -472,26 +482,12 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#merging-and-joining-data" class="md-nav__link">
-    Merging and Joining Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#data-analysis-in-pandas" class="md-nav__link">
     Data Analysis in Pandas
   </a>
   
     <nav class="md-nav" aria-label="Data Analysis in Pandas">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#describe-in-pandas" class="md-nav__link">
-    Describe in Pandas
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#correlation-in-pandas" class="md-nav__link">
@@ -514,34 +510,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plt/" class="md-nav__link">
-        Understanding & working with Matplotlib
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sns/" class="md-nav__link">
-        Understanding & working with Seaborn
-      </a>
     </li>
   
 
@@ -578,14 +546,41 @@
       
       
         <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
-          Database Management Systems
+          SQL and Python for Data Analysis and Database Development
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Database Management Systems" data-md-level="1">
+      <nav class="md-nav" aria-label="SQL and Python for Data Analysis and Database Development" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Database Management Systems
+          SQL and Python for Data Analysis and Database Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" tabindex="0" aria-expanded="false">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -595,8 +590,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_sql_intro/" class="md-nav__link">
-        Introduction to DBMS
+      <a href="../sql/01_sql_intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -609,8 +604,670 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_db_kesako/" class="md-nav__link">
-        Introduction to RDBMS
+      <a href="../sql/02_db_kesako/" class="md-nav__link">
+        What is a Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/03_table/" class="md-nav__link">
+        Tables & Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/04_basics/" class="md-nav__link">
+        SQL Basic understanding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" tabindex="0" aria-expanded="false">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/05_MacOS_install/" class="md-nav__link">
+        Install MySQL on MacOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/06_Windows_install/" class="md-nav__link">
+        Install MySQL on Windows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/06_b_docker_install/" class="md-nav__link">
+        Install MySQL with docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" tabindex="0" aria-expanded="false">
+          CRUD (Create, Read, Update, Delete) operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CRUD (Create, Read, Update, Delete) operations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          CRUD (Create, Read, Update, Delete) operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/07_creating_tables/" class="md-nav__link">
+        Creating tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/08_insert/" class="md-nav__link">
+        Inserting Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/09_constraints/" class="md-nav__link">
+        Constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/10_update_delete/" class="md-nav__link">
+        Update & Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/11_queries/" class="md-nav__link">
+        Basic Queries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/12_company_db_1" class="md-nav__link">
+        Build a company database from scratch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/13_queries_db/" class="md-nav__link">
+        More Queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/14_functions/" class="md-nav__link">
+        SQL Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/15_Wildcards/" class="md-nav__link">
+        Wildcards & Unions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/17_joins/" class="md-nav__link">
+        Joins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/18_Nested_Queries/" class="md-nav__link">
+        Nested Queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/19_delete/" class="md-nav__link">
+        On Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/20_triggers/" class="md-nav__link">
+        Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/21_er_diagrams/" class="md-nav__link">
+        ER DIagrams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13" tabindex="0" aria-expanded="false">
+          Python and SQLAlchemy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python and SQLAlchemy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Python and SQLAlchemy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/22_Python_SQLAlchemy/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/23_python_query/" class="md-nav__link">
+        Querying Data with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/24_python_orm/" class="md-nav__link">
+        Object Relational Mapping in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/25_python_update_delete/" class="md-nav__link">
+        Updating and Deleting Data with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/26_python_queries/" class="md-nav__link">
+        Advanced Queries with Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/27_python_large_data/" class="md-nav__link">
+        Working with large dataset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/28_python_fastapi/" class="md-nav__link">
+        SQLAlchemy and FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/29_python_docker_sql/" class="md-nav__link">
+        SQLAlchemy and Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/30_python_projects/" class="md-nav__link">
+        Python Wrap-up Projects
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Docker for App Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docker for App Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Docker for App Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_install/" class="md-nav__link">
+        Setting up Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_python_app/" class="md-nav__link">
+        Building a Docker Image for Python App
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_commands/" class="md-nav__link">
+        Docker CLI Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_volume/" class="md-nav__link">
+        Docker Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_network/" class="md-nav__link">
+        Docker Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_compose/" class="md-nav__link">
+        Docker-compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_https/" class="md-nav__link">
+        Docker and HTTPS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/docker_best_practice/" class="md-nav__link">
+        Best Practices
       </a>
     </li>
   
@@ -656,42 +1313,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#introduction-to-pandas" class="md-nav__link">
-    Introduction to Pandas
+  <a href="#pandas-series" class="md-nav__link">
+    Pandas Series
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pandas-data-structures" class="md-nav__link">
-    Pandas Data Structures
-  </a>
-  
-    <nav class="md-nav" aria-label="Pandas Data Structures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#series" class="md-nav__link">
-    Series
+  <a href="#pandas-labels" class="md-nav__link">
+    Pandas Labels
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataframe" class="md-nav__link">
-    DataFrame
+  <a href="#pandas-key-value-objects" class="md-nav__link">
+    Pandas Key Value objects
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    Pandas Data Frames
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-import-and-export" class="md-nav__link">
-    Data Import and Export
+  <a href="#reading-csv-files-with-pandas" class="md-nav__link">
+    Reading CSV Files with Pandas
   </a>
   
 </li>
@@ -705,10 +1356,10 @@
         
           <li class="md-nav__item">
   <a href="#data-cleaning-with-pandas" class="md-nav__link">
-    Data Cleaning with pandas
+    Data Cleaning With pandas
   </a>
   
-    <nav class="md-nav" aria-label="Data Cleaning with pandas">
+    <nav class="md-nav" aria-label="Data Cleaning With pandas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -745,26 +1396,12 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#merging-and-joining-data" class="md-nav__link">
-    Merging and Joining Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#data-analysis-in-pandas" class="md-nav__link">
     Data Analysis in Pandas
   </a>
   
     <nav class="md-nav" aria-label="Data Analysis in Pandas">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#describe-in-pandas" class="md-nav__link">
-    Describe in Pandas
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#correlation-in-pandas" class="md-nav__link">
@@ -799,108 +1436,71 @@
 
 
 
-  <h1>Understanding & working with Pandas</h1>
+  <h1>Pandas: Understanding & working with Pandas</h1>
 
 <h2 id="pandas">Pandas</h2>
-<h3 id="introduction-to-pandas">Introduction to Pandas</h3>
-<p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. </p>
+<p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. The name "Pandas" has a reference to both "Panel Data", and "Python Data Analysis" and was created by Wes McKinney in 2008</p>
 <p><br /></p>
 <p>Pandas allows us to :</p>
 <ul>
 <li>Analyze big data and make conclusions based on statistical theories.</li>
 <li>Clean messy data sets, and make them readable and relevant. Relevant data is very important in data science. </li>
-<li>Pandas gives you answers about the data Such as : Is there a correlation between two or more columns? What is the average value? Max value? Min value?</li>
+<li>Pandas gives you answers about the data Such as : Is there a correlation between two or more columns? What is the average value?Max value? Min value?</li>
 <li>Manage diffrent data sets merging them filtering them etc...</li>
 </ul>
 <p><br /></p>
 <p>Pandas is also able to delete rows that are not relevant, or contain wrong values, like empty or NULL values. This is called cleaning the data.</p>
 <p><br /></p>
-<p>To start using Pandas, you first need to install it. You can install it using the following command:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
+<p>There are two ways to import pandas : </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import pandas #This will import the entire pandas module.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>from pandas import* # This will import all class, objects, variables etc. from pandas package
 </span></code></pre></div>
-<p>After installing pandas, you can import it as follows: </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span></code></pre></div>
-<h3 id="pandas-data-structures">Pandas Data Structures</h3>
-<p>Pandas provides two main data structures: Series and DataFrame. A Series is a one-dimensional array-like object that can hold any data type. A DataFrame is a two-dimensional table that can hold data of different types in columns.</p>
-<h4 id="series">Series</h4>
+<h3 id="pandas-series">Pandas Series</h3>
 <p>A Pandas Series is like a column in a table. It is a one-dimensional array holding data of any type</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dataset1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dataset1</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import pandas as pd
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dataset1=[1,2,3]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>df1=pd.Series(dataset1)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>print (df1)
 </span></code></pre></div>
+<h3 id="pandas-labels">Pandas Labels</h3>
 <p>If nothing else is specified, the values are labeled with their index number. The first value has index 0, etc. This label can be used to access a specified value. With the index argument, you can name your own labels. When using labels, you can access an item by using the label. Code example : </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">dataset1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dataset1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">])</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df1</span><span class="p">)</span>                     
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">])</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>import pandas as pd
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dataset1=[1,2,3]
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>df1=pd.Series(dataset1, index=[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>print (df1)                     
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>print (df1[&quot;a&quot;])
 </span></code></pre></div>
+<h3 id="pandas-key-value-objects">Pandas Key Value objects</h3>
 <p>We can also use key/value pair objects like dictionaries when creating a Series</p>
 <p><br /></p>
 <p>Note: The keys of the dictionary become the labels</p>
 <p><br /></p>
 <p>Code example :
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">dataset1</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Vehicle number&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Wheels&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Doors&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dataset1</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import pandas as pd
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>dataset1={&quot;Vehicle number&quot;:1, &quot;Wheels&quot;:4, &quot;Doors&quot;:4}
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>df1=pd.Series(dataset1)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>print (df1)
 </span></code></pre></div></p>
-<h4 id="dataframe">DataFrame</h4>
+<h3 id="pandas-data-frames">Pandas Data Frames</h3>
 <p>Data sets in Pandas are usually multi-dimensional tables, called DataFrames. Series can be considered to be like a column in a table, whereas a DataFrame can be considered to be the table. </p>
 <p><br /></p>
-<p>A DataFrame can be created in several ways. One way is to pass a dictionary of lists to the pd.DataFrame() function. Each key in the dictionary represents a column name, and each list represents the data in that column.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">],</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">47</span><span class="p">],</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">]}</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span></code></pre></div>
-We can use the loc attribute to locate one or more rows. Just as with series, we can name indexes of data frames and locate them using the loc attribute</p>
+<p>We can use the loc attribute to locate one or more rows. Just as with series, we can name indexes of data frames and locate them using the loc attribute</p>
 <p><br /></p>
 <p>Code example :</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">dataset1</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Vehicle number&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;Wheels&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;Doors&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]}</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Car&quot;</span><span class="p">,</span><span class="s2">&quot;Motorcycle&quot;</span><span class="p">,</span><span class="s2">&quot;Van&quot;</span><span class="p">])</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Car&quot;</span><span class="p">])</span>              
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import pandas as pd
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dataset1={&quot;Vehicle number&quot;:[1,2,3], &quot;Wheels&quot;:[4,2,4], &quot;Doors&quot;:[4,0,5]}
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>df1=pd.DataFrame(dataset1, index=[&quot;Car&quot;,&quot;Motorcycle&quot;,&quot;Van&quot;])
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>print(df1)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>print (df1.loc[&quot;Car&quot;])              
 </span></code></pre></div>
-<h3 id="data-import-and-export">Data Import and Export</h3>
-<p>Pandas supports reading and writing data from and to various file formats, such as CSV, Excel, SQL databases, and more.</p>
-<ul>
-<li><strong>CSV</strong> : A simple way to store big data sets is to use CSV (Comma Separated Value) files. CSV files contain plain text and are a well know format that can be read by almost all software including Pandas. To read a CSV file, you can use the pd.read_csv() function. The function takes the path to the CSV file as an argument and returns a DataFrame. To write a DataFrame to a CSV file, you can use the to_csv() method. Code example :</li>
-</ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">## Importing a CSV file</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">## Export a CSV file</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="c1">#The index=False argument tells Pandas not to write the row index to the CSV file.</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Excel</strong> : To read an Excel file, you can use the pd.read_excel() function. The function takes the path to the Excel file as an argument and returns a DataFrame. To write a DataFrame to an Excel file, you can use the to_excel() method.</li>
-</ul>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">## Importing a Excel file</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">## Export a Excel file</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span></code></pre></div>
-- <strong>SQL Databases</strong> : To read data from a SQL database, you can use the pd.read_sql() function. The function takes a SQL query and a connection object as arguments and returns a DataFrame. To write a DataFrame to a SQL database, you can use the to_sql() method.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">sqlite3</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">## Importing a SQL file</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;mydatabase.db&#39;</span><span class="p">)</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM mytable&#39;</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">## Export a SQL file</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#The if_exists=&#39;replace&#39; argument tells Pandas to replace the table if it already exists in the database.</span>
+<h3 id="reading-csv-files-with-pandas">Reading CSV Files with Pandas</h3>
+<p>A simple way to store big data sets is to use CSV (Comma Separated Value) files. CSV files contain plain text and are a well know format that can be read by almost all software including Pandas</p>
+<p><br /></p>
+<p>If your data sets are stored in a file, Pandas can load them into a DataFrame. Code example :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>import pandas as pd 
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>dataframe1=pd.read_csv(‘data.csv’)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>print(dataframe1.to_string())
 </span></code></pre></div>
 <h3 id="getting-a-quick-overview-of-the-dataframes-content">Getting a quick overview of the Dataframes content</h3>
 <ul>
@@ -915,33 +1515,30 @@ We can use the loc attribute to locate one or more rows. Just as with series, we
 </li>
 </ul>
 <p>Code Example :</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span> 
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span> 
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>import pandas as pd 
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;) 
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>print (dataframe1.head())
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>print (dataframe1.tail()) 
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>dataframe1.info()
 </span></code></pre></div>
-<h3 id="data-cleaning-with-pandas">Data Cleaning with pandas</h3>
-<p>Data cleaning means fixing bad data in your data set it is an essential step in data analysis. Pandas provides several functions and methods for cleaning and preparing data. Examples of bad data include : </p>
+<h3 id="data-cleaning-with-pandas">Data Cleaning With pandas</h3>
+<p>Data cleaning means fixing bad data in your data set Examples of bad data include : </p>
 <h4 id="empty-cells">Empty cells</h4>
-<p>Empty cells can potentially give you a wrong result when you analyze data. One way to deal with empty cells is to remove rows that contain empty cells. This usually works since data sets can be very large, and removing a few rows will not have a significant impact on the results. </p>
+<p>Empty cells can potentially give you a wrong result when you analyze data. One way to deal with empty cells is to remove rows that contain empty cells. This usually works since data sets can be very large, and removing a few rows will not have a significant impact on the results.</p>
 <p><br /></p>
-<p>To detect empty cells we can use : </p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</span></code></pre></div>
-To remove empty cells, we can use the dropna() method. By default, the dropna() method returns a new DataFrame, and will not change the original. If you want to change the original DataFrame, use the inplace = True argument. Code Example :</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>                     
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<p>To remove empty cells, we can use the dropna() method. By default, the dropna() method returns a new DataFrame, and will not change the original. If you want to change the original DataFrame, use the inplace = True argument. Code Example :</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>import pandas as pd                     
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>print (dataframe1)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>dataframe1.dropna(inplace=True)
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>print (dataframe1)
 </span></code></pre></div>
 Another way of dealing with empty cells is to insert a new value to replace the empty cell. This way you do not have to delete entire rows just because of some empty cells. The fillna() method allows us to replace empty cells with a value. To only replace empty values for one column, specify the column name for the DataFrame. Code Example :</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>import pandas as pd
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>dataframe1.fillna(130, inplace=True)
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>dataframe1[&quot;Calories&quot;].fillna(130, inplace=True)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>print(dataframe1.to_string())
 </span></code></pre></div>
 <p>You can also fill in empty cells with the mean, median or mode of the column. Pandas uses the mean() median() and mode() methods to calculate the respective values for a specified column</p>
 <ul>
@@ -950,23 +1547,23 @@ Another way of dealing with empty cells is to insert a new value to replace the 
 <li>Mode : the mode is the value that appears most frequently</li>
 </ul>
 <p>Code Example : </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">meancal</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">mediancal</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">modecal</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;The mean of calories is&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">meancal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; The median of calories is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mediancal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; The mode of calories is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">modecal</span><span class="p">))</span> 
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">meandf</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">meancal</span><span class="p">)</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="n">mediandf</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">mediancal</span><span class="p">)</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="n">modedf</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">modecal</span><span class="p">)</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">meandf</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">mediandf</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">modedf</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>import pandas as pd
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>meancal=dataframe1[&quot;Calories&quot;].mean()
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>mediancal=dataframe1[&quot;Calories&quot;].median()
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>modecal=dataframe1[&quot;Calories&quot;].mode()
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>print (&quot;The mean of calories is&quot; + str(meancal) + &quot; The median of calories is &quot; + str(mediancal) + &quot; The mode of calories is &quot; + str(modecal)) 
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>meandf=dataframe1[&quot;Calories&quot;].fillna(meancal)
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>mediandf=dataframe1[&quot;Calories&quot;].fillna(mediancal)
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>modedf=dataframe1[&quot;Calories&quot;].fillna(modecal)
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>print(meandf.to_string())
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>print(mediandf.to_string())
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>print(modedf.to_string())
 </span></code></pre></div>
 <h4 id="data-in-wrong-format">Data in wrong format</h4>
 <p>Cells with data of incorrect format can make it difficult, or even impossible, to analyze data.</p>
@@ -982,66 +1579,44 @@ Another way of dealing with empty cells is to insert a new value to replace the 
 <p>Another way of handling incorrect data is to remove the rows that contains incorrect data. This way you do not have to find out what to replace them with, and there is a good chance you do not need them for analysis.</p>
 <p><br /></p>
 <p>Code Example</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="p">:</span> <span class="c1">#replace all values in duration above 120 with 120 </span>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="k">if</span> <span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;Duration&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">:</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot;Duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">df2</span><span class="o">.</span><span class="n">index</span><span class="p">:</span> <span class="c1">#drop all values above 120</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="k">if</span> <span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;Duration&quot;</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">120</span><span class="p">:</span>
-</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>        <span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> 
-</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
-</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">dataframe1</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">dataframe2</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>import pandas as pd 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>dataframe2=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>print(dataframe1.to_string())
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>print(dataframe2.to_string())
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>for x in dataframe1.index: #replace all values in duration above 120 with 120 
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    if dataframe1.loc[x, &quot;Duration&quot;] &gt; 120:
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        dataframe1.loc[x,&quot;Duration&quot;] = 120
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>for y in dataframe2.index: #drop all values above 120
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    if dataframe2.loc[y, &quot;Duration&quot;] &gt;120:
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        dataframe2.drop(y, inplace = True)
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>print(dataframe1.to_string())
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>print(dataframe2.to_string())
 </span></code></pre></div>
 <h4 id="wrong-data-duplicates">Wrong data Duplicates</h4>
 <p>Duplicate rows are rows that have been entered more than once. By taking a look at our test data set, we can assume that row 11 and 12 are duplicates</p>
 <p><br /></p>
 <p>To discover duplicates, we can use the duplicated() method The duplicated() method returns a Boolean values for each row To remove duplicates, use the drop_duplicates() method. Code Example :</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">df1</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1">#search for duplicates and output true when found </span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">df1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#drop all duplicates</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">df1</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>import pandas as pd
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>print(dataframe1.duplicated()) #search for duplicates and output true when found 
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>dataframe1.drop_duplicates(inplace = True) #drop all duplicates
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>print(dataframe1.to_string()) #find and drop duplicates example
 </span></code></pre></div>
-<h3 id="merging-and-joining-data">Merging and Joining Data</h3>
-<p>Pandas provides several functions and methods for merging and joining DataFrames.</p>
-<p><br /></p>
-<p>To merge two DataFrames based on a common column, you can use the merge() method.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">]})</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">47</span><span class="p">]})</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>  <span class="c1"># Merge DataFrames on &#39;id&#39; column</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The merge() method merges the two DataFrames based on the 'id' column. The result is a new DataFrame with columns from both DataFrames.</p>
-<p><br /></p>
-<p>To join two DataFrames based on a common column, you can use the join() method.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">]})</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">47</span><span class="p">]})</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">joined_df</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">))</span>  <span class="c1"># Join DataFrames on &#39;id&#39; column</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">joined_df</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The join() method joins the two DataFrames based on the 'id' column. The result is a new DataFrame with columns from both DataFrames.</p>
 <h3 id="data-analysis-in-pandas">Data Analysis in Pandas</h3>
-<h4 id="describe-in-pandas">Describe in Pandas</h4>
-<p>The describe() method in Pandas provides summary statistics of a DataFrame. It calculates several common statistics for each numerical column in the DataFrame, such as count, mean, standard deviation, minimum, maximum, and quartiles. Code Example :</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span> 
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">df1</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</span></code></pre></div>
 <h4 id="correlation-in-pandas">Correlation in Pandas</h4>
 <p>The corr() method calculates the relationship between each column in your data set. The corr() method ignores "not numeric" columns. Code Example : </p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span> 
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">df1</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>import pandas as pd
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>dataframe1=pd.read_csv(&quot;data.csv&quot;) 
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>dataframe1.corr()
 </span></code></pre></div>
 <br /></p>
 <p>The Result of the corr() method is a table with a lot of numbers that represents how well the relationship is between two columns. The number varies from -1 to 1 such as :</p>
@@ -1101,16 +1676,10 @@ Another way of dealing with empty cells is to insert a new value to replace the 
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
-      
-        <script src="../javascripts/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
