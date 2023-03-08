@@ -72,16 +72,28 @@ Just in case if you wondering what the output means 🤓
     - docker-init: This shows the version and Git commit of docker-init, which is the initialization script used by Docker to start containers.
 
 
-## Docker client and Docker server 
+## How Docker works on our machine
 
 As you can see the output of the `docker version` command is divided into two sections: Client and Server.
 In the context of Docker, the Docker client and server are two separate components that work together to manage containers and images.
+
+![Screenshot](https://raw.githubusercontent.com/collabnix/dockerlabs/master/beginners/images/comp_client_server.jpg)
+
+At the top, we have the client component, which runs on the host machine and interacts with the user. The client sends requests to the server component, which is hosted inside a Docker container.
+
+The Docker container is built from an image, which contains the application code and its dependencies. The image is created using a Dockerfile, which specifies the steps to build the image. The image is then pushed to a Docker registry, where it can be accessed by other team members or deployed to production.
+
+The Docker container runs on a Docker host, which is a machine that has Docker installed. The Docker host abstracts the underlying hardware and provides a consistent interface for running Docker containers.
+
+The Docker container is isolated from other containers and the host machine, which provides a secure and predictable environment for running the application.
+
+In this architecture, we can easily scale the server component by creating more Docker containers from the same image. We can also deploy the application to different environments, such as development, staging, and production, by using different Docker images and configurations.
 
 ### Docker client 
 
 The **Docker client is a command-line interface (CLI) tool that allows you to interact with the Docker daemon**. The client sends commands to the daemon, which then executes those commands and manages the containers and images on your system. The Docker client can be used to build and run containers, manage images, and perform other Docker-related tasks.
 
-### Docker server 
+### Docker Daemon 
 
 The **Docker server, also known as the Docker daemon, is a background process that manages the containers and images on your system**. The daemon listens for commands from the Docker client, executes those commands, and manages the underlying infrastructure needed to run containers, such as networking and storage.
 

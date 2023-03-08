@@ -82,3 +82,5 @@ nav:
     - 'Docker Volumes': 'docker/docker_volume.md'
     - 'Docker Network': 'docker/docker_network.md'
     - 'Docker-compose': 'docker/docker_compose.md'
+    - 'Docker and HTTPS': 'docker/docker_https.md'
+    - 'Best Practices': 'docker/docker_best_practice.md'

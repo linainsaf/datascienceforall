@@ -6,13 +6,140 @@ Docker Compose is a tool that allows you to define and run multi-container Docke
 
 Docker Compose is particularly useful for running complex applications that are made up of multiple services, each with its own requirements and dependencies. By using Docker Compose, you can define the configuration for all of these services in a single file, making it easier to manage and deploy your application.
 
-## Creating a Docker Compose File for our Python App
+### `YAML` syntax
 
-To create a Docker Compose file for your Python app, you'll need to define the services that make up your application. Each service is defined in the Docker Compose file as a separate block of configuration.
+YAML (short for "YAML Ain't Markup Language") is a human-readable data serialization language. **It is often used for configuration files and data exchange between different programming languages**. YAML is designed to be easily read by humans and can be used for complex or simple data structures.
 
-In this example we will take the `nortwhind` database [here](https://github.com/pthom/northwind_psql) as base for our code. 
+**Docker Compose uses YAML syntax for its configuration files because it is easy to read and write**. Docker Compose configuration files define all the services that make up an application, as well as any associated networks, volumes, and environment variables. By using YAML syntax, it allows developers to easily define the relationships between the different parts of an application and deploy it consistently across different environments.
 
-### Clone the project 
+Few this to know about `yaml` syntax : 
+
+- YAML files **use indentation to denote hierarchy**, instead of curly braces like JSON or XML.
+- The syntax is strict about indentation, so it's important to use consistent spacing (usually 2 or 4 spaces) for each level of hierarchy.
+- **Key-value pairs** are written as key: value, with the key and value separated by a colon and a space.
+- **Lists are denoted by a dash (-) followed by a space**, and can contain any type of value.
+- Comments can be added using the # symbol.
+
+Here's an example YAML file that defines a simple docker-compose web service:
+```yaml
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+```
+
+In this file:
+
+- `version` specifies the Docker Compose file version.
+- `services` is a list of Docker services to be created and run.
+- `web` is the name of the first service.
+- `image` specifies the Docker image to be used for the service.
+- `ports` maps a port on the host machine to a port in the container.
+- `"8080:80"` maps port 8080 on the host (your local machine or virtual machine in case you are in a VM) to port 80 in the container.
+
+This is just a basic example, but hopefully it gives you an idea of how the YAML syntax works but it will be helpful for the next part.
+
+## Docker Compose for a simple Python App and Redis database
+
+Let's create a two containers application with a `docker-compose.yml` file with a python app and a redis database in order to count how many times the page is reload. 
+
+![Screenshot](../img/docker_redis.png)
+
+First thing first, write our `app.py` script :
+```python title="app.py"
+from flask import Flask
+from redis import Redis
+
+app = Flask(__name__)
+redis = Redis(host='redis-container', port=6379)
+
+@app.route('/')
+def hello():
+    redis.incr('hits')
+    return ' - - - This basic web page has been viewed {} time(s) - - -'.format(redis.get('hits'))
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
+```
+and the `requirements.txt` file : 
+```title="requirements.txt"
+flask
+redis
+```
+This is a simple Python Flask web application that increments a counter each time the / route is accessed and displays the number of times it has been accessed. The application uses Redis as a datastore to store the hit counter.
+
+Here is how our `app.py` script works:
+
+1. The Flask library is imported, which allows us to create a web application.
+2. The Redis library is imported, which allows us to connect to a Redis instance and manipulate data.
+3. The Flask application is created and the Redis client is initialized, connecting to the Redis container named "redis-container" at port 6379.
+4. A route for the / endpoint is defined. When this route is accessed, the hit counter in Redis is incremented and the current count is displayed on the page.
+5. Finally, the application is run, listening on all network interfaces (0.0.0.0) on port 5000 and with debugging enabled.
+
+Then, we must write a `Dockerfile` : 
+```dockerfile 
+FROM python:3.6
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD python app.py
+```
+Like before this is a simple `Dockerfile` for a python application. 
+
+### Write the `docker-compose.yml` of our app
+
+```yaml title="docker-compose.yml"
+version: '3'
+services:
+    web:
+        build: ./app
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./app:/app
+        depends_on:
+            - redis-container
+
+    redis-container:
+        image: redis
+```
+This script is a Docker Compose file that describes two services that will be run in Docker containers: a web service and a Redis service.
+
+The `web` service is defined by the `web` service block. It specifies that the `web` service should be built from the Dockerfile in the `./app` directory, and should expose port 5000 on the host machine. The volumes directive maps the `./app` directory on the host to the `/app` directory in the container, allowing changes to the code to be immediately reflected in the container. The depends_on directive specifies that the `web` service should not start until the Redis service is running.
+
+The Redis service is defined by the `redis-container` block. It specifies that the Redis image should be used to create the service.
+This is the architeture of our project : 
+```
+.
+|_docker-compose.yml
+|_app
+  |_Dockerfile
+  |_requirements.txt
+  |_app.py
+```
+Together, these services can be started with the `docker-compose up` command, which will build and start the web and Redis containers, and connect them together on a default Docker network. 
+<center>
+![Screenshot](https://thinkwhere.com/wp-content/uploads/2016/07/d79025b6d689c4eb240b70f84a3c3c94eb1f753378709ce1ab57f0938d8a93a1.jpg)
+</center>
+
+You can also run your project in background with `-d` option then you should see your containers up and running with the command `docker ps`
+
+## Docker Compose for a Python App and PostgreSQL 
+Now that we understand how two containers works together let's code an application with a more efficient database : postgreSQL. 
+
+### What is PostgreSQL
+
+PostgreSQL, also known as Postgres, is a powerful and open-source relational database management system. It uses and extends the SQL language and provides many features such as support for JSON and other NoSQL features, scalability, and extensibility. It can run on various platforms such as Windows, macOS, Linux, and Unix. 
+
+Many organizations use Postgres for their data storage needs due to its reliability, robustness, and community support.
+
+### Set up the project 
+
+To create a Docker Compose file for your Python app, you'll need to define the services that make up your application. Each service is defined in the Docker Compose file as a separate block of configuration. In this example we will take the `nortwhind` database [here](https://github.com/pthom/northwind_psql) as base for our database service. 
+
 Download or `git clone` the `nortwhind` database [here](https://github.com/pthom/northwind_psql) and open the `docker-compose.yml` file bellow who define two services, one for a monitoring application `pgadmin` and one for a PostgreSQL database `db` :
 
 ```yaml
@@ -135,7 +262,7 @@ Password: postgres
 4. Then, select database "northwind" and you can now see all the tables and metadata 🥳
 
 
-## Add a Python app 
+### Add a Python app 
 
 ```python
 from fastapi import FastAPI

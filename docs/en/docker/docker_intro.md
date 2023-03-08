@@ -19,7 +19,7 @@ Docker also makes it easier to manage and scale applications. Containers can be 
 In summary, Docker provides a consistent and reliable way to package, deploy, and manage applications, which helps to solve the problem of "it works on my machine but not in production". **By using Docker, developers can ensure that their applications will work the same way in all environments, which can help to improve the reliability and efficiency of application deployment.**
 
 
-### What is Docker and Why Use It?
+## What is Docker and Why Use It?
 
 Docker provides a number of benefits over traditional methods of deploying applications:
 
@@ -28,6 +28,19 @@ Docker provides a number of benefits over traditional methods of deploying appli
 - **Isolation** : Docker containers provide a high degree of isolation between different applications, which reduces the risk of conflicts between different components of your application stack. This means that you can run multiple applications on the same machine, without worrying about interference between them.
 - **Resource Efficiency** : Docker containers are lightweight and use fewer resources than traditional virtual machines, which means that you can run more containers on the same machine. This can result in significant cost savings for cloud-based applications.
 
+## Docker VS Virtual Machines
+
+Let's talk about the difference between a traditional virtual machine (VM) architecture and a containerized architecture for that let's take a look at this schema : 
+
+![Screenshot](https://www.docker.com/wp-content/uploads/2021/11/docker-containerized-and-vm-transparent-bg.png)
+
+Starting with the VM architecture on the left, you can see that there is a physical server that hosts a hypervisor layer. The hypervisor layer creates multiple virtual machines, each of which has its own operating system (OS) and runs on top of the hypervisor layer. Each VM also has its own set of resources, such as CPU, memory, and storage, which are isolated from the other VMs.
+
+In contrast, the containerized architecture on the right does not have a hypervisor layer. Instead, it has a host operating system that runs on top of the physical server. On top of the host operating system, there is a container runtime, which manages the creation and management of containers. Each container shares the host operating system with other containers, but each container has its own isolated file system, network, and process space.
+
+Docker is a containerization technology that allows you to create, deploy, and manage containers. It provides a way to package and distribute software applications in a standardized and portable format, making it easy to move them from one environment to another. With Docker, you can create a Dockerfile that describes the dependencies and configuration of your application, and then use the Docker command-line interface to build, run, and manage containers based on that Dockerfile.
+
+Overall, Docker provides a lightweight and flexible alternative to traditional VMs, making it easier to develop, deploy, and scale applications.
 ### What is a Containers 
 
 Docker's use of the term "container" is inspired by the shipping industry. In the shipping industry, containers are standardized, self-contained units that can be easily transported between ships, trains, and trucks. These containers can hold a variety of goods and products, and they are designed to be easy to load and unload from transport vehicles.

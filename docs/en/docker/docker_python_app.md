@@ -2,7 +2,7 @@
 
 Docker provides a convenient way to package your Python applications and dependencies into a self-contained image that can be run on any machine. In this tutorial, we will walk you through the process of building a Docker image for a standard Python app.
 
-## Common problems if you choose NOT to use Docker
+## Common problems if you choose to NOT use Docker
 
 Here are three common problems you might encounter if you choose not to use Docker for your Python script deployment:
 
