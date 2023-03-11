@@ -182,7 +182,7 @@ Let's talk about the ppart of the docker-compose file defines a service named `n
 
 The `networks` section defines two networks: `db` and `mynetwork`. The networks are bridge driver type
 
-Then you can run `docker-compose up -d` and you should see the nginx forwarding our app and all our container like this : 
+Then you can run `docker-compose up -d` and you should see the nginx forwarding our app and all our containers like this : 
 ```
 fe86842a56e1   nginx:latest               "/docker-entrypoint.…"   19 seconds ago   Up 18 seconds           0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp
 d05f1ca65c2f   northwind_psql_app         "uvicorn app:app --h…"   19 seconds ago   Up 18 seconds           80/tcp, 0.0.0.0:8000->8000/tcp, :::8000->8000/tcp                                                                  northwind_psql_app_1
@@ -190,6 +190,6 @@ d05f1ca65c2f   northwind_psql_app         "uvicorn app:app --h…"   19 seconds 
 a76abdcbf8da   dpage/pgadmin4             "/entrypoint.sh"         9 hours ago      Up 19 seconds           80/tcp, 443/tcp, 0.0.0.0:5050->5050/tcp, :::5050->5050/tcp                                                         pgadmin
 ```
 
-Congrats our `app` service is now running in HTTPS 🥳
+Congrats you code a multi-container application and is now running in HTTPS 🥳
 
 

@@ -11,6 +11,10 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
+plugins:
+  - search
+  - mkdocs-jupyter
+
 
 theme:
   name: material
@@ -31,6 +35,7 @@ nav:
     - 'Introduction to Python Programming': 'intro.md'
     - 'Setting up a Development Environment': 'env.md'
     - 'Basic Python Concepts': 'basic.md'
+    - 'More examples': Python_Basics_examples.ipynb
     - 'Object Oriented Programming in Python': 'oop.md'
     - 'File Input/Output (I/O) Operations': 'io.md'
     - 'Python with Data Science tools': 
@@ -73,6 +78,11 @@ nav:
       - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'
       - 'SQLAlchemy and Docker': 'sql/29_python_docker_sql.md'
       - 'Python Wrap-up Projects': 'sql/30_python_projects.md'
+  
+  - 'NoSQL and Python':
+    - 'Introduction NoSQL': 'nosql/intro.md'
+    - 'Elasticseach': 'nosql/elastic.md'
+    - 'test Notebook': nosql/python_elastic.ipynb
 
   - 'Docker for App Deployment':
     - 'Introduction': 'docker/docker_intro.md'
