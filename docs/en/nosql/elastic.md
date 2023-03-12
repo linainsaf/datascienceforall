@@ -1308,10 +1308,40 @@ Here some queries to practice on the movies database :
 - Retrieve all documents in the index that have the word "chicken" in the title field.
 - Retrieve all documents in the index that have the word "vegetarian" in the description field.
 - Retrieve all documents in the index that have the word "bake" in the steps field.
-- Retrieve all documents in the index that have a created field after January 1st, 2022.
+- Retrieve all documents in the index that have a created field after January 1st, 2000.
 - Retrieve all documents in the index that have an ingredient with the name "flour" and a servings.max field greater than or equal to 8.
 - Compute the average preparation_time_minutes across all documents in the index.
 - Group all documents in the index by the number of servings.min and compute the average preparation_time_minutes for each group.
 - Compute the sum of preparation_time_minutes for all documents in the index that have the word "chicken" in the title field.
 - Group all documents in the index by the servings.max field and compute the average ratings for each group.
 - Compute the minimum and maximum preparation_time_minutes for all documents in the index that have an ingredient with the name "sugar".
+
+### Account database 
+
+1. Retrieve all documents in the index with a balance field greater than or equal to 1000.
+- Retrieve all documents in the index with a gender field equal to "female".
+- Retrieve all documents in the index with an age field between 30 and 40.
+- Retrieve all documents in the index with a state field equal to "California".
+- Retrieve all documents in the index with an email field containing the word "gmail".
+- Retrieve all documents in the index with a registered field after January 1st, 2022.
+- Retrieve all documents in the index with a tags field containing the value "neque".
+- Retrieve all documents in the index with a phone field starting with the area code "510".
+- Retrieve all documents in the index with a isActive field set to true.
+- Compute the average balance across all documents in the index.
+- Group all documents in the index by the gender field and compute the average balance for each group.
+- Compute the sum of balance for all documents in the index with a state field equal to "California".
+- Group all documents in the index by the age field and compute the average balance for each group.
+- Compute the minimum and maximum balance for all documents in the index with an email field containing the word "quility".
+
+### Orders database 
+
+1. Retrieve all documents in the index.
+- Retrieve all documents in the index with a total_amount field greater than or equal to 100.
+- Retrieve all documents in the index with a status field equal to "processed".
+- Retrieve all documents in the index with a salesman.name field containing the word "Woodruff".
+- Retrieve all documents in the index with a sales_channel field equal to "store" and a total_amount field greater than 50.
+- Compute the average total_amount across all documents in the index.
+- Group all documents in the index by the sales_channel field and compute the sum of total_amount for each group.
+- Compute the count of documents in the index with a status field equal to "completed".
+- Group all documents in the index by the salesman.name field and compute the average total_amount for each group.
+- Compute the minimum and maximum total_amount for all documents in the index with a purchased_at field in the year 2016.
