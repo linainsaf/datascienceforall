@@ -747,7 +747,9 @@ GET receipe/_search
 }
 ```
 
-#### Regexp query: A query that retrieves documents that match a specified regular expression pattern in a specified field.
+#### Regexp query
+A query that retrieves documents that match a specified regular expression pattern in a specified field.
+
 
 #### Fuzzy query
 A query that retrieves documents that are similar to a specified search term, accounting for minor spelling errors and variations.
@@ -1048,3 +1050,268 @@ These are the main query types available in Elasticsearch. It's important to con
 ____________________________________________________________________
 
 ## Aggregation in Elasticsearch
+
+Aggregations are a powerful feature of Elasticsearch that allow you to perform statistical analysis on your data. Aggregations can be used to compute metrics like counts, sums, averages, and histograms, as well as to group data into buckets based on a specified field or set of fields.
+
+### Terms Aggregation
+
+A terms aggregation allows you to group your data into buckets based on a specified field. Here's an example of a terms aggregation that groups documents in the "receipe" index by their ratings field:
+
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_ratings": {
+      "terms": {
+        "field": "ratings"
+      }
+    }
+  }
+}
+```
+This query will return a response that includes the number of documents that fall into each bucket like this : 
+```json
+"aggregations": {
+  "group_by_ratings": {
+    "buckets": [
+      {
+        "key": 3.5,
+        "doc_count": 3
+      },
+      {
+        "key": 4.0,
+        "doc_count": 2
+      },
+      {
+        "key": 5.0,
+        "doc_count": 2
+      }
+    ]
+  }
+}
+```
+
+### Count Aggregation
+
+A count aggregation allows you to count the number of documents that match a specified query. Here's an example of a count aggregation that counts the number of documents in the "receipe" index:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "count": {
+      "value_count": {
+        "field": "_id"
+      }
+    }
+  }
+}
+```
+This query will return a response that includes the total number of documents in the "receipe" index:
+```json
+"aggregations": {
+  "count": {
+    "value": 7
+  }
+}
+```
+
+### Average Aggregation
+
+An average aggregation allows you to compute the average value of a specified field. Here's an example of an average aggregation that computes the average preparation_time_minutes for all documents in the "receipe" index:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "average_preparation_time": {
+      "avg": {
+        "field": "preparation_time_minutes"
+      }
+    }
+  }
+}
+```
+This query will return a response that includes the average preparation_time_minutes for all documents in the "receipe" index :
+
+```json
+"aggregations": {
+  "average_preparation_time": {
+    "value": 34.285714285714285
+  }
+}
+```
+
+### Max and Min Aggregation 
+A max or min aggregation allows you to compute the maximum or minimum value of a specified field. Here's an example of a max aggregation that computes the maximum servings.max value for all documents in the "receipe" index:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "max_servings": {
+      "max": {
+        "field": "servings.max"
+      }
+    }
+  }
+}
+```
+This query will return a response that includes the maximum servings.max value for all documents in the "receipe" index:
+
+```json
+"aggregations": {
+  "max_servings": {
+    "value": 10
+  }
+}
+```
+
+Similarly, you can use a min aggregation to compute the minimum value of a field.
+
+### Date Histogram Aggregation
+A date_histogram aggregation allows you to group your data into buckets based on a specified date field. Here's an example of a date_histogram aggregation that groups documents in the "receipe" index by their created field:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_created": {
+      "date_histogram": {
+        "field": "created",
+        "interval": "month"
+      }
+    }
+  }
+}
+```
+This query will return a response that includes the number of documents that fall into each bucket:
+```json
+"aggregations": {
+  "group_by_created": {
+    "buckets": [
+      {
+        "key_as_string": "2022-03-01T00:00:00.000Z",
+        "key": 1646064000000,
+        "doc_count": 3
+      },
+      {
+        "key_as_string": "2022-04-01T00:00:00.000Z",
+        "key": 1648742400000,
+        "doc_count": 1
+      },
+      {
+        "key_as_string": "2022-06-01T00:00:00.000Z",
+        "key": 1654022400000,
+        "doc_count": 2
+      },
+      {
+        "key_as_string": "2022-07-01T00:00:00.000Z",
+        "key": 1656691200000,
+        "doc_count": 1
+      }
+    ]
+  }
+}
+```
+This example uses a month interval to group documents by `month`. You can also use other intervals like `day`, `hour`, `minute`, `second`, and so on.
+
+### Filter Aggregation
+
+A filter aggregation allows you to filter your data by a specified query before applying any other aggregations. Here's an example of a filter aggregation that only includes documents in the "receipe" index that have a ratings field greater than or equal to 4.0:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "highly_rated": {
+      "filter": {
+        "range": {
+          "ratings": {
+            "gte": 4.0
+          }
+        }
+      },
+      "aggs": {
+        "group_by_servings": {
+          "terms": {
+            "field": "servings.max"
+          }
+        }
+      }
+    }
+  }
+}
+```
+This example uses a range filter to only include documents with a `ratings` field greater than or equal to 4.0. You can use other filters like `match`, `bool`, `term`, and so on.
+
+### Nested Aggregation
+A nested aggregation allows you to perform aggregations on nested fields in your documents. Here's an example of a nested aggregation that groups documents in the "receipe" index by their ingredients.name field:
+```
+GET receipe/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_ingredient_name": {
+      "nested": {
+        "path": "ingredients"
+      },
+      "aggs": {
+        "group_by_name": {
+          "terms": {
+            "field": "ingredients.name"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Wrap-up 
+
+Elasticsearch is a powerful search and analytics engine that allows you to store, search, and analyze large amounts of data quickly and in near real-time. Elasticsearch provides a rich set of querying and aggregating capabilities that allow you to search and analyze your data in many different ways.
+
+Queries in Elasticsearch are used to retrieve specific documents or sets of documents that match certain criteria. Elasticsearch supports a wide variety of queries, including term, match, range, wildcard, and fuzzy queries. You can also combine multiple queries using boolean logic and use filters to narrow down your search results.
+
+Aggregations in Elasticsearch are used to compute and summarize statistics about your data. Elasticsearch supports a wide variety of aggregations, including sum, avg, min, max, date histogram, terms, and nested aggregations. Aggregations allow you to group your data into buckets based on one or more fields and compute statistics like counts, averages, sums, and more.
+
+Together, queries and aggregations in Elasticsearch allow you to search and analyze your data in many different ways, giving you valuable insights into your data and helping you make better business decisions.
+
+____________________________________________________________________
+
+## Exercices 
+
+### Movies database 
+
+Here some queries to practice on the movies database : 
+
+1. Retrieve all Films titled "Star Wars" directed by "George Lucas" using boolean query.
+2. Retrieve all Films in which "Harrison Ford" played.
+- Retrieve all Films in which "Harrison Ford" played and the plot contains "Jones".
+- Retrieve all Films in which "Harrison Ford" played, the plot contains "Jones", but not the word "Nazis".
+- Retrieve all Films directed by "James Cameron" with a rank below 1000 using boolean and range query.
+- Retrieve all Films directed by "James Cameron" with a rank below 400. (Exact response: 2)
+- Retrieve all Films directed by "Quentin Tarantino" with a rating above 5, but not categorized as an action or drama.
+- Retrieve all Films directed by "J.J. Abrams" released between 2010 and 2015.
+- Retrieve all Films with the word "Star" in the title and a rating above 7.
+- Retrieve all Films with the word "Trek" in the title and a rating above 8 released after the year 2000.
+
+### Receipe database 
+
+1. Retrieve all documents in the index.
+- Retrieve all documents in the index that have a preparation_time_minutes field greater than or equal to 60.
+- Retrieve all documents in the index that have an ingredient with the name "sugar".
+- Retrieve all documents in the index that have a servings.min field less than or equal to 4.
+- Retrieve all documents in the index that have a ratings field greater than or equal to 4.5.
+- Retrieve all documents in the index that have the word "chicken" in the title field.
+- Retrieve all documents in the index that have the word "vegetarian" in the description field.
+- Retrieve all documents in the index that have the word "bake" in the steps field.
+- Retrieve all documents in the index that have a created field after January 1st, 2022.
+- Retrieve all documents in the index that have an ingredient with the name "flour" and a servings.max field greater than or equal to 8.
+- Compute the average preparation_time_minutes across all documents in the index.
+- Group all documents in the index by the number of servings.min and compute the average preparation_time_minutes for each group.
+- Compute the sum of preparation_time_minutes for all documents in the index that have the word "chicken" in the title field.
+- Group all documents in the index by the servings.max field and compute the average ratings for each group.
+- Compute the minimum and maximum preparation_time_minutes for all documents in the index that have an ingredient with the name "sugar".

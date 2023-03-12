@@ -66,6 +66,7 @@ One of the most popular key-value databases is Redis. Redis is known for its fas
 Column-family databases store data in column families, which are groups of related columns. Each column can contain multiple values, which are stored as a collection of key-value pairs. Column-family databases are highly scalable and can handle large volumes of data.
 
 One of the most popular column-family databases is Apache Cassandra. Cassandra is known for its scalability and high availability, and is often used for online transaction processing, financial services, and e-commerce.
+
 <center>
 ![Screenshot](https://i.imgur.com/5dhN1lA.png)
 </center>
