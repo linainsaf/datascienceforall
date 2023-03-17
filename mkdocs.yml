@@ -81,6 +81,8 @@ nav:
   
   - 'NoSQL and Python':
     - 'Introduction NoSQL': 'nosql/intro.md'
+    - 'Redis': 'nosql/redis.md'
+    - 'MongoDB': 'nosql/mongo.md'
     - 'Elasticseach': 'nosql/elastic.md'
     - 'test Notebook': nosql/python_elastic.ipynb
 
