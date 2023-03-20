@@ -198,6 +198,80 @@ for doc in documents:
     print(doc)
 ```
 
+## Load data from JSON file
+
+Download the JSON data [here](https://gist.github.com/bdallard/16aa2af027696c4ee4d0bb0db017276a#file-accounts-json) and save it as accounts.json. Next, load the JSON data using Python:
+
+```python
+import json
+
+with open("accounts.json", "r") as file:
+    data = json.load(file)
+```
+
+Once you have loaded the JSON data, you can insert it into MongoDB using the following code:
+
+```python
+result = collection.insert_many(data)
+
+print("Inserted data with the following IDs:", result.inserted_ids)
+```
+
+### Create an index
+
+To create an index on the accounts collection, use the following code:
+
+```python
+index_name = "city_index"
+collection.create_index("address.city", name=index_name)
+```
+This creates an index on the city field within the address object.
+
+### Perform queries
+
+With the data ingested and an index created, you can now perform queries. Here are some examples:
+
+**Find all accounts from a specific city:**
+
+```python
+city = "Bradshawborough"
+results = collection.find({"address.city": city})
+
+for result in results:
+    print(result)
+```
+
+**Find all accounts with a balance greater than a specific value**
+
+```python
+min_balance = 30000
+results = collection.find({"balance": {"$gt": min_balance}})
+
+for result in results:
+    print(result)
+```
+
+### Perform aggregations
+
+Here are some examples of aggregation operations:
+
+**Find the total balance for each city**
+
+```python
+pipeline = [
+    {"$group": {"_id": "$address.city", "total_balance": {"$sum": "$balance"}}},
+    {"$sort": {"total_balance": -1}}
+]
+
+results = collection.aggregate(pipeline)
+
+for result in results:
+    print(f"{result['_id']}: {result['total_balance']}")
+```
+
+**Find the count of accounts for each city**
+
+
 ## Indexing and Aggregation
 
 An index in MongoDB is a data structure that allows the database to efficiently locate and access documents based on the values of specific fields. Indexes improve the performance of read operations, particularly for large datasets, by reducing the number of documents that must be examined to satisfy a query. However, they come with some trade-offs, as they require additional storage space and can slow down write operations.
