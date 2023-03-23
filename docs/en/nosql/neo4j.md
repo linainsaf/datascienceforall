@@ -12,7 +12,7 @@ In this section, we will cover how to set up a Neo4j graph database using Docker
 ### Running a Neo4j container
 
 ```bash
-docker run     
+docker run\     
     \--name my_neo4j     
     \-p7474:7474 -p7687:7687     
     \-v ~/neo4j_data:/data     
