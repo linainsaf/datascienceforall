@@ -4,7 +4,11 @@
 
 Joins in SQL are used to combine data from two or more tables in a relational database. Joins allow you to retrieve data that is spread across multiple tables by linking related data together.
 
+<br />
+
 A join creates a new virtual table that contains data from the tables being joined. The data in the virtual table is a combination of data from the original tables that match a specific condition. The condition for joining tables is typically based on the values of a common column or set of columns in each table.
+
+<br />
 
 Joins are an essential tool for retrieving complex data from a database. By linking related data together, joins allow you to retrieve data that is spread across multiple tables in a single query.
 
@@ -12,8 +16,11 @@ Joins are an essential tool for retrieving complex data from a database. By link
 
 There are several types of joins in SQL, including `inner join`, `left join`, `right join`, and `full outer join`. Each type of join is used to combine data from two or more tables in a different way.
 
+<br />
+
 Here a summary schema for each type of join : 
 
+<br />
 
 ![Screenshot](https://cartman34.fr/wp-content/uploads/2017/01/sql_joins.jpg)
 
@@ -38,6 +45,8 @@ ON table1.column = table2.column;
 
 In this syntax, the `INNER JOIN` keyword specifies that an inner join is being performed. The `ON` keyword specifies the condition for joining the tables. The columns being joined must have the same data type and contain similar data.
 
+<br />
+
 Here's an example of an inner join that combines data from the "employees" and "departments" tables:
 
 ```sql
@@ -61,6 +70,8 @@ ON table1.column = table2.column;
 
 In this syntax, the `LEFT JOIN` keyword specifies that a left join is being performed. The ON keyword specifies the condition for joining the tables.
 
+<br />
+
 Here's an example of a left join that combines data from the `employees` and `departments` tables:
 
 ```sql
@@ -74,6 +85,8 @@ This query returns a result set that includes the employee number, first name, l
 #### Right Join
 
 A right join returns all the rows from the right table and the matching rows from the left table. If there are no matching rows in the left table, the result set will contain `NULL` values for the columns in the left table. 
+
+<br />
 
 Here's an example of a right join that combines data from the `employees` and `departments` tables:
 
@@ -104,6 +117,8 @@ WHERE employees.dept_no IS NULL;
 ```
 
 This query combines the results of a `left join` and a `right join` to simulate a full outer join. The first `SELECT` statement performs a `left join` and returns all the rows from the `employees` table and the matching rows from the `departments` table. The second `SELECT` statement performs a right join and returns all the rows from the `departments` table and the matching rows from the `employees` table where there is no match in the `employees` table. The `UNION` operator combines the results of the two `SELECT` statements.
+
+<br />
 
 This is the same version with the `full outer join` keyword : 
 
@@ -190,12 +205,6 @@ FROM sales s
 RIGHT JOIN employees e ON s.emp_no = e.emp_no
 GROUP BY e.emp_no;
 ```
-
-## Conclusion
-
-Joins are an essential tool in SQL for retrieving data that is spread across multiple tables in a relational database. There are several types of joins available, including `inner join`, `left join`, `right join`, and `full outer join`. By understanding how to use joins in SQL, you can retrieve complex data from a database and link related data together.
-
-
 
 
 

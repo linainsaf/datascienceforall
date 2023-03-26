@@ -6,7 +6,7 @@ In this section we will see how to use SQLAlchemy for connecting MySQL database 
 
 Let's write a python script `query_db.py` who connects to a MySQL database using SQLAlchemy library, select a table and perform a query. 
 
-```py title="query_db.py" hl_lines="14 20 21 22"
+```python
 from sqlalchemy import create_engine, inspect
 
 # create an engine to connect to the database
@@ -34,7 +34,11 @@ for table_name in table_names:
 
 The only difference with the previous code `connect_db.py` is the highlight part when we iterate over each table name in the list and checks if the table name is `employees`. If it is, it gets the columns for the `employees` table and prints out each column name and data type.
 
+<br />
+
 Next, the code executes a SQL query to select the first 10 male employees in the `employees` table and prints out each row returned by the query.
+
+<br />
 
 Overall, this code demonstrates how to use SQLAlchemy to connect to a MySQL database, inspect its metadata, and execute SQL queries to retrieve data from a specific table.
 
@@ -43,11 +47,15 @@ Overall, this code demonstrates how to use SQLAlchemy to connect to a MySQL data
 
 We don't necessarily need to use a session object if we only need to execute simple queries, as we can execute queries directly using the engine object. 
 
+<br />
+
 However, if you need to work with transactions or make more complex database operations, using a session object would be a good practice. A session object provides a transactional scope and also allows you to perform more complex operations such as creating, updating or deleting records.
+
+<br />
 
 Let's rewrite the query above with a `session()` object : 
 
-```py title="query_db_session.py" hl_lines="2 5 8 9 12 17"
+```python
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 
@@ -126,5 +134,7 @@ with Session(engine) as session:
 
 ```
 In this example, we use the with statement to automatically close the session when we're done with it. We also use the query method to execute the SQL statement, and the filter method to filter the results based on the salary column. Finally, we use the limit method to limit the number of rows returned to 10.
+
+<br />
 
 Note that in order to use this method, **we first need to define the Employees class using the declarative_base function from SQLAlchemy.** This allows us to represent the employees table as a Python class, making it easier to query the database using SQLAlchemy we will see that in the next chapter. 

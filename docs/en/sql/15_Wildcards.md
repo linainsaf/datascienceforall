@@ -4,15 +4,19 @@
 
 Wildcards are special characters that are used in SQL to represent one or more characters in a string. They are used in conjunction with the LIKE operator to perform pattern matching on text values. Wildcards allow you to search for strings that match a specific pattern, even if you don't know the exact value of the string.
 
+<br />
+
 Wildcards are particularly useful when searching for records that have similar but not identical values in a column. For example, you can use a wildcard to find all employees with a first name that starts with the letter "J", or all employees with a last name that ends in "son".
 
 ## Overview of Different Wildcard Characters and Their Uses
 
-There are three main wildcard characters in SQL: the percent sign (%), the underscore (_), and the square brackets ([]). Each wildcard character serves a different purpose and can be used in different ways.
+There are three main wildcard characters in SQL: the percent sign (%), the underscore (\_), and the square brackets ([]). Each wildcard character serves a different purpose and can be used in different ways.
 
 ### The Percent Sign (%)
 
 The percent sign is used to represent zero or more characters in a string. It can be used at the beginning, end, or in the middle of a search pattern.
+
+<br />
 
 For example, to find all employees with a first name that starts with the letter "J", you can use the following SQL query:
 
@@ -23,6 +27,8 @@ WHERE first_name LIKE 'J%';
 
 This query returns all employees whose first name starts with the letter "J". The % wildcard character is used to match any number of characters that come after the letter "J".
 
+<br />
+
 Similarly, to find all employees with a last name that ends in "son", you can use the following SQL query:
 
 ```sql
@@ -32,9 +38,11 @@ WHERE last_name LIKE '%son';
 
 This query returns all employees whose last name ends in the letters "son". The % wildcard character is used to match any number of characters that come before the letters "son".
 
-### The Underscore (_)
+### The Underscore (\_)
 
 The underscore is used to represent a single character in a string. It can be used at the beginning, end, or in the middle of a search pattern.
+
+<br />
 
 For example, to find all employees with a first name that starts with the letter "J" and has a second letter that is an "o", you can use the following SQL query:
 
@@ -56,6 +64,8 @@ WHERE first_name LIKE '[JP]%';
 
 This query returns all employees whose first name starts with the letters "J" or "P". The square brackets are used to specify that the first letter can be either "J" or "P".
 
+<br />
+
 You can also use the square brackets to search for ranges of characters. For example, to find all employees with a last name that starts with the letters "M" to "Z", you can use the following SQL query:
 
 ```sql
@@ -64,16 +74,11 @@ WHERE last_name LIKE '[M-Z]%';
 ```
 This query returns all employees whose last name starts with any letter from "M" to "Z". The square brackets and the "-" symbol are used to specify the range of letters.
 
-
-## Wildcards Wrap-up
-
-Wildcards are an essential tool for performing pattern matching on text values in SQL. They allow you to search for records that match a specific pattern, even if you don't know the exact value of the string. There are three main wildcard characters in SQL: the percent sign (%), the underscore (_), and the square brackets ([]). The percent sign is used to represent zero or more characters, the underscore is used to represent a single character, and the square brackets are used to represent a single character that can be any one of the characters specified within the brackets.
-
-By using wildcards in conjunction with the LIKE operator, you can perform powerful pattern matching on text values in SQL. This is particularly useful when searching for records that have similar but not identical values in a column. With a basic understanding of wildcard characters, you can improve your SQL queries and retrieve more accurate and meaningful results from your data.
-
 ## Union
 
 Union is a set operation in SQL that is used to combine the results of two or more `SELECT` statements into a single result set. Union returns a distinct set of rows that are present in either of the two or more `SELECT` statements. Union can be used to combine data from multiple tables, or to combine data from a single table that is split across multiple columns.
+
+<br />
 
 Union can be useful when you need to combine data from multiple sources or when you want to merge two or more tables with similar structure. Union can help simplify data analysis by providing a consolidated view of data that is spread across multiple sources.
 
@@ -126,10 +131,6 @@ UNION ALL
 SELECT region, sales_amount, year FROM marketing;
 ```
 This query combines the sales data from the "sales" and "marketing" tables and returns a result set that includes all rows, including duplicates.
-
-## Union Wrap-up
-
-Union is a powerful set operation in SQL that is used to combine the results of two or more `SELECT` statements into a single result set. Union can be used to combine data from multiple tables or to combine data from a single table that is split across multiple columns. By understanding how to use Union in SQL, you can simplify data analysis and retrieve a consolidated view of data that is spread across multiple sources.
 
 
 

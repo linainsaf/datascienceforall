@@ -31,62 +31,100 @@ theme:
 nav: 
   - Home: 'index.md'
   - 'Python Programming':
-    - 'Introduction to Python Programming': 'intro.md'
-    - 'Setting up a Development Environment': 'env.md'
-    - 'Basic Python Concepts': 'basic.md'
-    - 'More examples': Python_Basics_examples.ipynb
-    - 'Object Oriented Programming in Python': 'oop.md'
-    - 'File Input/Output (I/O) Operations': 'io.md'
-    - 'Python with Data Science tools': 
-      - 'Numpy: Understanding & working with Numpy': 'numpy.md'
-      - 'Pandas: Understanding & working with Pandas': 'pd.md'
+    - 'Introduction to Python Programming': 'python/intro.md'
+    - 'Setting up a Development Environment': 'python/env.md'
+    - 'Basic Python Concepts': 
+      - 'Course': 'python/basic.md'
+      - 'Basic python notebook' : python/notebooks/python_Basics_examples.ipynb
+      - 'Python exercices notebook 1' : python/notebooks/Python_Problems_1_Solution.ipynb
+      - 'Python exercices notebook 2' : python/notebooks/Python_Problems_solution_2.ipynb
+    - 'Object Oriented Programming in Python': 
+      - 'Course': 'python/oop.md'
+      - 'OOP exercices notebook 1' : python/notebooks/OOP_Problems_1_solution.ipynb
+      - 'OOP exercices notebook 2' : python/notebooks/OOP_Problems_2_solution.ipynb
 
-  - 'SQL and Python for Data Analysis and Database Development': 
-    - 'Introduction':
-      - 'Introduction': 'sql/01_sql_intro.md' 
-      - 'What is a Database': 'sql/02_db_kesako.md'
-      - 'Tables & Keys': 'sql/03_table.md'
-      - 'SQL Basic understanding': 'sql/04_basics.md'  
-    - 'Installation':
-      - 'Install MySQL on MacOS': 'sql/05_MacOS_install.md'
-      - 'Install MySQL on Windows': 'sql/06_Windows_install.md'
-      - 'Install MySQL with docker': 'sql/06_b_docker_install.md'
-    - 'CRUD (Create, Read, Update, Delete) operations':
-      - 'Creating tables': 'sql/07_creating_tables.md'
-      - 'Inserting Data': 'sql/08_insert.md'
-      - 'Constraints': 'sql/09_constraints.md'
-      - 'Update & Delete': 'sql/10_update_delete.md'
-      - 'Basic Queries': 'sql/11_queries.md'
-    - 'Build a company database from scratch': 'sql/12_company_db_1'
-    - 'More Queries': 'sql/13_queries_db.md'
-    - 'SQL Functions': 'sql/14_functions.md'
-    - 'Wildcards & Unions': 'sql/15_Wildcards.md'
-    #- 'Union': 'sql/16_unions.md'
-    - 'Joins': 'sql/17_joins.md'
-    - 'Nested Queries': 'sql/18_Nested_Queries.md'
-    - 'On Delete': 'sql/19_delete.md'
-    - 'Triggers': 'sql/20_triggers.md'
-    - 'ER DIagrams': 'sql/21_er_diagrams.md'
-    - 'Python and SQLAlchemy': 
-      - 'Introduction': 'sql/22_Python_SQLAlchemy.md'
-      - 'Querying Data with Python': 'sql/23_python_query.md'
-      - 'Object Relational Mapping in Python': 'sql/24_python_orm.md'
-      - 'Updating and Deleting Data with Python': 'sql/25_python_update_delete.md'
-      - 'Advanced Queries with Python': 'sql/26_python_queries.md'
-      - 'Working with large dataset': 'sql/27_python_large_data.md'
-      - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'
-      - 'SQLAlchemy and Docker': 'sql/29_python_docker_sql.md'
-      - 'Python Wrap-up Projects': 'sql/30_python_projects.md'
+    - 'File Input/Output (I/O) Operations': 
+      - 'Course': 'python/io.md'
+      - 'I/O Operations exercices notebook' : python/notebooks/oi_python.ipynb
+
+  - 'Data Analysis tools in Python': 
+      - 'Understanding & working with Numpy': 'python/numpy.md'
+      - 'Numpy exercices notebook' : python/notebooks/NumPy_Problem_series_solution.ipynb
+      - 'Understanding & working with Pandas': 'python/pd.md'
+      - 'Pandas Course notebook' : python/notebooks/pandascourse.ipynb
+      - 'Pandas exercices notebook' : python/notebooks/Pandas_problem_series_solution.ipynb
+      - 'Understanding & working with Matplotlib' : 'python/plt.md'
+      - 'Understanding & working with Seaborn' : 'python/sns.md'
+      - 'Seaborn and Matplotlib Course notebook' : python/notebooks/Matplotlib_Seaborn_course.ipynb
+      - 'Data Visualization exercices notebook' : python/notebooks/Seaborn_Matplotlib_Problem_series_solution.ipynb
+
+  - 'Database Management Systems' :
+    - 'Introduction to DBMS' : 'sql/01_sql_intro.md'
+    - 'Relational DBMS' :
+      - 'Introduction' : 
+        - 'What is a Relational DBMS' : 'sql/02_db_kesako.md'
+        - 'Basic Principals' :
+            - 'Tables & Keys': 'sql/03_table.md'
+            - 'SQL': 'sql/04_basics.md'
+      - 'Installation':
+        - 'Install MySQL on MacOS': 'sql/05_MacOS_install.md'
+        - 'Install MySQL with docker': 'sql/06_b_docker_install.md'
+      - 'CRUD (Create, Read, Update, Delete) operations':
+        - 'Creating tables': 'sql/07_creating_tables.md'
+        - 'Inserting Data': 'sql/08_insert.md'
+        - 'Constraints': 'sql/09_constraints.md'
+        - 'Update & Delete': 'sql/10_update_delete.md'
+      - 'SQL Queries' :
+        - 'Basic Queries': 'sql/11_queries.md'
+        - 'More Queries': 'sql/13_queries_db.md'
+      - 'Build a company database from scratch': 'sql/12_company_db_1.md'
+      - 'Advanced SQL':
+        - 'SQL Functions': 'sql/14_functions.md'
+        - 'Wildcards & Unions': 'sql/15_Wildcards.md'
+        - 'Joins': 'sql/17_joins.md'
+        - 'Nested Queries': 'sql/18_Nested_Queries.md'
+        - 'On Delete': 'sql/19_delete.md'
+        - 'Triggers': 'sql/20_triggers.md'
+        - 'ER DIagrams': 'sql/21_er_diagrams.md'
+      - 'Python and SQLAlchemy': 
+        - 'Introduction': 'sql/22_Python_SQLAlchemy.md'
+        - 'Querying Data with Python': 'sql/23_python_query.md'
+        - 'Object Relational Mapping in Python': 'sql/24_python_orm.md'
+        - 'Updating and Deleting Data with Python': 'sql/25_python_update_delete.md'
+        - 'Advanced Queries with Python': 'sql/26_python_queries.md'
+        - 'Working with large dataset': 'sql/27_python_large_data.md'
+        - 'SQLAlchemy and FastAPI': 'sql/28_python_fastapi.md'
+        - 'SQLAlchemy and Docker': 'sql/29_python_docker_sql.md'
+        - 'Python Wrap-up Projects': 'sql/30_python_projects.md'
   
-  - 'NoSQL and Python':
-    - 'Introduction NoSQL': 'nosql/intro.md'
-    - 'Redis': 'nosql/redis.md'
-    - 'MongoDB': 'nosql/mongo.md'
-    - 'Neo4j': 'nosql/neo4j.md'
-    - 'Elasticseach':
-      - 'Introduction': 'nosql/elastic.md'
-      - 'Logstash': 'nosql/logstash.md'
-      - 'test Notebook': nosql/python_elastic.ipynb
+    - 'NoSQL DBMS':
+      - 'Introduction NoSQL': 'nosql/intro.md'
+      - 'Redis': 'nosql/redis.md'
+      - 'MongoDB': 'nosql/mongo.md'
+      - 'Neo4j': 'nosql/neo4j.md'
+      - 'Elasticseach':
+        - 'Introduction': 'nosql/elastic.md'
+        - 'Logstash': 'nosql/logstash.md'
+        - 'test Notebook': nosql/python_elastic.ipynb
+
+  - 'Machine/Deep Learning':
+      - 'Machine Learning' : 
+        - 'Introduction': 'ml/ml.md'
+        -  'Evaluation Metrics': 'ml/eval.md'
+        - 'Linear regression example notebook' : ml/notebooks/CODE_Regression_lineaire_simple.ipynb
+        - 'AirBnB prediction project' : ml/notebooks/ModeleLineaire_AirBnB_SOL.ipynb
+        - 'RandomForest regression and Kmeans clustering example notebook' : ml/notebooks/RandomForest_mini_exo.ipynb
+        - 'Iris classification project with RandomForest' : ml/notebooks/RandomForestIRIS_SOL.ipynb
+        - 'Image classification project with Knn and PCA' : ml/notebooks/TP_Classification_kppv-pca_SOL.ipynb
+      - 'Introduction to Deep Learning' : 
+        - 'Introduction' : 'ml/dl.md'
+        - 'Types of Deep Learning' : 'ml/dltypes.md'
+        - 'Image classification project with MLP and CNN': ml/notebooks/MLP_+_CNN.ipynb
+        - 'Sentiment Analysis project with RNN and LSTMs' : ml/notebooks/RNN_sentiment_analysis_problem.ipynb
+
+
+  - 'Restful API':
+    - 'Introduction' : 'api/api.md'
 
   - 'Docker for App Deployment':
     - 'Introduction': 'docker/docker_intro.md'

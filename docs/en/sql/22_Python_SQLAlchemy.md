@@ -191,6 +191,8 @@ Do not forget to use you `username` and `password` in order to insure a good con
 
 When a SQLAlchemy Engine is created, it creates a pool of connections to the database which are automatically checked out and returned when needed by the application. This means that once an Engine has been created, it can be used for the lifetime of the application without the need to explicitly close the connection or perform any other cleanup.
 
+<br />
+
 However, it's good practice to close the connection when you're done using it, especially in long-running applications, to ensure that database resources are properly released. To close the connection in SQLAlchemy, you can use the Engine.dispose() method, which will release all resources associated with the Engine.
 
 

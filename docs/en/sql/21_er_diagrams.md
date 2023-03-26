@@ -4,21 +4,35 @@
 
 ER (Entity-Relationship) diagrams are a visual representation of the relationships between entities (tables) in a database. They are an important tool for designing and managing databases, as they provide a clear and concise way to understand how different tables are related to each other.
 
+<br />
+
 ER diagrams are used to model and plan database structures, to optimize data retrieval and to make queries more efficient. They are also used to help non-technical stakeholders understand the relationships between data tables, as they provide a simple and visual way to communicate complex data structures.
 
 ## Overview of How to Use ER Diagrams to Visualize Data
 
 ER diagrams consist of entities (tables) and relationships (connections between tables), and are created using a set of symbols and rules. Entities are represented as rectangles, and relationships are represented as lines connecting the entities.
 
+<br />
+
 Here's an example of an ER diagram for our employees database:
+<br />
+
 ![Screenshot](https://dev.mysql.com/doc/employee/en/images/employees-schema.png)
 
-You can see the full documentation of the database on the official page [here](https://dev.mysql.com/doc/employee/en/sakila-structure.html)
+<br />
 
+You can see the full documentation of the database on the official page [**here**](https://dev.mysql.com/doc/employee/en/sakila-structure.html)
+
+
+<br />
 
 In this diagram, the rectangles represent entities (tables), and the lines connecting the entities represent relationships between them. The relationships are labeled with the type of relationship (e.g. "belongs to", "manages", etc.), and with cardinality symbols that indicate the minimum and maximum number of instances of one entity that can be related to instances of the other entity.
 
+<br />
+
 ER diagrams can be used to model complex relationships between tables, including one-to-one, one-to-many, and many-to-many relationships. They can also be used to represent subtypes and supertypes, and to define constraints and business rules that govern the relationships between entities.
+
+<br />
 
 By using ER diagrams to visualize data, you can better understand the structure of your database and optimize your queries for maximum efficiency. ER diagrams can also be used to communicate complex data structures to non-technical stakeholders, helping to ensure that everyone involved in your data analysis projects has a common understanding of the data structures and relationships at play.
 
@@ -26,6 +40,8 @@ By using ER diagrams to visualize data, you can better understand the structure 
 ## In-depth Look at How to Design an ER Diagram
 
 The process of designing an ER (Entity-Relationship) diagram involves identifying the entities (tables) that will be included in the database, and determining the relationships between them. This process is crucial for building a database that is efficient, accurate, and easy to work with.
+
+<br />
 
 Here are the steps involved in designing an ER diagram:
 
@@ -55,6 +71,8 @@ By understanding the different entities, attributes, and relationships involved 
 ## Explanation of How to Convert ER Diagrams to Database Schemas
 
 Once you have designed an ER (Entity-Relationship) diagram for your database, the next step is to convert it into a database schema. This involves creating tables and relationships that reflect the structure and relationships defined in the ER diagram.
+
+<br />
 
 Here are the steps involved in converting an ER diagram to a database schema:
 

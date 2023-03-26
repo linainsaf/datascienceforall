@@ -4,7 +4,11 @@
 
 SQL functions are built-in functions that are used to perform operations on data in a database. They take one or more arguments as input, perform a specific operation, and return a result. Functions can be used in SELECT, WHERE, HAVING, and ORDER BY clauses of a SQL query.
 
+<br />
+
 There are many different types of functions in SQL, including aggregate functions, scalar functions, date and time functions, and string functions. Each type of function performs a specific operation on data and returns a result.
+
+<br />
 
 Overall, SQL functions are essential for data analysis because they allow you to perform complex calculations, filter data based on specific criteria, clean up messy data, aggregate data to provide insights into trends and patterns, and transform data from one format to another. By mastering SQL functions, you can become a more effective data analyst and make more informed decisions based on your data.
 
@@ -15,23 +19,27 @@ Overall, SQL functions are essential for data analysis because they allow you to
 Aggregate functions are used to perform calculations on groups of rows and return a single value. Some common aggregate functions are:
 
 - `COUNT()`: returns the number of rows in a table or the number of non-null values in a column.
+
 ```sql
 SELECT COUNT(*) as num_employees
 FROM employees;
 ```
 This query counts the number of rows in the "employees" table and assigns the name "num_employees" to the output column.
+
 - `SUM()`: returns the sum of values in a column.
 ```
 SELECT SUM(salary) as total_salary
 FROM salaries;
 ```
 This query calculates the total salary of all employees in the "salaries" table and assigns the name "total_salary" to the output column.
--` AVG()`: returns the average value of a column.
+
+- ` AVG()`: returns the average value of a column.
 ```sql
 SELECT AVG(salary) as avg_salary
 FROM salaries;
 ```
 This query calculates the average salary of all employees in the "salaries" table and assigns the name "avg_salary" to the output column.
+
 - `MAX()`: returns the maximum value in a column.
 ```sql
 SELECT MAX(salary) as max_salary
@@ -39,6 +47,7 @@ FROM salaries;
 ```
 This query finds the highest salary in the "salaries" table and assigns the name "max_salary" to the output column.
 - `MIN()`: returns the minimum value in a column.
+
 ```sql
 SELECT MIN(salary) as min_salary
 FROM salaries;
@@ -61,7 +70,9 @@ SELECT LOWER(last_name) as lower_last_name
 FROM employees;
 ```
 This query converts the last name of all employees in the "employees" table to lowercase and assigns the name "lower_last_name" to the output column.
--` LENGTH()`: returns the length of a string.
+
+- ` LENGTH()`: returns the length of a string.
+
 ```sql
 SELECT first_name, LENGTH(first_name) as name_length
 FROM employees;
@@ -78,14 +89,19 @@ SELECT hire_date, DATE(hire_date) as hire_date_only
 FROM employees;
 ```
 This query extracts the date part from the "hire_date" column of the "employees" table and assigns the name "hire_date_only" to the output column.
+
 - `YEAR()`: returns the year from a date value.
+
 ```sql
 SELECT hire_date, YEAR(hire_date) as hire_year
 FROM employees;
 ```
 This query returns the "hire_date" column of the "employees" table and calculates the year each employee was hired. The name "hire_year" is assigned to the output column.
 
-Same `MONTH()` function : 
+<br />
+
+Same `MONTH()` function :
+
 ```sql
 SELECT hire_date, MONTH(hire_date) as hire_month
 FROM employees;
@@ -116,6 +132,7 @@ FROM employees;
 This query returns the email column of the "employees" table and replaces the substring 'gmail' with 'yahoo' in each email address. The name "new_email" is assigned to the output column.
 
 ## Mix up 
+
 Let's take a look at three examples of SQL queries that use a mix of functions on the "employees" database again. 
 
 ### Find the average salary of employees by department, and round the results to two decimal places:
@@ -128,6 +145,8 @@ JOIN departments ON dept_emp.dept_no = departments.dept_no
 GROUP BY department;
 ```
 This query joins the "employees", "dept_emp", and "departments" tables, and uses the AVG() function to calculate the average salary of employees in each department. The ROUND() function is used to round the results to two decimal places. The output includes the department name and the average salary for each department.
+
+<br />
 
 Don't worry about the `JOIN` clause we will get to it in detail later. 
 
@@ -150,7 +169,7 @@ FROM employees
 GROUP BY hire_year;
 ```
 
-This query uses the YEAR() function to extract the year from the hire date of each employee, and the COUNT() function to count the number of employees hired in each year. The subquery (SELECT COUNT(*) FROM employees) is used to calculate the total number of employees in the "employees" table. The percentage of employees hired in each year is calculated by dividing the count by the total number of employees and multiplying by 100. The output includes the hire year and the percentage of employees hired in that year.
+This query uses the YEAR() function to extract the year from the hire date of each employee, and the COUNT() function to count the number of employees hired in each year. The subquery (SELECT COUNT(\*) FROM employees) is used to calculate the total number of employees in the "employees" table. The percentage of employees hired in each year is calculated by dividing the count by the total number of employees and multiplying by 100. The output includes the hire year and the percentage of employees hired in that year.
 
 
 ### Find the number of employees born in each month, and sort the results by month:

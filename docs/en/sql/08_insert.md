@@ -65,7 +65,4 @@ VALUES
 
 By using these different insert commands and syntax, you can efficiently add data to your SQL database tables.
 
-In the following chapters, we will dive into more examples and exercises to practice the different SQL commands we've covered, including creating tables and inserting data. By practicing these commands, you will gain a deeper understanding of how to manipulate and retrieve data from a database using SQL.
-
-
 

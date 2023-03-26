@@ -6,9 +6,15 @@
 
 The base image you choose can greatly affect the size and security of your final image. Choose a minimal base image and only include what you need to minimize the attack surface and reduce the image size.
 
+<br />
+
 One popular base image is `Alpine` Linux. Alpine Linux is a lightweight Linux distribution that is designed to be small and efficient. It is commonly used for Docker images because of its small size, which makes it ideal for running containers with limited resources.
 
+<br />
+
 Another base image that is commonly used is the `slim` version of the official images provided by different software vendors. For example, the official Python image has a slim version, which is a smaller image with only the necessary dependencies required to run Python applications. This means that you can reduce the size of your Docker image by using the slim version instead of the full version.
+
+<br />
 
 *However, it is important to keep in mind that using a base image that is too small can sometimes cause issues.*
 
@@ -16,7 +22,10 @@ Another base image that is commonly used is the `slim` version of the official i
 
 Running containers as the root user is considered bad practice because it poses a security risk. By default, the root user inside a container has the same privileges as the root user on the host machine. This means that if an attacker gains control of a container running as root, they could potentially escalate their privileges to the host machine.
 
+<br />
+
 To avoid running containers as root, you can specify a non-root user in your Dockerfile using the `USER` instruction. For example:
+
 ```dockerfile
 FROM python:3.9-slim
 
@@ -44,13 +53,23 @@ In this example, we create a non-root user called myuser and switch to that user
 
 When building a Docker image, each line in the Dockerfile creates a new layer in the final image. Layers are stacked on top of each other to create the final image. Each layer only stores the changes made on top of the previous layer, which results in a more efficient use of disk space and a faster build time.
 
+<br />
+
 Keeping layers small is important because it can make it easier to update or modify specific parts of the image without rebuilding the entire image. This can be especially important when dealing with large applications that have many dependencies.
+
+<br />
 
 ![Screenshot](https://sachcode.com/static/3422749f7f459abcf3de835201c77794/c1b63/docker-layers.png)
 
+<br />
+
 To keep layers small, it is best to group related commands together in a single line in the Dockerfile. For example, instead of installing several packages in separate RUN commands, it is better to install them all in a single RUN command. This will result in fewer layers and a smaller image size.
 
+<br />
+
 It is also important to clean up any temporary files created during the build process, as these files can add unnecessary weight to the image. The `RUN` command should be followed by a `CLEANUP` command to remove any unwanted files and dependencies.
+
+<br />
 
 Additionally, using the `--no-cache` flag when building an image can help to reduce the size of layers, as it prevents Docker from caching layers and forces it to rebuild each layer from scratch.
 
@@ -58,7 +77,10 @@ Additionally, using the `--no-cache` flag when building an image can help to red
 
 Multi-stage builds are a way to optimize your Docker images and reduce their size. It allows you to use multiple FROM statements in your Dockerfile, each of which specifies a different base image.
 
+<br />
+
 Here's an example of how you might use multi-stage builds to build a Python application using Flask:
+
 ```dockerfile 
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim-buster AS base
@@ -90,9 +112,15 @@ CMD ["python", "app.py"]
 ```
 In this example, the Dockerfile uses two stages. The first stage starts with the official Python 3.8 slim-buster image, sets the working directory to `/app`, and copies the `requirements.txt` file to the working directory. It then installs the required packages specified in the `requirements.txt` file and saves them to the image.
 
+<br />
+
 The second stage starts with the same `Python 3.8 slim-buster` image as the final base image. It sets the working directory to `/app`, copies the installed packages from the first stage to the image, copies the rest of the application code to the working directory, and starts the Flask application.
 
+<br />
+
 Using multi-stage builds can significantly reduce the size of your Docker images because you only include the necessary files and dependencies in the final image. In this example, the final image only includes the installed Python packages and the application code, which makes it much smaller than if it included the entire Python runtime.
+
+<br />
 
 Overall, using multi-stage builds is a best practice for optimizing your Docker images and reducing their size.
 
@@ -100,9 +128,15 @@ Overall, using multi-stage builds is a best practice for optimizing your Docker 
 
 In Docker, every instruction in a Dockerfile creates a layer like we seen before. When a Dockerfile is built, Docker caches each layer, so that if the same instruction is used in a future build, Docker can use the cached layer instead of re-executing the instruction. This can greatly speed up the build process.
 
+<br />
+
 One way to take advantage of caching is to order the instructions in the Dockerfile such that the ones that change frequently are at the end, while the ones that change less frequently are at the beginning. For example, you might start with a base image, then copy in your application code, and finally install any dependencies.
 
+<br />
+
 It's also possible to explicitly tell Docker to use a cached layer with the --cache-from flag. This can be useful if you have multiple Dockerfiles that share some of the same layers. For example, if you have a base image that is used by multiple applications, you can build that image once and then use it as the cache for future builds of the applications.
+
+<br />
 
 Here's an example of how to use caching to speed up a Docker build:
 
@@ -132,11 +166,11 @@ CMD ["python", "app.py"]
 In this example, the `COPY requirements.txt .` and `RUN pip install --no-cache-dir -r requirements.txt` instructions are near the beginning of the Dockerfile because they change less frequently than the application code. This means that Docker can cache those layers and reuse them in future builds, even if the application code has changed.
 
 
-
-
 ### Clean up after yourself 
 
 Cleaning up after yourself is an important best practice for Docker. This means removing any unused images, containers, volumes, and networks that are no longer needed. Not only does it save disk space, but it also ensures that the Docker environment is not cluttered with unnecessary artifacts that may cause conflicts or security issues.
+
+<br />
 
 Here are some tips for cleaning up after yourself in Docker:
 
@@ -174,13 +208,20 @@ docker pull python:3.9-slim
 trivy image python:3.9-slim
 ```
 This will scan the Python image and report any vulnerabilities found in the image's base image or any installed packages.
+
+<br />
+
 You can also scan a Dockerfile directly using the --file option:
 ```
 trivy --file Dockerfile
 ```
 This will scan the Dockerfile and report any vulnerabilities found in the base image or any installed packages.
 
+<br />
+
 Note that scanning Docker images is just one part of a comprehensive security strategy for containerized applications. It's also important to ensure that your containers are configured securely, that you use strong authentication and authorization mechanisms, and that you regularly apply security updates and patches to your container images.
+
+<br />
 
 By following these best practices, you can help to ensure that your Docker containers are secure and less vulnerable to attack.
 

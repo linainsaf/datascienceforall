@@ -6,6 +6,8 @@ Constraints are rules that you can apply to a table in a database to enforce dat
 
 One type of constraint is the primary key constraint, which enforces the uniqueness of a column or a group of columns within a table. Another type of constraint is the foreign key constraint, which establishes a relationship between two tables based on the values of their respective columns.
 
+<br />
+
 Other types of constraints include the NOT NULL constraint, which ensures that a column cannot have a NULL value, and the UNIQUE constraint, which ensures that the values in a column are unique.
 
 ## Examples of customers table one without constraints and the other with constraints
@@ -60,6 +62,8 @@ VALUES
 ```
 
 In this example, we create the same customers table, but with additional constraints. We set the id column as the primary key, which means that it must be unique for each row. We also set the first_name and last_name columns as NOT NULL, which means that they cannot be empty. Finally, we set the email column as UNIQUE, which means that each email must be unique in the table.
+
+<br />
 
 When we try to insert data into the table, the constraints are enforced. The first INSERT statement will work fine because it does not violate any constraints. However, the second INSERT statement will fail because it tries to insert a row with a duplicate id value, which violates the primary key constraint. Similarly, the third INSERT statement will fail because it tries to insert a row with a duplicate email value, which violates the unique constraint on the email column.
 

@@ -1,20 +1,30 @@
 # Introduction to Docker
 
-Docker is an open-source platform for building, shipping, and running applications as containers. 
+Docker is an open-source platform for building, shipping, and running applications as containers. **Docker solves the problem of "it works on my machine but not in production" by providing a consistent environment for running applications.** 
 
-**Docker solves the problem of "it works on my machine but not in production" by providing a consistent environment for running applications.** 
+<br />
 
 Traditionally, developers would build applications on their local machines, which could have different operating systems, libraries, and dependencies than the production environment. This could lead to compatibility issues and errors when the application was deployed to production.
+
+<br />
 
 <center>
 ![Screenshot](https://pbs.twimg.com/media/FPKqmMrWYAENPXI.png)
 </center>
 
+<br />
+
 With Docker, developers can package their applications and dependencies into a container, which provides a consistent environment for running the application. This means that the container can be run on any machine that has Docker installed, without worrying about differences in the underlying operating system or environment.
+
+<br />
 
 By using Docker, developers can ensure that their applications will work the same way in development, testing, and production environments. This can help to reduce the risk of compatibility issues and errors when deploying applications to production.
 
+<br />
+
 Docker also makes it easier to manage and scale applications. Containers can be quickly and easily deployed, scaled up or down, and updated, which helps to reduce the time and effort required to manage applications. This can help to improve the reliability and performance of applications, while also reducing costs and complexity.
+
+<br />
 
 In summary, Docker provides a consistent and reliable way to package, deploy, and manage applications, which helps to solve the problem of "it works on my machine but not in production". **By using Docker, developers can ensure that their applications will work the same way in all environments, which can help to improve the reliability and efficiency of application deployment.**
 
@@ -30,22 +40,37 @@ Docker provides a number of benefits over traditional methods of deploying appli
 
 ## Docker VS Virtual Machines
 
-Let's talk about the difference between a traditional virtual machine (VM) architecture and a containerized architecture for that let's take a look at this schema : 
+Let's talk about the difference between a traditional virtual machine (VM) architecture and a containerized architecture for that let's take a look at this figure : 
+
+<br />
 
 ![Screenshot](https://www.docker.com/wp-content/uploads/2021/11/docker-containerized-and-vm-transparent-bg.png)
 
+<br />
+
 Starting with the VM architecture on the left, you can see that there is a physical server that hosts a hypervisor layer. The hypervisor layer creates multiple virtual machines, each of which has its own operating system (OS) and runs on top of the hypervisor layer. Each VM also has its own set of resources, such as CPU, memory, and storage, which are isolated from the other VMs.
+
+<br />
 
 In contrast, the containerized architecture on the right does not have a hypervisor layer. Instead, it has a host operating system that runs on top of the physical server. On top of the host operating system, there is a container runtime, which manages the creation and management of containers. Each container shares the host operating system with other containers, but each container has its own isolated file system, network, and process space.
 
+<br />
+
 Docker is a containerization technology that allows you to create, deploy, and manage containers. It provides a way to package and distribute software applications in a standardized and portable format, making it easy to move them from one environment to another. With Docker, you can create a Dockerfile that describes the dependencies and configuration of your application, and then use the Docker command-line interface to build, run, and manage containers based on that Dockerfile.
 
+<br />
+
 Overall, Docker provides a lightweight and flexible alternative to traditional VMs, making it easier to develop, deploy, and scale applications.
+
 ### What is a Containers 
 
 Docker's use of the term "container" is inspired by the shipping industry. In the shipping industry, containers are standardized, self-contained units that can be easily transported between ships, trains, and trucks. These containers can hold a variety of goods and products, and they are designed to be easy to load and unload from transport vehicles.
 
+<br />
+
 Similarly, in the context of software development, a container is a standardized, self-contained unit that can hold an application along with its dependencies and configurations. Like a shipping container, a software container can be easily transported between different environments, such as development, testing, and production.
+
+<br />
 
 By using the term "container", Docker is emphasizing the portability and standardization of its technology, which is similar to the shipping industry's use of containers to transport goods and products between different locations.
 

@@ -17,6 +17,8 @@ ON DELETE CASCADE;
 
 In this example, a foreign key constraint named "emp_dept_fk" is added to the "employees" table. The foreign key references the "dept_no" column in the "departments" table, and specifies "ON DELETE CASCADE." This means that when a row is deleted from the "departments" table, any corresponding rows in the "employees" table will also be deleted.
 
+<br />
+
 Here's an example of creating a foreign key with "ON DELETE SET NULL" in SQL:
 
 ```sql
@@ -29,6 +31,8 @@ ON DELETE SET NULL;
 
 In this example, a foreign key constraint named "emp_manager_fk" is added to the "employees" table. The foreign key references the "emp_no" column in the "employees" table, and specifies "ON DELETE SET NULL." This means that when a row is deleted from the "employees" table, any corresponding rows in other tables will have the foreign key column value set to NULL.
 
+<br />
+
 Here's an example of creating a foreign key with "ON DELETE RESTRICT" in SQL:
 ```sql
 ALTER TABLE departments
@@ -39,6 +43,8 @@ ON DELETE RESTRICT;
 ```
 
 In this example, a foreign key constraint named "dept_manager_fk" is added to the "departments" table. The foreign key references the "emp_no" column in the "employees" table, and specifies "ON DELETE RESTRICT." This means that when a row is deleted from the "employees" table, any corresponding rows in the "departments" table cannot be deleted.
+
+<br />
 
 Here's an example of creating a foreign key with "ON DELETE NO ACTION" in SQL:
 ```sql

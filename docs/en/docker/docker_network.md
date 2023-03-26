@@ -2,16 +2,18 @@
 
 Docker Networking allows you to connect Docker containers together so that they can communicate with each other. This is useful for building complex applications that are made up of multiple containers, each with its own functionality.
 
+<br />
+
 Docker Networking also allows you to isolate containers from each other, providing an added layer of security. Additionally, Docker Networking makes it easy to connect containers to external networks, such as the internet, and to other Docker hosts.
 
 ## Docker Network Types
 
 Docker supports several types of network drivers that provide different ways to connect containers together. Here are some of the most common Docker network types:
 
-- Bridge Network: The default network type in Docker, a bridge network is a private network that allows containers to communicate with each other using IP addresses. Containers on a bridge network can communicate with each other but are isolated from the host machine and external networks.
-- Host Network: A host network allows containers to use the host machine's network stack, essentially giving them direct access to the host's network interfaces. This can provide better performance but may not be as secure as other network types.
-- Overlay Network: An overlay network allows you to connect containers that are running on different Docker hosts. This is useful for building distributed applications that are made up of multiple Docker hosts.
-- Macvlan Network: A macvlan network allows you to assign a MAC address to a container, essentially making it appear as though it is a physical machine on the network. This can be useful for running containers that require direct access to the physical network.
+- **Bridge Network**: The default network type in Docker, a bridge network is a private network that allows containers to communicate with each other using IP addresses. Containers on a bridge network can communicate with each other but are isolated from the host machine and external networks.
+- **Host Network**: A host network allows containers to use the host machine's network stack, essentially giving them direct access to the host's network interfaces. This can provide better performance but may not be as secure as other network types.
+- **Overlay Network**: An overlay network allows you to connect containers that are running on different Docker hosts. This is useful for building distributed applications that are made up of multiple Docker hosts.
+- **Macvlan Network**: A macvlan network allows you to assign a MAC address to a container, essentially making it appear as though it is a physical machine on the network. This can be useful for running containers that require direct access to the physical network.
 
 ## Creating a Docker Network
 
@@ -75,9 +77,14 @@ This command creates a new container with the name `container3` and starts the s
 ### Step 5: Ping One Container from the Other
 
 #### What is `ping`
+
 The `ping` command is commonly used to test the availability and responsiveness of network devices, such as servers or routers. It can help diagnose network connectivity issues, such as packet loss or latency.
 
+<br />
+
 When you run the `ping` command, it will send packets of data to the specified destination, and display the results in the terminal. The output will typically include statistics about the packet transmission, such as the number of packets sent and received, the round-trip time (RTT) for each packet, and any errors or packet loss that occurred during the transmission.
+
+<br />
 
 Here's an example of running the ping command:
 ```
@@ -100,14 +107,19 @@ PING container1 (172.19.0.2): 56 data bytes
 ``` 
 If you see this output, it means that the two containers are able to communicate with each other over the `mynetwork` network.
 
+<br />
+
 Now, let's try to ping `container1` from `container3`, which is not attached to the `mynetwork` network:
+
 ```bash 
 docker exec container3 ping container1
 ```
 This command uses the docker exec command to run the ping container1 command inside `container3`. Since `container3` is not attached to the mynetwork network, it should not be able to communicate with container1. You should see output similar to the following:
+
 ```bash 
 ping: bad address 'container1'
 ```
+
 This output confirms that `container3` is not able to communicate with `container1`.
 
 ## Wrap-up 

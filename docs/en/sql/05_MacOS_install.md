@@ -10,7 +10,9 @@ MAMP is a free, open-source software that allows you to easily install and run A
 
 ## Step 1: Download and Install MAMP
 
-The first step is to download and install MAMP on your MacOS machine. You can download the latest version of MAMP from the official website : https://www.mamp.info/en/downloads/
+The first step is to download and install MAMP on your MacOS machine. You can download the latest version of MAMP from the [official website](https://www.mamp.info/en/downloads/)
+
+<br />
 
 Once the download is complete, double-click on the downloaded file to begin the installation process. Follow the on-screen instructions to install MAMP on your machine.
 
@@ -18,26 +20,49 @@ Once the download is complete, double-click on the downloaded file to begin the 
 
 After installing MAMP, you can start the server by double-clicking on the MAMP icon in the Applications folder. This will launch the MAMP control panel.
 
+<br />
+
 Click on the Start Servers button to start the Apache and MySQL servers. You can check the status of the servers by looking at the indicators in the MAMP control panel. The Apache server is running if the status indicator is green, and the MySQL server is running if the status indicator is also green.
 
+<br />
+
 ![Screenshot](../img/mamp1.jpg)
+
+<br />
 
 ## Step 3: Create a test Database with graphic interface in MAMP
 
 Once the servers are running, you can create a database. To do this, click on the Open WebStart page button in the MAMP control panel. This will launch the MAMP homepage in your default browser.
 
+<br />
+
 ![Screenshot](../img/mamp2.jpg)
+
+<br />
 
 Click on the phpMyAdmin link on the left-hand side of the MAMP homepage to launch the phpMyAdmin interface. phpMyAdmin is a web-based interface that allows you to manage your MySQL databases.
 
+<br />
+
 ![Screenshot](../img/mamp3.jpg)
 
+<br />
+
 In the phpMyAdmin interface, click on the Databases tab
+
+<br />
+
 ![Screenshot](../img/mamp4.jpg)
 
+<br />
 
 and then enter a name for your new database in the Create Database field for our case `test`.
+
+<br />
+
 ![Screenshot](../img/mamp5.jpg)
+
+<br />
 
 Click on the Create button to create the database and add a table name `departments` who look like this in SQL command line : 
 
@@ -48,13 +73,23 @@ CREATE TABLE departments (
 );
 ```
 
+<br />
+
 ![Screenshot](../img/mamp6.jpg)
+
+<br />
 
 after validating the table creation we have to specify two field like above :
 
+<br />
+
 ![Screenshot](../img/mamp7.jpg)
 
+<br />
+
 and then you can see your new database :
+
+<br />
 
 ![Screenshot](../img/mamp8.jpg)
 
@@ -62,6 +97,8 @@ and then you can see your new database :
 ## Why MySQL Workbench
 
 MySQL Workbench and MAMP are two different software tools that can be used to work with MySQL databases, but they have different features and use cases.
+
+<br />
 
 MySQL Workbench is a graphical user interface (or GUI) tool that is designed for database administrators and developers who need to manage and develop MySQL databases. It provides a wide range of features for working with databases, including:
 
@@ -72,6 +109,8 @@ MySQL Workbench is a graphical user interface (or GUI) tool that is designed for
 * Managing database backups and restores
 
 MySQL Workbench is a powerful tool for working with MySQL databases, but it can be complex and may have a steep learning curve for beginners and we thinks it's more easy to handle and query database.
+
+<br />
 
 MAMP, on the other hand, is a lightweight web development environment that is designed to make it easy to set up a local web server on your computer. It includes a range of tools that are useful for web developers, including:
 
@@ -87,11 +126,17 @@ In summary, MySQL Workbench is a powerful tool for working with MySQL databases,
 
 ## Install MySQL Workbench
 
-Go to the official download link : https://dev.mysql.com/downloads/workbench/ 
+Go to the official download [link](https://dev.mysql.com/downloads/workbench/)
 
-Download the appropriate version of the software for your OS and **lunch MAMP SQL server** then open the software and click on the button `MySQL Connection` > `Local Instance` like the screen below : 
+<br />
+
+Download the appropriate version of the software for your OS and **lunch MAMP SQL server** then open the software and click on the button `MySQL Connection` > `Local Instance` like the screen below :
+
+<br />
 
 ![Screenshot](../img/mysql0.png)
+
+<br />
 
 If you don't have change anything you have the following ids : 
 

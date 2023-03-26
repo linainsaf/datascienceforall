@@ -2,9 +2,15 @@
 
 In the world of database management, tables and queries go hand in hand. Queries are a fundamental component of any database, as they allow you to retrieve and manipulate data in meaningful ways. 
 
+<br />
+
 In this chapter, we will explore the basics of SQL queries and how they are used to extract data from tables. To demonstrate this, we will use two example tables, the `orders` and `customers` tables. 
 
+<br />
+
 These tables will be linked together using a foreign key to show how queries can retrieve data from multiple tables at once. Understanding queries and the relationship between tables is essential for effective database management, as it enables developers to extract valuable insights and make informed decisions based on data.
+
+<br />
 
 This is the example table called `customers`:
 
@@ -23,6 +29,8 @@ CREATE TABLE customers (
 
 This table has columns for a customer's ID, first name, last name, email address, street address, city, state, and zip code. The `id` column is the primary key for the table, which means that each row in the table is uniquely identified by its value in the `id` column.
 
+<br />
+
 This is the example of an `orders` table:
 
 ```sql
@@ -37,10 +45,16 @@ CREATE TABLE orders (
 
 This table has four columns: `order_id`, `customer_id`, `order_date`, and `total_price`. **The `order_id` column is the primary key of the table, which means that each row has a unique value in that column.**
 
+<br />
+
 **The `customer_id` column is a foreign key that references the `customer_id` column in the `customers` table.** 
+
+<br />
 
 This establishes a relationship between the two tables.
 The orders table contains information about each order placed by a customer. The `customer_id` column is used to link each order to a specific customer in the `customers` table. 
+
+<br />
 
 The `order_date` column contains the date that the order was placed, and the `total_price` column contains the total price of the order. **By joining the `orders` table with the `customers` table on the `customer_id` column, we can retrieve information about both the customer and their order in a single query.**
 
@@ -71,9 +85,6 @@ This statement retrieves the `city` column and a count of how many times each `c
 SELECT * FROM customers JOIN orders ON customers.customer_id = orders.customer_id;
 ```
 This statement retrieves all columns and rows from both the `customers` and `orders` tables where the `customer_id` column matches in both tables.
-
-These are just a few examples of the many options available in the `SELECT` statement. We will explore more advanced queries in later chapters.
-
 
 
 

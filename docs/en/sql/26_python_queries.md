@@ -9,7 +9,7 @@ Joins are used to combine data from two or more tables in a single query like we
 ### Inner Join
 An inner join returns only the rows that have matching values in both tables being joined. Here's an example:
 
-```py title="inner_join.py"
+```py
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 #connect database
 engine = create_engine('mysql://user:password@localhost:3306/employees')
@@ -31,7 +31,7 @@ In the above example, we used the `join()` method to join the `employees` and `t
 ### Left Join
 A left join returns all the rows from the left table and the matched rows from the right table. If there is no match in the right table, the result will contain NULL values. Here's an example:
 
-```py title="left_join.py"
+```py 
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 
 engine = create_engine('mysql://user:password@localhost:3306/employees')
@@ -51,7 +51,7 @@ In the above example, we used the `join()` method to perform a `left join` betwe
 
 A `right join` returns all the rows from the right table and the matched rows from the left table. If there is no match in the left table, the result will contain `NULL` values. Here's an example:
 
-```py title="right_join.py"
+```py
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 
 engine = create_engine('mysql://user:password@localhost:3306/employees')
@@ -71,7 +71,7 @@ In the above example, we used the `join()` method to perform a right join betwee
 
 Let's try to print the 10 employees with the highest salary in the Development department : 
 
-```py title="multiple_join.py"
+```py
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey, desc, select, func
 
 # create an engine to connect to the database
@@ -106,7 +106,11 @@ for row in result:
 ```
 The query selects the columns `emp_no`, `first_name`, `last_name`, and `salary` from the `employees` and `salaries` tables, respectively. It then joins the `dept_emp` and `departments` tables to get only the `employees` in the Development department, and sorts the result in descending order by salary, and limits the result to the top 10 highest paid `employees`. 
 
+<br />
+
 Finally, it uses the `select_from()` method to specify the join conditions between the tables.
+
+<br />
 
 The execute method is called on the engine object with the query object as an argument, and the results are printed in a loop as usual.
 
@@ -115,11 +119,15 @@ The execute method is called on the engine object with the query object as an ar
 
 In SQLAlchemy, the correlate() function is used to control correlated subqueries, which are subqueries that reference the outer query. A correlated subquery allows you to filter or aggregate data in a subquery based on the results of the outer query.
 
+<br />
+
 The correlate() function is used to specify which tables in the subquery should be correlated to the outer query. It takes one or more tables as arguments and returns a new Select object that is a correlated subquery.
+
+<br />
 
 Here's the same example as before modify for using `correlate()` function :
 
-```py title="subquery_db.py"
+```py
 from sqlalchemy import select, func
 from sqlalchemy.orm import correlate
 
@@ -153,12 +161,20 @@ for row in result:
 ```
 This query is similar to the previous one we discussed, which also selects the 10 most highly paid employees in the development department. However, in this query, we use the `correlate()` function to manage auto-correlation between tables.
 
+<br />
+
 The subquery is used to calculate the average salary of employees in the development department. We use the `func.avg()` function to calculate the average salary and apply two where clauses to filter the salaries of employees in the development department. 
+
+<br />
 
 To handle auto-correlation between tables, we use the `correlate()` function and pass the employees table as the argument. Finally, we join the `dept_emp`, `employees`, and `salaries` tables together using the `join()` method.
 
+<br />
+
 The main query selects the `emp_no`, `first_name`, `last_name`, and `salary` fields from the `employees` and `salaries` tables. We again use the where clause to filter the `employees` in the development department and use the `correlate()` function to handle auto-correlation. 
 We also add a third where clause to compare the salaries of employees in the development department with the average salary calculated by the subquery. 
+
+<br />
 
 Finally, we join the `dept_emp`, `employees`, and `salaries` tables together using the `join()` method. We sort the results in descending order of salaries and limit the output to the top 10 results.
 
@@ -166,15 +182,23 @@ Finally, we join the `dept_emp`, `employees`, and `salaries` tables together usi
 
 The `correlate()` function is different from joins in that it allows you to filter or aggregate data in a subquery based on the results of the outer query, without actually joining the tables together. 
 
+<br />
+
 🔎 This can be more efficient than using `joins` in certain situations, especially when dealing with large datasets. However, correlated subqueries can also be slower than `joins`, especially if the subquery is complex or returns a large amount of data. It's important to test and optimize your queries to ensure that they perform well for your specific use case.
 
 ## Difference between the `select_from()` and the joins methods
 
 The `select_from()` method and the `join()` method are both used in SQLAlchemy to specify the tables used in a SQL query, but they differ in how they are used and the types of queries they can generate.
 
+<br />
+
 The `join()` method is used to specify a join between two or more tables. It generates an `INNER JOIN` by default, but can be used to generate other types of joins as well. This method allows you to specify the join condition, i.e. the columns used to match rows between the tables. The `join()` method is useful when you need to combine data from multiple tables into a single query result.
 
+<br />
+
 The `select_from()` method, on the other hand, is used to specify the main table(s) used in a SQL query. It is used to specify the primary table or tables that the query will be based on. This method is useful when you need to specify a complex subquery or a nested query, or when you need to select from a view or other non-standard source of data.
+
+<br />
 
 In general, the `join()` method is used to combine data from multiple tables, while the `select_from()` method is used to specify the primary table or tables used in the query. However, both methods can be used together to generate more complex queries that combine data from multiple tables and use subqueries or nested queries to filter or manipulate the data.
 
@@ -226,13 +250,15 @@ This deletes the "sales_report" view from the database.
 
 Views are important in day-to-day data analysis because they simplify complex queries and provide a way to control access to sensitive data. Views allow users to focus on the data that is important to them, without having to understand the underlying database schema or query language. Views can also be used to filter data, hide sensitive information, and provide access to a subset of data in the database.
 
+<br />
+
 In summary, views in SQL are a powerful tool for simplifying complex queries and providing users with access to a subset of data in the database. They are an important part of day-to-day data analysis and can help improve productivity, accuracy, and security.
 
 ### `VIEW` with SQLAlchemy
 
 Let's create a python script call `view_0.py` with a view that shows the number of employees hired each year and just print the result. 
 
-```py title="view_0.py"
+```py 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, select, text
 
 # create an engine to connect to the database
@@ -268,13 +294,19 @@ with engine.connect() as conn:
 
 In this example, we create a view called employee_hires that shows the number of employees hired each year. We use the `text()` function from SQLAlchemy to define the SQL query for creating the view. Then, we execute the query using the `engine.connect()` method.
 
+<br />
+
 Next, we define a `select` statement that queries the `employee_hires view` using the `select_from()` method and the `text()` function to specify the table name. Finally, we execute the select statement and print the results using the `engine.connect()` method.
+
+<br />
 
 Note that the `select_from()` method is used to specify the table or view to select data from. In this example, we use the `text()` function to specify the name of the `employee_hires view`. This is similar to specifying a table name using the `Table()` function, but with the added benefit of being able to specify more complex SQL queries using the `text()` function.
 
+<br />
+
 Let's take a look at an other example with `VIEW` for select the 10 most paid employees in development department : 
 
-```py title="view_1.py" hl_lines="15 16"
+```py
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, select, text, func
 
 # create an engine to connect to the database

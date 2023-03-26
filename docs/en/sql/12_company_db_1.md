@@ -2,9 +2,15 @@
 
 In the modern era of technology, most businesses depend on software to manage and track various aspects of their operations. One of the most important types of software that businesses rely on is the database management system (DBMS). A DBMS allows companies to store, manage, and retrieve information in a structured and organized way. A company database is a type of DBMS that is specifically designed to help organizations store and manage information about their employees, customers, products, and services.
 
+<br />
+
 A company database can be used for a wide range of purposes, such as tracking inventory, processing transactions, generating reports, and analyzing data. By keeping all the relevant information in a centralized location, a company database provides a more efficient and accurate way to manage and analyze data. This, in turn, enables businesses to make informed decisions based on reliable and up-to-date information.
 
+<br />
+
 Having a well-designed and properly maintained company database is vital to the success of any business. A good company database can help to improve operational efficiency, streamline processes, and enhance customer satisfaction. It can also help organizations to identify trends, analyze performance, and make strategic decisions based on real data.
+
+<br />
 
 In this chapter, we will explore the various components of a company database, including tables, fields, and relationships. We will also learn how to design and build a company database from scratch, as well as how to use SQL to retrieve, analyze, and manipulate data. By the end of this tutorial, you should have a good understanding how to build a database from scratch for your own business or project.
 
@@ -27,10 +33,13 @@ Start by opening your MySQL client and connecting to your server. In our case ju
 
 ### Database creation 
 Create a new database call `company` with the graphic interface like in the installation section or with the SQL command line : 
+
 ```sql
 CREATE DATABASE company;
 ```
+
 if you used the command line option run also this command :
+
 ```slq
 USE company;
 ``` 
@@ -220,7 +229,11 @@ VALUES (1, 1, '2021-01-01', '2021-06-30'),
 
 The CONSTRAINT and REFERENCES keywords are used to create foreign key constraints in SQL. A foreign key constraint is a rule that ensures the values in a column or set of columns in one table are matched by values in another table.
 
+<br />
+
 In the example code I provided earlier, we used the CONSTRAINT keyword to create foreign key constraints between the employee_projects and employees tables, as well as between the department_projects and departments tables.
+
+<br />
 
 Here is an example of the foreign key constraint between the employee_projects and employees tables:
 
@@ -238,7 +251,11 @@ CREATE TABLE employee_projects (
 
 In this example, we first create the employee_projects table with the id, employee_id, project_id, and hours_worked columns. Then we use the CONSTRAINT keyword to create a foreign key constraint named fk_employee_project_employee. The FOREIGN KEY clause specifies the employee_id column as the foreign key column, and the REFERENCES clause specifies the employees table and the id column as the referenced column.
 
+<br />
+
 This foreign key constraint ensures that every value in the employee_id column in the employee_projects table must exist in the id column of the employees table.
+
+<br />
 
 The CONSTRAINT and REFERENCES keywords are powerful tools that allow you to establish relationships between tables in a database. They can help ensure data integrity and improve the accuracy and reliability of your queries.
 
@@ -317,7 +334,11 @@ INNER JOIN jobs j ON e.job_id = j.job_id;
 
 ## The importance of schema and organization
 
-Creating a schema and diagrams for a database is critical, especially when dealing with large databases with many tables and relationships. Without proper organization and documentation, it can be challenging to understand the structure and relationships between different tables. This is particularly true when many people are working on the database or when there is a lot of data being added and updated regularly. Having a clear schema and diagrams can help developers and users understand the structure and relationships of the data, leading to more efficient and effective use of the database. Additionally, it can help to identify and prevent errors in the data or in the database design itself. Overall, investing time in creating a clear schema and diagrams can save time and resources in the long run and make the database easier to manage and use.
+Creating a schema and diagrams for a database is critical, especially when dealing with large databases with many tables and relationships. Without proper organization and documentation, it can be challenging to understand the structure and relationships between different tables. 
+
+<br />
+
+This is particularly true when many people are working on the database or when there is a lot of data being added and updated regularly. Having a clear schema and diagrams can help developers and users understand the structure and relationships of the data, leading to more efficient and effective use of the database. Additionally, it can help to identify and prevent errors in the data or in the database design itself. Overall, investing time in creating a clear schema and diagrams can save time and resources in the long run and make the database easier to manage and use.
 
 
 ## Wrap-up 

@@ -6,6 +6,8 @@ We said before, in SQL a table is a collection of data stored in rows and column
 
 To create a new table in SQL, you use the `CREATE TABLE` command followed by the table name and a list of column definitions. Each column definition specifies the column name, data type, and any constraints on the data.
 
+<br />
+
 Here is an example of creating a simple table with two columns:
 
 ```sql
@@ -20,6 +22,7 @@ This creates a table named `users` with two columns: `id` and `name`. The `id` c
 ## Overview of different data types and how to use them
 
 SQL provides a wide range of data types that can be used to define columns in a table. These data types include integers, floating-point numbers, strings, dates, and more. Here are some common data types:
+
 * INT: used for integer values
 * VARCHAR(n): used for variable-length character strings with a maximum length of n
 * DATE: used for date values
@@ -42,7 +45,11 @@ CREATE TABLE products (
 
 In a relational database, a primary key is a unique identifier for each row in a table. It is used to ensure that each row can be uniquely identified and is commonly used to link to other tables in the database.
 
+<br />
+
 A foreign key is a column in one table that refers to the primary key of another table. This is used to create relationships between tables and enforce referential integrity.
+
+<br />
 
 Here is an example of creating a table with a primary key and a foreign key:
 

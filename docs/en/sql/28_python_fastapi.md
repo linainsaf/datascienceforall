@@ -4,6 +4,8 @@
 
 FastAPI is a popular Python web framework that allows for fast and efficient development of APIs. It includes a built-in support for SQLAlchemy, a powerful SQL toolkit and ORM. SQLAlchemy provides a way to interact with databases in a more pythonic way than using raw SQL, and FastAPI's integration with SQLAlchemy makes it easy to build high-performance web applications with a database backend.
 
+<br />
+
 In this tutorial, we will use FastAPI and SQLAlchemy to build a RESTful API that interacts with a MySQL database containing employee data.
 
 ### Why building an API 
@@ -38,7 +40,7 @@ For this tutorial, we will be using the MySQL employees database as usual.
 
 Once you have the database set up, create a new file `main.py` and add the following code:
 
-```py title="main.py"
+```py
 from fastapi import FastAPI, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
@@ -70,11 +72,18 @@ def get_db():
 ```
 The new thing in the code is a function called `get_db()` which is used to create a database session to interact with the database.
 
+<br />
+
 The function first tries to create a session using `Session(bind=engine)` and binds the session to the database engine object engine. The yield keyword makes the function a generator function which can be iterated over to yield a database session.
+
+<br />
 
 When the session is no longer needed, the finally block of the function is executed which closes the database session using `db.close()`. This ensures that the session is closed properly and any resources associated with the session are released back to the system.
 
+<br />
+
 Using this function, you can get a database session by calling `get_db()`, which returns a generator object. You can then iterate over the generator to get a database session, like so:
+
 ```py 
 with get_db() as db:
     # interact with the database session here
@@ -84,7 +93,11 @@ with get_db() as db:
 
 In FastAPI, an endpoint or route is a combination of a specific HTTP method (such as GET, POST, PUT, DELETE, etc.) and a URL path that a client can use to communicate with the server and perform some specific action or operation.
 
+<br />
+
 Endpoints are defined in your FastAPI application using decorated functions that are called view functions. These view functions handle the request/response cycle for a specific endpoint, which includes handling any incoming requests with specific parameters and returning the appropriate response data.
+
+<br />
 
 In other words, endpoints are the primary building blocks of a FastAPI application, and they determine how clients can interact with your API. They enable you to define a clear and well-structured API that can be easily understood and used by other developers, while also providing a standardized way for clients to communicate with your application.
 
@@ -216,7 +229,11 @@ uvicorn main:app --reload
 
 This will start a local web server at http://localhost:8000/docs where you can access the different routes defined in the script 🤓
 
+<br />
+
 Go on the first endpoint `employees/{emp_no}` and click on `try it out` and take an example employee ID (let's say 10001) you should see this in your browser : 
+
+<br />
 
 ![Screenshot](../img/fastapi.png)
 

@@ -22,11 +22,18 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 
 This Dockerfile uses the `tiangolo/uvicorn-gunicorn-fastapi` base image and copies the app directory into the `/app` directory in the container.
 
+<br />
+
 Next, it runs the pip command to install the packages listed in the requirements.txt file. The `--no-cache-dir` flag is used to ensure that the packages are installed from scratch, rather than using any cached packages.
+
+<br />
 
 Finally, it sets the command to start the app using the Uvicorn server on port `80`.
 
+<br />
+
 Here's the code for the `app.py` file:
+
 ```python 
 from fastapi import FastAPI
 
@@ -47,11 +54,19 @@ uvicorn==0.15.0
 
 When you create a Docker volume and attach it to a container, it's like putting a bookmark from the container to a local folder on your host machine.
 
+<br />
+
 ![Screenshot](../img/docker_vol.png)
+
+<br />
 
 Just like a bookmark in a web browser, a volume allows you to quickly access a specific location in the container's file system, without having to navigate through all of the directories manually.
 
+<br />
+
 With a volume, you can also persist data outside of the container's file system. This can be useful if you need to share data between multiple containers, or if you need to keep data separate from the container image itself.
+
+<br />
 
 Overall, volumes are a powerful tool in Docker that allow you to manage and persist data in a flexible and efficient way.
 

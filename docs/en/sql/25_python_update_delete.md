@@ -5,7 +5,8 @@
 ### Using `update()` method
 
 The update() method in SQLAlchemy can be used to update data in a table. The syntax of update() method is as follows:
-```py
+
+```python
 table.update().where(condition).values(column_name=new_value)
 ```
 Where : 
@@ -17,7 +18,7 @@ Where :
 
 Here's an example of how to use the update() method in SQLAlchemy to update the salary of an employee:
 
-```py title="update_db.py"
+```python
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey, desc
 
 # create an engine to connect to the database
@@ -39,9 +40,11 @@ with engine.connect() as conn:
 Here, the line `employees = Table('employees', metadata, autoload=True, autoload_with=engine)`  loads the `employees` table from the database into a Table object named `employees` using the metadata object and the engine object.
 Then we define the update operation to be performed on the `employees` table. This query will update the `first_name` column of the row where `emp_no` is equal to 10001 to `john`.
 
+<br />
+
 Let's verify if the database is updated with this query after the `update_db.py` script : 
 
-```py
+```python
 # Verify if the field has been modified
 select_query = select([employees]).where(employees.c.emp_no == 10001)
 
@@ -56,7 +59,7 @@ with engine.connect() as conn:
 
 Another way to update data in a table is by using the `execute()` method in SQLAlchemy. Here's an example:
 
-```py
+```python
 # Define the table
 employees = Table('employees', metadata, autoload=True, autoload_with=engine)
 
@@ -72,7 +75,11 @@ with engine.connect() as conn:
 
 The `execute()` method is more flexible and can be used to execute any SQL statement, including `SELECT`, `INSERT`, `UPDATE`, `DELETE`, and more. However, it requires the statement to be provided as a string, making it more error-prone and harder to maintain in large applications.
 
+<br />
+
 On the other hand, the `update()` method provides a more structured way to update data in a table. It takes a filter condition that specifies which rows to update, and a set of values to apply to the specified rows. The `update()` method also returns a `ResultProxy` object that can be used to get information about the update operation, such as the number of affected rows.
+
+<br />
 
 In general, the `update()` method is preferred for modifying data in a table using SQLAlchemy, as it provides a more structured and safer approach. However, in some cases, the `execute()` method may be more appropriate for executing complex SQL statements that cannot be expressed using the `update()` method.
 
@@ -82,7 +89,8 @@ In general, the `update()` method is preferred for modifying data in a table usi
 ### Using `delete()` method
 
 The `delete()` method in SQLAlchemy can be used to delete data from a table. The syntax of `delete()` method is as follows:
-```py
+
+```python
 table.delete().where(condition)
 ```
 where :

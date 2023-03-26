@@ -17,7 +17,10 @@ SET NEW.to_date = NOW();
 
 In this example, a trigger named "update_dept_emp_to_date" is created using the CREATE TRIGGER statement. The trigger is defined to execute "BEFORE INSERT" on the "dept_emp" table, and is set to execute "FOR EACH ROW" that is inserted. The body of the trigger consists of a single statement that sets the value of the "to_date" field for the newly inserted row to the current date and time, using the NOW() function.
 
+<br />
+
 Here's an example of creating a trigger in SQL that prevents the deletion of a row in the "employees" table if that row is currently assigned to a department:
+
 ```sql
 CREATE TRIGGER prevent_emp_delete
 BEFORE DELETE ON employees
@@ -113,9 +116,15 @@ In this example, a trigger named "promote_to_manager" is defined using the CREAT
 
 Triggers are important in data analysis because they allow you to automate tasks and enforce data integrity rules within a database. By using triggers, you can ensure that data is consistent and accurate over time, and that business rules are enforced consistently across different operations and users.
 
+<br />
+
 For example, if you are analyzing sales data in a database, you might use triggers to automatically update certain fields or tables whenever new sales data is added or existing data is updated. You could also use triggers to prevent certain types of changes to the database, or to notify you when certain events occur.
 
+<br />
+
 By automating tasks and enforcing rules using triggers, you can save time and reduce the risk of errors or inconsistencies in your data. This can help you to make more informed decisions and gain deeper insights into the patterns and trends in your data.
+
+<br />
 
 Overall, triggers are an important tool for data analysts and other database professionals who need to ensure the accuracy and integrity of their data. By mastering the use of triggers in SQL, you can become more effective at managing and analyzing data in a wide range of contexts.
 

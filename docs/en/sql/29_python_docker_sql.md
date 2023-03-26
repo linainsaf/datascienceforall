@@ -1,20 +1,14 @@
 # SQLAlchemy and docker 
 
-In this section we will be working with docker.  
-
-**Do we actually need docker to our journey to SQLAlchemy ? No. The only reason we choose to use Docker, is because, it is fast to setup, secure and lightweight.** 
-
-Docker provides platform which helps us deliver software packages in containers. The software package we need from docker is a database, postgres to be precise.
-
-Installing docker is simple, see the installation section if you don't have it installed. For the next part, we will assume you've already installed docker. 
-
 ## Add an existing SQL database into a container 
 
 In this section we will be looking at an existing database and put it into a docker container in order to query this database with a python script. 
 
+<br />
+
 Here's an example database let's call this script `init.sql`: 
 
-```sql title="init.sql"
+```sql
 CREATE DATABASE testdb;
 USE testdb;
 
@@ -40,7 +34,10 @@ This SQL script is used to create a new database called `testdb`, create a table
 
 The `GRANT ALL PRIVILEGES` command is used in MySQL to grant a user all possible privileges on a database or a specific table within a database. This command allows the user to perform any action on the specified database or table, including creating, modifying, and deleting data.
 
+<br />
+
 Here's a breakdown of the syntax of the `GRANT ALL PRIVILEGES` command:
+
 ```sql 
 GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
@@ -78,13 +75,20 @@ EXPOSE 3306
 
 As you know in a `Dockerfile`, the `COPY` command is used to copy files or directories from the host machine into the Docker container.
 
+<br />
+
 In the context of our `Dockerfile`, the line  
+
 ```Dockerfile 
 COPY init.sql /docker-entrypoint-initdb.d/ 
 ```
 copies the `init.sql` file from the host machine into the `/docker-entrypoint-initdb.d/` directory within the Docker container.
 
+<br />
+
 **The `/docker-entrypoint-initdb.d/` directory is a default directory that is used by the mysql Docker image to automatically execute any SQL scripts that are located in this directory when the container is started up.**
+
+<br />
 
 By copying the `init.sql` file into the `/docker-entrypoint-initdb.d/` directory within the Docker container, you are instructing the mysql image to automatically execute this script when the container starts up. This allows you to automatically create our database, tables, and insert data into the database without having to manually execute SQL commands every time the container is started up.
 
@@ -103,6 +107,7 @@ This command will build the Docker image using the Dockerfile in the current dir
 #### Start the container
 
 Once the image is built, you can start a new container using the following command:
+
 ```bash
 docker run --name mysql-container -d -p 3306:3306 my-mysql-image
 ```
@@ -119,18 +124,22 @@ or the equivalent comnmand :
 docker exec -it <your-container-id> /bin/bash
 ```
 Now that you are in the container we can access the MySQL CLI with the following command : 
+
 ```bash 
 mysql -uuser -puser-password
 ```
-You should see the following prompt 
+You should see the following prompt :
+
 ```sql
 mysql>
 ```
 It means that you're currently in the MySQL Shell of the container. You can now view our `testdb` and `users` table with the command : 
+
 ```sql
 mysql> show databases; 
 ```
 you should see this output : 
+
 ```bash 
 +--------------------+
 | Database           |
@@ -147,7 +156,7 @@ It means our `user` is able to see our database, you can also do a test query in
 
 Now, let's write a python script `connect_db.py` to connect our database 🥳
 
-```python title="connect_db.py"
+```python
 from sqlalchemy import create_engine, MetaData, Table
 
 # create engine to connect to MySQL
@@ -180,12 +189,14 @@ Let's break down the different parts of the script:
 - `for row in result: print(row)` : This loops through the result set and prints each row.
 
 This script assumes that you have the necessary dependencies installed, including SQLAlchemy and the MySQL driver for Python. You can install these dependencies using `pip`:
+
 ```bash
 pip install sqlalchemy pymysql
 ```
 Note that the driver used to connect to the MySQL database is "pymysql", which is a Python MySQL client library that works with SQLAlchemy.
 
-If you execute this script, you should see this output : 
+If you execute this script, you should see this output :
+ 
 ```bash 
 (1, 'John Doe', 'johndoe@example.com')
 (2, 'Jane Doe', 'janedoe@example.com')
