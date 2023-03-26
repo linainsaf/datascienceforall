@@ -15,7 +15,6 @@ plugins:
   - search
   - mkdocs-jupyter
 
-
 theme:
   name: material
   features:
@@ -84,8 +83,10 @@ nav:
     - 'Redis': 'nosql/redis.md'
     - 'MongoDB': 'nosql/mongo.md'
     - 'Neo4j': 'nosql/neo4j.md'
-    - 'Elasticseach': 'nosql/elastic.md'
-    - 'test Notebook': nosql/python_elastic.ipynb
+    - 'Elasticseach':
+      - 'Introduction': 'nosql/elastic.md'
+      - 'Logstash': 'nosql/logstash.md'
+      - 'test Notebook': nosql/python_elastic.ipynb
 
   - 'Docker for App Deployment':
     - 'Introduction': 'docker/docker_intro.md'
