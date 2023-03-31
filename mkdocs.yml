@@ -116,7 +116,7 @@ nav:
         - 'RandomForest regression and Kmeans clustering example notebook' : ml/notebooks/RandomForest_mini_exo.ipynb
         - 'Iris classification project with RandomForest' : ml/notebooks/RandomForestIRIS_SOL.ipynb
         - 'Image classification project with Knn and PCA' : ml/notebooks/TP_Classification_kppv-pca_SOL.ipynb
-      - 'Introduction to Deep Learning' : 
+      - 'Deep Learning' : 
         - 'Introduction' : 'ml/dl.md'
         - 'Types of Deep Learning' : 'ml/dltypes.md'
         - 'Image classification project with MLP and CNN': ml/notebooks/MLP_+_CNN.ipynb
