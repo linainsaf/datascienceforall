@@ -102,10 +102,11 @@ nav:
       - 'Redis': 'nosql/redis.md'
       - 'MongoDB': 'nosql/mongo.md'
       - 'Neo4j': 'nosql/neo4j.md'
-      - 'Elasticseach':
-        - 'Introduction': 'nosql/elastic.md'
+      - 'ELK':
+        - 'Elasticsearch': 'nosql/elastic.md'
+        - 'elastic Notebook': nosql/python_elastic.ipynb
         - 'Logstash': 'nosql/logstash.md'
-        - 'test Notebook': nosql/python_elastic.ipynb
+
 
   - 'Machine/Deep Learning':
       - 'Machine Learning' : 

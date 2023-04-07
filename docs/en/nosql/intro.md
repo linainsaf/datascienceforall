@@ -183,3 +183,25 @@ When choosing between NoSQL and relational databases, it's important to consider
 
 
 	Overall, distributed computing in Elasticsearch enables fast query processing and scalability, as well as fault tolerance, making it an efficient and reliable solution for large-scale data processing and analysis. SQL databases, on the other hand, are typically designed for single-server deployments and may struggle to handle large amounts of data or high query volumes.
+
+
+
+## CAP theory
+
+The CAP theorem is a concept in computer science that describes the limitations of distributed systems. Specifically, it describes the tradeoffs that must be made when designing distributed databases.
+
+The CAP theorem states that a distributed system can only provide two of the following three guarantees at the same time:
+
+- **Consistency**: All nodes in the system see the same data at the same time.
+- **Availability**: Every request made to the system gets a response, without guarantee that it contains the most recent version of the information.
+- **Partition tolerance**: The system continues to function even when network partitions occur, causing messages to be dropped or delayed between nodes.
+
+![Screenshot](https://data-science-blog.com/wp-content/uploads/2021/09/cap-theorem-venn-diagram-nosql-sql-databases.png)
+*Source : https://data-science-blog.com/blog/2021/10/14/cap-theorem/*
+
+
+In other words, it is impossible to simultaneously achieve perfect consistency, availability, and partition tolerance in a distributed database system.
+
+To put it simply, **the CAP theorem states that a distributed database can be either consistent and partition tolerant (CP), available and partition tolerant (AP), or consistent and available (CA), but not all three at the same time**.
+
+Designers of distributed database systems need to make a trade-off between these three guarantees based on the specific needs of their application.
