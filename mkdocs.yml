@@ -123,7 +123,6 @@ nav:
         - 'Image classification project with MLP and CNN': ml/notebooks/MLP_+_CNN.ipynb
         - 'Sentiment Analysis project with RNN and LSTMs' : ml/notebooks/RNN_sentiment_analysis_problem.ipynb
 
-
   - 'Restful API':
     - 'Introduction' : 'api/api.md'
 
@@ -138,3 +137,6 @@ nav:
     - 'Docker and HTTPS': 'docker/docker_https.md'
     - 'Docker Registeries': 'docker/docker_cloud_registery.md'
     - 'Best Practices': 'docker/docker_best_practice.md'
+
+  - 'MLOps':
+    - 'Introduction': 'mlops/intro_mlops.md'
