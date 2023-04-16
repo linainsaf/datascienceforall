@@ -111,9 +111,10 @@ nav:
   - 'Machine/Deep Learning':
       - 'Machine Learning' : 
         - 'Introduction': 'ml/ml.md'
-        -  'Evaluation Metrics': 'ml/eval.md'
+        - 'Evaluation Metrics': 'ml/eval.md'
         - 'Linear regression example notebook' : ml/notebooks/CODE_Regression_lineaire_simple.ipynb
         - 'AirBnB prediction project' : ml/notebooks/ModeleLineaire_AirBnB_SOL.ipynb
+        - 'CART' : ml/notebooks/CARTCourse.ipynb
         - 'RandomForest regression and Kmeans clustering example notebook' : ml/notebooks/RandomForest_mini_exo.ipynb
         - 'Iris classification project with RandomForest' : ml/notebooks/RandomForestIRIS_SOL.ipynb
         - 'Image classification project with Knn and PCA' : ml/notebooks/TP_Classification_kppv-pca_SOL.ipynb
@@ -140,3 +141,4 @@ nav:
 
   - 'MLOps':
     - 'Introduction': 'mlops/intro_mlops.md'
+    - 'DLaaS - Deep Learning as a Service': 'mlops/dlaas.md'
