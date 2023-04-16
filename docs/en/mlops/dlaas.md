@@ -259,8 +259,75 @@ Your teammates can now run the same experiments, compare results, and make impro
 
 In conclusion, we demonstrated how to run a simple deep learning model based on the MNIST dataset using Replicate. We covered the necessary steps, from setting up the environment to training and evaluating the model. We also showed how to use Replicate for version control and collaboration. By following this mini tutorial, you should now have a solid foundation for using Replicate in your deep learning projects. 
 
+You can also deploy your model with docker, even get a GPU machine with a pay as you go option, you can check all this in their well documented doc : [https://replicate.com/docs](https://replicate.com/docs)
 
 
+### Example : Weights and Biases for precise experimentation 
+
+Weights and Biases is a cuting edge tool for visualizing and tracking the performance of machine learning models, it's used by OpenAI to train gpt3 by the way 🤓. It provides a simple and intuitive interface for logging and monitoring key metrics during model training and evaluation.
+
+Here's a mini tutorial on how to experiment with wandb using Python.
+
+First, you need to install the wandb library and create a wandb account:
+
+```bash
+pip install wandb
+```
+
+Then, you need to initialize wandb in your Python script:
+```python
+import wandb
+
+wandb.init(project='my-project')
+```
+
+Once you've initialized wandb, you can start logging metrics and visualizations during your model training loop. Here's an example of how to log the loss and accuracy during training:
+
+```python
+for epoch in range(num_epochs):
+    # Train the model
+    loss, accuracy = train(model, train_data)
+    
+    # Log the loss and accuracy to wandb
+    wandb.log({'train_loss': loss, 'train_accuracy': accuracy})
+```
+
+You can also log visualizations, such as images or plots, during training:
+```python
+for epoch in range(num_epochs):
+    # Train the model
+    loss, accuracy = train(model, train_data)
+    
+    # Log the loss and accuracy to wandb
+    wandb.log({'train_loss': loss, 'train_accuracy': accuracy})
+    
+    # Log a sample image to wandb
+    image = next(iter(test_data))[0][0]
+    wandb.log({'sample_image': wandb.Image(image)})
+```
+
+Once you've logged metrics and visualizations to wandb during training, you can view and analyze the results in the wandb dashboard. The wandb dashboard provides a rich set of tools for visualizing and comparing the performance of different models and experiments.
+
+To view your experiments in the wandb dashboard, simply log in to your wandb account and navigate to the project page. You can then view the logged metrics and visualizations for each experiment, as well as compare the results across different experiments.
+
+Here's an example of how to compare the results of two experiments using wandb:
+
+```python
+# Initialize wandb for two experiments
+wandb.init(project='my-project', name='experiment-1')
+train_model(model1, train_data)
+wandb.finish()
+
+wandb.init(project='my-project', name='experiment-2')
+train_model(model2, train_data)
+wandb.finish()
+
+# Compare the results in the wandb dashboard
+wandb.agent("my-project", function=compare_experiments, count=2)
+```
+This example demonstrates how to compare the performance of two different models in the wandb dashboard using the `wandb.agent` function.
+
+In summary, wandb is a powerful and flexible open source tool for visualizing and tracking the performance of machine learning models. By logging metrics and visualizations to wandb during training, you can easily monitor and compare the performance of different models and experiments in the wandb dashboard.
 
 ## Model Governance/compliance, performance monitoring and alerts
 
