@@ -5,15 +5,12 @@ There are different types of neural networks, each with its own function and met
 A dense neural network, also known as a fully connected layer neural network, is a type of neural network where each neuron in a layer is connected to every neuron in the previous and next layer. This means that each neuron in the current layer takes into account all the activations from the previous layer and returns an activation that is propagated to all the neurons in the next layer.
 
  <br />
-
 ![Screenshot](img/dense.png)
-
  <br />
 
 The output of a dense layer is calculated as follows:
 
-
-$$y_j = f\left(\sum_{i=1}^n w_{ji}x_i + b_j\right)$$
+$$ y_j = f\left(\sum_{i=1}^n w_{ji}x_i + b_j\right) $$
 
 where:
 

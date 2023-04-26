@@ -2,7 +2,7 @@
 
 MLOps, or Machine Learning Operations, is a set of practices, principles, and technologies designed to improve the efficiency and effectiveness of deploying, monitoring, and maintaining machine learning models in production environments. MLOps aims to bridge the gap between data science and operations teams, enabling seamless collaboration and smoother end-to-end machine learning workflows.
 
-## The ML Technical Debt (why ML can be your biggest nightmare)
+## The ML Technical Debt (why ML can be your biggest nightmare 😭)
 
 **Your Biggest ML Nightmare**
 
@@ -32,7 +32,7 @@ For more informations on this subject you can take a look at this incredible blo
 
 
 
-## MLOps Principles
+## MLOps Principles 🎓
 
 MLOps follows several key principles to ensure the successful deployment and management of machine learning models:
 
@@ -49,7 +49,7 @@ I like this schema from [ml-ops.org](ml-ops.org) who shows the various phases of
 ![Screenshot](https://ml-ops.org/img/mlops-phasen.jpg)
 
 
-## MLOps Tools and Technologies
+## MLOps Tools and Technologies 🕹
 
 There are numerous tools and technologies available for implementing MLOps. Some popular choices include:
 
@@ -67,7 +67,7 @@ I like this schema from [https://fall2019.fullstackdeeplearning.com/course-conte
 ![Screenshot](../img/infra_tools.png)
 
 
-## A word about Continuous Integration and Continuous Deployment (CI/CD)
+## A word about Continuous Integration and Continuous Deployment (CI/CD) 🤓
 
 CI/CD refers to the practices of automatically integrating code changes, testing them, and deploying them to production. In MLOps, CI/CD is essential for maintaining an up-to-date production environment with the latest models and configurations.
 
@@ -148,7 +148,7 @@ mlflow models serve \
 
 In this example, the `deploy.sh` script logs the trained model to the MLflow model registry and then deploys it using MLflow Serving. The model is served at `0.0.0.0:8000` and can be accessed by any client that can reach that address.
 
-## Model Monitoring and Logging
+## Model Monitoring and Logging 🎯
 
 Monitoring model performance and logging system events are essential for maintaining the health and reliability of machine learning systems in production. By collecting and analyzing metrics and logs, you can detect issues early, optimize resource usage, and ensure that your models are performing as expected.
 
@@ -185,7 +185,7 @@ It is very simple and straight forward, now you can connect Grafana to Prometheu
 
 By setting up Prometheus and Grafana, you can monitor and visualize key performance indicators for your machine learning models in production. These tools provide valuable insights into the health and performance of your models and enable you to take proactive action and business insights value. 
 
-## Alerting and Incident Management
+## Alerting and Incident Management 🚨
 
 Alerting and incident management are essential components of MLOps that ensure your team can respond promptly to issues and maintain the stability and performance of your machine learning models in production. Popular tools for alerting and incident management include PagerDuty, Opsgenie, and VictorOps, among others.
 
@@ -207,5 +207,7 @@ Alerting and incident management are essential components of MLOps that ensure y
     - Save the panel and return to the dashboard.
 
 Now, whenever an alert is triggered, a notification will be sent to your Slack workspace, allowing your team to quickly respond to issues and maintain the performance and stability of your machine learning models in production.
+
+## Conclusion
 
 In conclusion, MLOps is a crucial aspect of managing machine learning models in production environments. By implementing MLOps principles, using the right tools and technologies, and setting up monitoring, logging, and alerting systems, you can ensure the reliability and performance of your models and enhance collaboration between data scientists, ML engineers, and operations teams.
