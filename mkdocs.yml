@@ -13,6 +13,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -54,6 +55,7 @@ nav:
       - 'Course': 'python/io.md'
       - 'I/O Operations exercices notebook' : python/notebooks/oi_python.ipynb
 
+
   - 'Data Analysis tools in Python': 
       - 'Understanding & working with Numpy': 'python/numpy.md'
       - 'Numpy exercices notebook' : python/notebooks/NumPy_Problem_series_solution.ipynb
@@ -64,6 +66,7 @@ nav:
       - 'Understanding & working with Seaborn' : 'python/sns.md'
       - 'Seaborn and Matplotlib Course notebook' : python/notebooks/Matplotlib_Seaborn_course.ipynb
       - 'Data Visualization exercices notebook' : python/notebooks/Seaborn_Matplotlib_Problem_series_solution.ipynb
+
 
   - 'Database Management Systems' :
     - 'Introduction to DBMS' : 'sql/01_sql_intro.md'
@@ -110,9 +113,11 @@ nav:
       - 'MongoDB': 'nosql/mongo.md'
       - 'Neo4j': 'nosql/neo4j.md'
       - 'ELK':
+        - 'Introduction': 'nosql/intro_elk.md'
         - 'Elasticsearch': 'nosql/elastic.md'
         - 'elastic Notebook': nosql/python_elastic.ipynb
-        - 'Logstash': 'nosql/logstash.md'
+        - 'Logstash and Kibana': 'nosql/logstash.md'
+        - 'Monitoring and Administration': 'nosql/monitoring_admin.md'
 
 
   - 'Machine/Deep Learning':
@@ -131,8 +136,10 @@ nav:
         - 'Image classification project with MLP and CNN': ml/notebooks/MLP_+_CNN.ipynb
         - 'Sentiment Analysis project with RNN and LSTMs' : ml/notebooks/RNN_sentiment_analysis_problem.ipynb
 
+
   - 'Restful API':
     - 'Introduction' : 'api/api.md'
+
 
   - 'Docker for App Deployment':
     - 'Introduction': 'docker/docker_intro.md'
@@ -145,6 +152,7 @@ nav:
     - 'Docker and HTTPS': 'docker/docker_https.md'
     - 'Docker Registeries': 'docker/docker_cloud_registery.md'
     - 'Best Practices': 'docker/docker_best_practice.md'
+
 
   - 'MLOps':
     - 'Introduction': 'mlops/intro_mlops.md'

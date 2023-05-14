@@ -4,29 +4,87 @@ Elasticsearch is an open-source, document-based NoSQL database that is designed 
 
 ## Elastic architecture introduction 
 
-Elasticsearch is a distributed, document-oriented NoSQL database that is optimized for search and analytics. It is built on top of the Lucene search engine and is designed to scale horizontally across multiple nodes and clusters.
+Elasticsearch is a distributed, document-oriented NoSQL database that is optimized for search and analytics. As we seen in the introduction part it is built on top of the Lucene search engine and is designed to scale horizontally across multiple nodes and clusters.
 
-### Cluster, nodes and replicas 
+### Cluster, nodes, shard and replicas 
 
 Nodes are individual instances of Elasticsearch that are part of a cluster. Each node stores a subset of the data in the cluster and is responsible for processing search and indexing requests for that data. Nodes can be added or removed from a cluster dynamically, allowing for easy scalability and fault tolerance.
 
-<br />
+#### Cluster 
 
-A cluster is a collection of nodes that work together to store and process data. Elasticsearch clusters are designed to be highly available and fault tolerant, with built-in features for data replication and failover. Clusters can scale horizontally by adding more nodes to the cluster, allowing for increased processing power and storage capacity.
+A cluster is a collection of one or more servers (known as nodes) that hold your entire data and provide federated indexing and search capabilities across all nodes. 
 
-<br />
+![Screenshot](https://www.dbi-services.com/blog/wp-content/uploads/sites/2/2022/01/Elasticsearch-index-shards.png)
 
-Sharding is the process of partitioning data across multiple nodes in a cluster. When a document is indexed in Elasticsearch, it is assigned to a specific shard based on a hashing algorithm that takes into account the document's ID. By default, each index in Elasticsearch is divided into five primary shards, with each shard having one or more replicas. This allows Elasticsearch to distribute the workload across multiple nodes, improving search and indexing performance.
+Elasticsearch clusters are designed to be highly available and fault tolerant, with built-in features for data replication and failover. Clusters can scale horizontally by adding more nodes to the cluster, allowing for increased processing power and storage capacity.
 
-<br />
+A cluster has several key characteristics:
+
+- It is identified by a unique name, which by default is "elasticsearch".
+- It allows you to add or remove nodes dynamically, without any downtime.
+- It automatically routes requests to the appropriate nodes, whether it's an indexing request, a search request, or others.
+- It automatically rebalances itself, which means it moves data from one node to another to ensure that all data is evenly distributed.
+
+##### Prerequisites for installing an Elastic cluster
+
+Before installing an Elasticsearch cluster, ensure the following prerequisites are met:
+
+- **Java**: Elasticsearch is built using Java, and it requires Java to run. As of the date of writing, Elasticsearch requires at least Java 8. You can use either the OpenJDK or Oracle's JDK.
+- **Hardware**: While the exact requirements depend on the size of your data and the nature of your tasks, generally, Elasticsearch benefits from having plenty of memory, ample CPU cores, and fast disk I/O. The official Elasticsearch guide recommends at least 64GB of RAM, and SSD drives are preferred over HDD for faster data retrieval.
+- **Operating System**: Elasticsearch can run on several operating systems, including Linux, Windows, and macOS. However, it is commonly deployed on Linux.
+- **Network Settings**: For a cluster to work correctly, all nodes should be able to communicate with each other. Ensure that your network settings and firewalls allow this communication.
+
+
+#### Cluster configuration
+
+The configuration of an Elasticsearch cluster involves setting up each node in the cluster and configuring the way they interact. Here are the steps to configure an Elasticsearch cluster:
+
+
+##### Node Configuration
+Each node's settings are located in the elasticsearch.yml configuration file in the config directory of the Elasticsearch installation. Key settings to consider include:
+
+- `Node name`: Each node must have a unique name within the cluster. Set the name with the node.name property.
+- `Cluster name`: Each node must be set to join a named cluster. Set the cluster name with the cluster.name property.
+- `Node roles`: By default, every node is a master-eligible and data node, meaning it can be elected as the master node and can store data. You can change the node type using the node.master and node.data settings.
+- `Network host and port`: The network.host and http.port settings define the network address and port where the node will be accessible for communication with other nodes.
+
+You can check at the full configuration file on the official github [here](https://github.com/elastic/elasticsearch/blob/main/distribution/src/config/elasticsearch.yml)
+You can notice that it is very long that's why we focused on few configurations parameters. 
+
+
+##### Discovery and Formation Settings
+Cluster formation settings are crucial in a multi-node cluster to ensure nodes can discover each other and form a cluster:
+
+- `Discovery seed hosts`: The discovery.seed_hosts setting provides a list of host addresses for a new node to contact when trying to discover and join a cluster.
+- `Initial master nodes`: The cluster.initial_master_nodes setting provides a list of the master-eligible nodes in the cluster to be contacted in order to form a new cluster.
+
+##### Index Settings
+You can also configure index settings, such as the number of primary shards and replica shards per index:
+
+- `Number of shards`: The index.number_of_shards setting defines the number of primary shards that an index should have.
+- `Number of replicas`: The index.number_of_replicas setting defines the number of replicas each primary shard has.
+
+
+#### Sharding and replication high overview 
 
 The number of shards and replicas can be configured for each index based on the size and search requirements of the data. For example, a large index with a high write throughput might require more primary shards to distribute the data more evenly across nodes, while a smaller index with a lower write throughput might require fewer primary shards to reduce the overhead of managing multiple shards.
-
-<br />
 
 <center>
 ![Screenshot](../img/elasticcluster.png)
 </center>
+
+
+#### Node types 
+
+As we have seen, a node refers to a running instance of Elasticsearch, which is a distributed search and analytics engine. Each node in an Elasticsearch cluster performs specific tasks and plays a crucial role in the overall functioning of the system. There are three main types of nodes in Elasticsearch:
+
+- `Master Nodes`: Master nodes are responsible for controlling the cluster, coordinating activities, and maintaining the cluster state. They handle tasks such as creating or deleting indices, managing metadata, and electing a new master node in case of failure. Having multiple master nodes ensures high availability and fault tolerance.
+- `Data Nodes`: Data nodes store the actual data in an Elasticsearch cluster. They handle operations related to indexing, searching, and storing documents. Data nodes are responsible for shard allocation and data distribution across the cluster. By having multiple data nodes, you can achieve horizontal scalability and distribute the data workload across the cluster.
+- `Client Nodes`: Client nodes serve as the interface between the client applications and the Elasticsearch cluster. They forward client requests to the appropriate nodes in the cluster and consolidate the responses. Client nodes help in load balancing and distributing search and indexing requests, providing a more efficient and scalable way to interact with the cluster.
+
+By distributing the workload across multiple nodes, Elasticsearch can handle large amounts of data and high query loads and allows you to scale horizontally by adding more data nodes. We can also ensure Elastic clusters is resilient by having multiple master nodes to  ensure that the cluster works even if one of the master nodes fails.
+
+Finally, the ability to have different node types in an Elasticsearch cluster provides flexibility in resource allocation and optimization. You can allocate more resources to data nodes to handle heavy indexing or search operations, while dedicating specific nodes as master nodes or client nodes based on the cluster's needs.
 
 ### Index
 
@@ -40,17 +98,11 @@ When you create an index in Elasticsearch, you can specify the mapping for the f
 
 You can also configure the number of primary shards that the index should have, which determines how the data in the index is distributed across nodes in the Elasticsearch cluster. This allows Elasticsearch to scale horizontally as the size of the index grows.
 
-<br />
-
 In addition, you can configure the number of replica shards for the index, which provide redundancy and allow for failover in case a primary shard becomes unavailable.
-
-<br />
 
 <center>
 ![Screenshot](../img/elasticindex.png)
 </center>
-
-<br />
 
 Overall, an index in Elasticsearch is a distributed, document-oriented NoSQL database that uses nodes, clusters, and sharding to provide scalability, fault tolerance, high availability and provides a way to organize and search data efficiently.
 
@@ -58,39 +110,39 @@ Overall, an index in Elasticsearch is a distributed, document-oriented NoSQL dat
 
 The diagram shows a simplified architecture for an Elasticsearch cluster with three nodes. Each node is represented by a rectangular box and is labeled with its unique node name, IP address, and port number.
 
-<br />
-
 <center>
 ![https://www.golinuxcloud.com/wp-content/uploads/2020/01/elasticsearch-cluster-architecture.jpg](https://www.golinuxcloud.com/wp-content/uploads/2020/01/elasticsearch-cluster-architecture.jpg)
 </center>
 
-<br />
-
 The nodes are connected to each other through a network, represented by the gray lines connecting the boxes. This network allows the nodes to communicate with each other and share data.
-
-<br />
 
 The Elasticsearch cluster is managed by a master node, which is responsible for coordinating the cluster and maintaining its state. In the diagram, the master node is indicated by the green box labeled "Master-eligible node."
 
-<br />
-
 The other nodes in the cluster are known as data nodes, and they are responsible for storing and indexing the data. In the diagram, the data nodes are indicated by the yellow boxes labeled "Data node."
-
-<br />
 
 Each data node stores a subset of the data in the cluster, and the data is distributed across the nodes using a technique called sharding. Each shard represents a portion of the data and is stored on a separate data node.
 
-<br />
-
 The client nodes, represented by the blue boxes labeled "Client node," are used to interact with the cluster and submit search and indexing requests. Client nodes do not store any data themselves, but they communicate with the data nodes to retrieve and manipulate the data.
-
-<br />
 
 Finally, the external world is represented by the orange box labeled "External clients," which can be any application or user that needs to interact with the Elasticsearch cluster.
 
 <br />
 
 Overall, the architecture diagram shows how an Elasticsearch cluster is composed of multiple nodes working together to store, index, and search data efficiently.
+
+
+### Installation Methods
+
+Elasticsearch is a versatile tool that can be installed, configured, and used in numerous ways depending on the specific requirements and constraints of your system. Here is a detailed overview of various methods to install, configure, and use Elasticsearch.
+
+- **Install from Archive File**: Elasticsearch is available as zip and tar.gz archive files for Windows and Linux/MacOS respectively. You can download the appropriate archive from the Elasticsearch website, extract it, and run the Elasticsearch binary directly.
+- **Install with Package Manager**: On Linux systems, you can use a package manager like apt (for Debian-based distributions) or yum (for RPM-based distributions) to install Elasticsearch. This method is convenient as it takes care of installing Elasticsearch as a service, which automatically starts on system boot.
+- **Install with Docker**: Elasticsearch is also available as a Docker image. This is an excellent option if you prefer containerization or if you want to ensure a consistent environment regardless of the host operating system. We will choose this option for the next part of this article. 
+- **Use Elastic Cloud**: If you don't want to manage your own Elasticsearch installation, you can use the Elastic Cloud, a hosted and managed Elasticsearch service provided by Elastic, the company behind Elasticsearch [here](https://www.elastic.co/fr/cloud/?ultron=B-Stack-Trials-EMEA-S-FR-PHS&gambit=Stack-Cloud&blade=adwords-s&hulk=paid&Device=c&thor=elasticsearch%20cloud&gclid=CjwKCAjw6vyiBhB_EiwAQJRopkcDCeTMCBVVyunFdWgTrWMEeWqCdCVr5V-2Uswcwk8vWiHIThJpYhoCagIQAvD_BwE) 
+
+More about instllation options on the official documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
+
+
 
 ____________________________________________________________________
 
@@ -164,6 +216,113 @@ curl -X GET "http://0.0.0.0:9200/_cat/nodes?v"
 ```
 This command returns information about the nodes in the Elasticsearch cluster. It provides a summary of each node, including its IP address, node ID, and whether it is currently active or not. The response also includes a variety of metrics such as the number of open file descriptors, the amount of disk space used, and the amount of heap memory used.
 
+
+### Set up a docker multi node architecture 
+
+Here's an example of a docker-compose.yml file that creates an Elasticsearch cluster with three nodes: a master node, a data node, and an ingest node : 
+
+```yaml
+version: '3'
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    container_name: es01
+    environment:
+      - node.name=es01
+      - node.roles=master
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es02,es03"
+      - "cluster.initial_master_nodes=es01,es02,es03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    container_name: es02
+    environment:
+      - node.name=es02
+      - node.roles=data
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es01,es03"
+      - "cluster.initial_master_nodes=es01,es02,es03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data02:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  es03:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    container_name: es03
+    environment:
+      - node.name=es03
+      - node.roles=ingest
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es01,es02"
+      - "cluster.initial_master_nodes=es01,es02,es03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data03:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+  data03:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
+```
+
+In this configuration, each service corresponds to an Elasticsearch node. Each node is configured with an environment variable node.roles which determines its role in the cluster: `master`, `data`, or `ingest`.
+
+They all share the same cluster name `es-docker-cluster`, which is important for them to form a cluster. The `discovery.seed_hosts` and `cluster.initial_master_nodes` parameters are used for discovery and cluster formation.
+
+The volumes section creates named Docker volumes for each node to persist Elasticsearch data across container restarts. To start the cluster, save the above configuration as `docker-compose.yml` and then run `docker-compose up` command.
+
+Let's explore the pros and cons of having multiple node types within an Elasticsearch cluster.
+
+#### Pros
+
+- **Specialized Roles**: Different node types allow for specialized roles and optimized performance. Each node type can focus on its specific tasks, such as data storage, cluster coordination, or client request handling. This specialization enhances overall cluster efficiency and performance.
+- **Scalability**: By incorporating multiple node types, you can scale your Elasticsearch cluster more effectively. Data nodes can be added to increase data storage and processing capacity, while additional client nodes can handle increased search and indexing traffic. This scalability enables your cluster to accommodate growing workloads and handle larger datasets.
+- **Fault Tolerance**: Having multiple node types enhances fault tolerance within the cluster. With multiple master nodes, the cluster can maintain high availability and elect a new master node if one fails. Data nodes use shard replication to ensure data redundancy, reducing the risk of data loss in case of node failures. This fault tolerance improves the overall resilience of your Elasticsearch system.
+- **Load Distribution**: Different node types allow for load distribution across the cluster. Client nodes can balance client requests, distributing the workload evenly among the available data nodes. This load distribution helps prevent bottlenecks and ensures efficient utilization of cluster resources.
+
+
+#### Cons
+
+- **Increased Complexity**: Introducing multiple node types adds complexity to the cluster configuration and management. You need to consider factors such as node roles, resource allocation, and communication between nodes. This complexity requires careful planning and monitoring to ensure proper cluster functioning.
+- **Resource Overhead**: Each node type requires its own set of resources. Adding multiple node types may increase resource consumption, such as memory, CPU, and storage. If not managed properly, resource allocation can become inefficient, impacting overall performance and potentially increasing costs.
+- **Higher Maintenance Overhead**: Managing a cluster with multiple node types can involve more administrative effort. Each node type may require specific configurations, monitoring, and maintenance tasks. For example, master nodes may need additional attention to ensure cluster stability and handle failover situations. This increased maintenance overhead should be taken into account when designing and operating the cluster. Setting up a complex docker multi node architecture is not recommanded. 
+- **Network Communication**: Communication and coordination between different node types require network bandwidth and can introduce additional latency. Depending on the cluster size and workload, network overhead may become a consideration. Proper network planning and optimization can help mitigate this potential drawback.
+
+In summary, while having multiple node types in an Elasticsearch cluster offers benefits such as specialization, scalability, fault tolerance, and load distribution, it also introduces complexity, resource overhead, maintenance requirements, and potential network overhead. It is important to carefully assess your specific requirements and consider these pros and cons when deciding on the optimal node configuration for your Elasticsearch cluster.
 
 ## Data Modeling in Elasticsearch
 
@@ -312,6 +471,29 @@ You should see :
 }
 ```
 As you can see, our document content is in the `_source` field, we will explain more the particular return format of elasticsearch. 
+
+## Bulk API
+
+The Bulk API in Elasticsearch is a powerful feature that allows you to perform multiple create, update, or delete operations in a single request. It is particularly useful when you need to index or modify a large volume of data efficiently.
+
+This is a quick overview how the Bulk API works:
+
+- `Request Format`: To use the Bulk API, you send an HTTP POST request to the _bulk endpoint of Elasticsearch. The request body contains a series of action and data pairs, called bulk actions. Each action represents a specific operation, such as index, update, or delete, while the data contains the corresponding document or information.
+- `Action Line Format`: Each action line in the request body consists of two parts: the action type and the action metadata. The action type can be one of the following: index, create, update, or delete. The action metadata typically includes the index name, document ID, and any additional parameters or routing information.
+- `Data Format`: Following the action line, you provide the actual document data in JSON format. For indexing or updating operations, the data contains the fields and values of the document you want to store or modify. For deletion operations, you don't need to provide any data.
+- `Processing the Bulk Request`: Elasticsearch processes the bulk request in a batch-oriented manner. It parses the request body, interprets each action line, and executes the corresponding operation on the specified document.
+- `Response`: Once the bulk request is processed, Elasticsearch returns a response for each action in the request. The response contains information about the success or failure of each operation. It includes a status code, a result line indicating the operation's outcome, and any relevant error messages or details.
+
+### Benefits of the Bulk API
+
+- **Efficiency**: Using the Bulk API significantly reduces the overhead associated with making individual requests for each document operation. It allows you to process large volumes of data in a single request, improving indexing or modification performance.
+- **Atomicity**: The Bulk API ensures atomicity at the operation level. If any action fails during processing, Elasticsearch rolls back all previous operations within the same request. This guarantees data consistency and avoids partial updates.
+- **Reduced Network Overhead**: By combining multiple operations into a single request, the Bulk API minimizes network overhead. This is especially beneficial when indexing or updating a large number of documents distributed across multiple nodes in a cluster.
+- **Scalability**: The Bulk API's batch processing capability allows you to scale your data operations efficiently. You can parallelize and optimize the indexing or modification process, taking full advantage of Elasticsearch's distributed architecture.
+
+In summary, the Bulk API in Elasticsearch enables efficient bulk indexing, updating, or deleting of data by combining multiple operations into a single request. It improves performance, ensures atomicity, reduces network overhead, and supports scalable data processing.
+
+We will use the bulk API in the next section in order to index quickly some data 🤓
 
 ____________________________________________________________________
 
@@ -1407,21 +1589,15 @@ GET receipe/_search
 
 Elasticsearch is a powerful search and analytics engine that allows you to store, search, and analyze large amounts of data quickly and in near real-time. Elasticsearch provides a rich set of querying and aggregating capabilities that allow you to search and analyze your data in many different ways.
 
-<br />
-
 Queries in Elasticsearch are used to retrieve specific documents or sets of documents that match certain criteria. Elasticsearch supports a wide variety of queries, including term, match, range, wildcard, and fuzzy queries. You can also combine multiple queries using boolean logic and use filters to narrow down your search results.
-
-<br />
 
 Aggregations in Elasticsearch are used to compute and summarize statistics about your data. Elasticsearch supports a wide variety of aggregations, including sum, avg, min, max, date histogram, terms, and nested aggregations. Aggregations allow you to group your data into buckets based on one or more fields and compute statistics like counts, averages, sums, and more.
 
-<br />
-
 Together, queries and aggregations in Elasticsearch allow you to search and analyze your data in many different ways, giving you valuable insights into your data and helping you make better business decisions.
-
+<br />
 ____________________________________________________________________
 
-## Exercices 
+## Queries Exercices for practice 
 
 ### Movies database 
 

@@ -16,7 +16,9 @@ There are two main types:
 
 ### Supervised Learning
 
-n this type of learning, the model learns to predict an output from an input using a training data set that contains examples of known inputs and outputs. The model then adjusts its parameters to minimize prediction error.
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/iPj5oRtJzQGxwzuCKV" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+
+In this type of learning, the model learns to predict an output from an input using a training data set that contains examples of known inputs and outputs. The model then adjusts its parameters to minimize prediction error.
 
 <br />
 Here are some supervised machine learning models:
@@ -130,6 +132,9 @@ clf.fit(X, y)
 ```
 
 ### Unsupervised Learning
+
+
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/521ZSoqh4HByvyF6MS" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
 
 Unsupervised models are machine learning algorithms that do not require labeled data to function. They are used to explore data and find hidden structures, patterns, and correlations. Here are some examples of unsupervised models:
 
