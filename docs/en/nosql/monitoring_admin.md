@@ -81,9 +81,6 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      - xpack.security.http.ssl.enabled=false
-      - xpack.security.transport.ssl.enabled=false
-      - xpack.security.enabled=false
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -213,6 +210,14 @@ setup.kibana:
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
 ```
+and the custom Dockerfile here : 
+
+```dockerfile
+FROM docker.elastic.co/beats/metricbeat:7.11.1
+COPY metricbeat.yml /usr/share/metricbeat/metricbeat.yml
+USER root
+RUN chown root /usr/share/metricbeat/metricbeat.yml
+```
 
 Overall, this configuration sets up Metricbeat to collect metrics from Elasticsearch nodes using the specified module and metricsets. It also configures the connection to Elasticsearch and Kibana for sending the collected metrics and for the initial setup process.
 
@@ -257,7 +262,7 @@ First thing first, as you already know we have to create an `index pattern` in o
 - Click on "Stack Management".
 - Under "Kibana", click on "Index Patterns".
 - Click on "Create index pattern".
-- In the "Index pattern name" field, enter `metric-*` and click "Next step".
+- In the "Index pattern name" field, enter `metric*` and click "Next step".
 - For "Time field", choose `@timestamp` and click "Create index pattern".
 
 Now you can go in the `Metrics` section of the menu and see the following graph : 
@@ -298,7 +303,7 @@ After the container has started, it's essential to monitor the Elasticsearch log
 Remember, before performing an update, always back up your data to prevent any loss during the update process. This leads us to the next section, creating snapshots of Elasticsearch indexes.
 
 
-### Backup and restoration
+## Backup and restoration
 Backups in Elasticsearch are managed through snapshots. A snapshot is a backup taken from a running Elasticsearch cluster. You can take a snapshot of individual indices or of the entire cluster.
 
 Snapshots provide a backup mechanism used to restore your indexes in case of data loss or corruption. Creating regular snapshots of your Elasticsearch indexes is a critical part of maintaining your Elasticsearch cluster.
@@ -306,7 +311,7 @@ You can create snapshots manually using the Elasticsearch Snapshot API or use th
 
 Before creating a snapshot, you need to register a snapshot repository. This is a location where Elasticsearch will store the snapshots. This location can be a shared file system, AWS S3, Azure Storage, Google Cloud Storage, or HDFS. For this guide, we'll assume you're using a shared file system as your snapshot repository.
 
-#### Create a simple snapshot
+### Create a simple snapshot
 
 Let's begin by creating a dummy index like this : 
 
@@ -422,9 +427,101 @@ curl -X GET "localhost:9200/_snapshot/my_backup/snapshot_1"
 ```
 
 You should see information pretty much the same output as before. 
+__________________________________________________________________________________________
+
+## Curator tool 
+
+Elasticsearch Curator is a tool from Elastic that **helps you manage your Elasticsearch indices and snapshots**. With Curator, you can schedule tasks that do things like delete old indices, optimize indices, create new indices, or snapshot your cluster.
+
+### Add Curator to our Docker Compose stack
+
+```yaml
+curator:
+  image: bobrik/curator:5.8.1
+  volumes:
+    - ./curator:/etc/curator
+  command:
+    - --config
+    - /etc/curator/config.yml
+    - /etc/curator/actions.yml
+  networks:
+    - elk
+```
+
+In our example, we are using the `bobrik/curator` Docker image, which includes Elasticsearch Curator. We're also mounting a local curator directory to the `/etc/curator` directory in the container, where we'll store Curator's configuration and action files like we have done before.
+
+### Create Curator configuration directory and files
+
+Next, you'll need to create a curator directory in the same directory as our docker-compose file, and inside it, create two files: `config.yml` and `actions.yml`.
+
+The `config.yml` file will contain the connection configuration for Curator to connect to your Elasticsearch instance in our case let's connect to our Elastic cluster without security feature in order to understund a simple example. 
+
+```yaml
+---
+client:
+  hosts:
+    - elasticsearch
+  port: 9200
+  url_prefix:
+  use_ssl: False
+  certificate:
+  client_cert:
+  client_key:
+  ssl_no_validate: False
+  http_auth:
+  timeout: 30
+  master_only: False
+
+logging:
+  loglevel: INFO
+  logfile:
+  logformat: default
+  blacklist: ['elasticsearch', 'urllib3']
+```
+
+Now the `actions.yml` file will contain the actions that Curator will perform. Let's write a very simple example that deletes indices older than 30 days:
+
+```yaml
+---
+actions:
+  1:
+    action: delete_indices
+    description: >-
+      Delete indices older than 30 days (based on index name), for logstash-
+      prefixed indices. Ignore the error if the filter does not result in an
+      actionable list of indices (ignore_empty_list) and exit cleanly.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: pattern
+      kind: prefix
+      value: logstash-
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: days
+      unit_count: 30
+```
+
+Remember to adjust the hosts value in `config.yml` and the filters in `actions.yml` to fit your needs if you are not running the ELK stack on docker.
+
+### Running our Curator Job test
+
+With these two files in place, now we can start our Curator service with the simple bash command :
+
+```bash
+docker-compose up -d curator
+``` 
+
+Curator will start and perform the actions defined in our file `actions.yml` then delete the old indicies.  
+In this example our Curator service is very simple, if we want to run Curator periodically, we can modify the command in the Curator service to run it at intervals. We can also use something like sleep commands in a infite loop, or use a more advanced tool like cron or supervisord to schedule the Curator command. 
 
 
+Or we can simply run the Curator service manually whenever we want to perform actions 🤓
 
+__________________________________________________________________________________________
 
 ## X-Pack Security overview 
 
@@ -444,7 +541,6 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      # enable security for log monitoring 
       - xpack.security.enabled=true
       - xpack.security.audit.enabled=true
       - xpack.monitoring.collection.enabled=true
