@@ -575,7 +575,7 @@ services:
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms16g -Xmx16g
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - xpack.security.http.ssl.enabled=false
       - xpack.security.transport.ssl.enabled=false
       - xpack.security.enabled=false

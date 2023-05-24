@@ -64,15 +64,28 @@ Overall, Docker provides a lightweight and flexible alternative to traditional V
 
 ### What is a Containers 
 
-Docker's use of the term "container" is inspired by the shipping industry. In the shipping industry, containers are standardized, self-contained units that can be easily transported between ships, trains, and trucks. These containers can hold a variety of goods and products, and they are designed to be easy to load and unload from transport vehicles.
+Docker's use of the term "container" is inspired by the shipping industry. In the shipping industry, containers are standardized, self-contained units that can be easily transported between ships, trains, and trucks. These containers can hold a variety of goods and products, and they are designed to be easy to load and unload from transport vehicles. I love the slides of [@jpetazzo](https://github.com/jpetazzo/container.training) for illustrating this here : 
 
-<br />
+<center>
+![Screenshot](./img/docker_container_0.png)
+</center>
+
+
+<center>
+![Screenshot](./img/docker_container_1.png)
+</center>
 
 Similarly, in the context of software development, a container is a standardized, self-contained unit that can hold an application along with its dependencies and configurations. Like a shipping container, a software container can be easily transported between different environments, such as development, testing, and production.
 
-<br />
+<center>
+![Screenshot](./img/docker_container_2.png)
+</center>
 
-By using the term "container", Docker is emphasizing the portability and standardization of its technology, which is similar to the shipping industry's use of containers to transport goods and products between different locations.
+By using the term "container", Docker is emphasizing the portability and standardization of its technology based on Linux system, which is similar to the shipping industry's use of containers to transport goods and products between different locations.
+
+<center>
+![Screenshot](./img/docker_container_3.png)
+</center>
 
 
 ### Advantages of Containerization
